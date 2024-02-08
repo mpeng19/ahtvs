@@ -1,0 +1,122 @@
+{
+  "_date": "September 29, 2015",
+  "_version": "1.0",
+  "cleaners": { "1": [
+      "[#7:1]([He,Ne,Ar,Kr])[He,Ne,Ar,Kr]>>[*:1](c1ccccc1)c1ccccc1",
+      "[#7:1][He,Ne,Ar,Kr]>>[*:1]c1ccccc1",
+      "[#6:1][He,Ne,Ar,Kr]>>[*:1]c1ccccc1",
+      "[S:1][He,Ne,Ar,Kr]>>[*:1]c1ccccc1",
+      "[P:1][He,Ne,Ar,Kr]>>[*:1]c1ccccc1"
+    ]
+  },
+  "molecules": [
+    {
+      "smiles": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He]c1cc2ccc3cc([He])cc4ccc(c1)c2c34"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He]C1=C2C(C=C(C=CC=C3)C3=C2)=C([He])C4=CC5=CC=CC=C5C=C41"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He]C#CC1=C2C=C3C=CC=CC3=CC2=C(C#C[He])C2=CC3=CC=CC=C3C=C12"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]F"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]Cl"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]C(F)(F)F"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]C"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]OC"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]C#N"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]N(C)C"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He][N+]([O-])=O"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "group": "functional_group",
+      "blocks": [
+        {
+          "smiles": "[He]C1=CC=CC=C1"
+        }
+      ]
+    }
+    ]
+}

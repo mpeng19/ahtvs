@@ -1,0 +1,15 @@
+Loading module centos6/gmp-5.1.1.
+Loading module centos6/mpfr-3.1.2.
+Loading module centos6/mpc-1.0.1.
+Loading module centos6/gcc-4.8.0.
+Loading module centos6/openmpi-1.6.4_gcc-4.8.0.
+Loading module centos6/acml-5.3.1_gfortran.
+Loading module centos6/boost-1.55.0_openmpi-1.6.4_gcc-4.8.0.
+Loading module centos6/qchem-4.2.
+This is a multi-thread run using 8 threads
+/n/sw/centos6/qchem-4.2/bin/parallel.csh,  , bp86_6-31gs_opt.inp, 1, 0, /scratch/qchem25325/
+MPIRUN in parallel.csh is mpirun
+P4_RSHCOMMAND in parallel.csh is ssh
+QCOUTFILE is bp86_6-31gs_opt.out
+Cleaning up
+Folder number is qchem25325

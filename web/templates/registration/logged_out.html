@@ -1,0 +1,22 @@
+{% extends "base-register.html" %}
+{% load staticfiles %}
+{% load form_css %}
+
+{% block title %}Logout{% endblock %}
+
+
+{% block extraheaders %}
+<!-- Custom styles for this template -->
+<link href="{% static "css/signin.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+<body>
+<div class="container">
+
+    <div class="alert alert-success"> <h4> You are now logged out. </h4></div>
+    <a href="{% url "home" %}" class="btn btn-primary btn-lg active" role="button">Log Back In</a>
+</div>
+</body>
+{% endblock %}

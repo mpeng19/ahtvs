@@ -1,0 +1,112 @@
+
+.card {
+    background-color: #ffffff;
+    display: inline-block;
+    overflow: hidden;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: #DDD;
+    width: 280px;
+    margin: 5px;
+    vertical-align: top;
+    text-align: center;
+    margin-top: 15px;
+    position: relative;
+}
+
+.card table {
+    margin-bottom: 0px;
+    margin-top: -1px;
+    margin-left: -1px;
+    margin-right: -1px;
+    text-align: left;
+    width: 280px;
+}
+
+.mol-images td {
+    text-align: center;
+}
+
+.crop-height {
+    overflow: hidden;
+}
+.card-main-img {
+    position: relative;
+    top: 0em;
+    background: white;
+    max-width: 260px;
+    max-height: 260px;
+    width: auto;
+    height: auto;
+    margin-bottom: 1px;
+}
+
+.card-fragment {
+    min-width: 118px;
+    max-width: 118px;
+    max-height: 118px;
+    width: auto;
+    height: auto;
+}
+
+.card-table-label {
+    text-align: right;
+}
+#selected-mol-card {
+    margin-top: 50px;
+}
+.fragment {
+    min-width: 138px;
+    min-height: 138px;
+}
+.redox img {
+    position: relative;
+    top: 0em;
+    background: white;
+    max-width: 120px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    margin: 5px;
+}
+
+.card td {
+    word-wrap: break-all;
+}
+
+
+.card strong {
+    white-space: nowrap;
+}
+
+.open>.dropdown-menu {
+    display: block;
+    max-height: 400px;
+    overflow-x: hidden;
+}
+
+.comment-tag {
+    display: none;
+    position: absolute;
+    color: seagreen;
+}
+
+
+.harvey {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.3em;
+    background: #eee;
+    border-radius: 100%;
+    fill: #428bca;
+    -webkit-filter: drop-shadow( 0px 0px 1px #999 );
+            filter: drop-shadow( 0px 0px 1px #999 ); /* Same syntax as box-shadow */
+}
+
+.highlight {
+        -webkit-filter: drop-shadow( 0px 0px 2px #428bca );
+                filter: drop-shadow( 0px 0px 2px #428bca ); /* Same syntax as box-shadow */
+}
+
+

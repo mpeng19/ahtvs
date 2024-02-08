@@ -1,0 +1,526 @@
+    {% extends "base-nav.html" %}
+    {% load staticfiles %}
+    {% block extraheaders %}
+    <!-- Custom styles for this template -->
+
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2-bootstrap.min.css" rel="stylesheet">
+    <link href="{% static "css/jquery.dataTables.css" %}" rel="stylesheet" type="text/css" />
+    <link href="{% static "css/simple-sidebar.css" %}" rel="stylesheet">
+    <link href="{% static "css/table.css" %}" rel="stylesheet">
+    <link href="{% static "css/cards.css" %}" rel="stylesheet">
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
+    <script src="//d3js.org/d3.v3.js"></script>
+    <script src="{% static "js/wavelength.js" %}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="{% static "js/jquery.dataTables.js" %}"></script>
+
+
+
+    {% endblock %}
+
+    {% block content %}
+    <div id="content" class="row-offcanvas row-offcanvas-left">
+        <div id="sidebar" class="sidebar-offcanvas">
+            <div class="col-md-12">
+                <form class="navbar-left" role="search">
+                    <label class="control-label">Tag</label>
+                    <select id="select-batch" class="filter-option form-control">
+                        {% for tag in tags %}
+                            <option value="sets__in={{tag}}">{{tag}}</option>
+                        {% endfor %}
+                    </select>
+                    <label class="control-label">Sort by</label>
+                    <select id="select-orderby" class="filter-option form-control">
+                        <option value="ordering=-rate">Rate</option>
+                        <option value="ordering=donor">Donor</option>
+                        <option value="ordering=acceptor">Acceptor</option>
+                        <option value="ordering=-absorption">Absorption</option>
+                        <option value="ordering=sascore">SA Score</option>
+                        <option value="ordering=-strength">Strength</option>`
+                        <option value="ordering=weight">Weight</option>
+                        <option value="ordering=nicknames">Nicknames</option>
+                    </select>
+                    <input id="filter-min-absorption" type="text" class="update-on-enter form-control floats-only" placeholder="Min Absorption (eV)" data-toggle="tooltip" title="Min Absorption (eV)">
+                    <input id="filter-max-splitting" type="text" class="update-on-enter form-control floats-only" placeholder="Max Splitting (eV)" data-toggle="tooltip" title="Max Splitting (eV)">
+                    <input id="filter-max-sascore" type="text" class="update-on-enter form-control floats-only" placeholder="Max SA Score" data-toggle="tooltip" title="Max SA Score">
+                    <input id="filter-min-rate" type="text" class="update-on-enter form-control floats-only" placeholder="Min Rate (1/&micro;s)" data-toggle="tooltip" title="Min Rate (1/&micro;s)">
+                    <input id="filter-min-strength" type="text" class="update-on-enter form-control floats-only" placeholder="Min Strength" data-toggle="tooltip" title="Min Strength">
+
+                    <div class="nav-stacked">
+                        <span class="current-fragment" id="current-acceptor"><i class="remove fa fa-times"></i></span>
+                        <span class="current-fragment" id="current-donor"><i class="remove fa fa-times"></i></span>
+                    </div>
+
+                  <!--   <div class="accordion" id="accordian-search">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="accordian-search" href="#collapseOne">
+                                    <span class="glyphicon glyphicon-minus"></span> Find one...
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <input id="filter-nickname" type="text" class="update-on-enter form-control" placeholder="Nickname" data-toggle="tooltip" title="Nickname">
+                                </div>
+                                <div class="accordion-inner">
+                                    <input id="filter-smiles" type="text" class="update-on-enter form-control" placeholder="SMILES" data-toggle="tooltip" title="SMILES">
+                                </div>
+                                <div class="accordion-inner">
+                                    <input id="filter-inchi" type="text" class="update-on-enter form-control" placeholder="INCHI key" data-toggle="tooltip" title="INCHI key">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="nav-stacked">
+                        <button id="filter-clear-all" class="btn btn-danger">Clear All</button>
+                        <button id="filter-update" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="main">
+            <div class="col-md-12">
+                <p class="visible-xs">
+                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                </p>
+                <table id="log-table" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nicknames</th>
+                            <th>Structure</th>
+                            <th>Donor</th>
+                            <th>Bridge1</th>
+                            <th>Bridge2</th>
+                            <th>Acceptor</th>
+                            <th>Est. Emsn(nm)</th>
+                            <th>Rate(1/us)</th>
+                            <th>Split.(eV)</th>
+                            <th>Strength</th>
+                            <th>Weight</th>
+                            <th>Absorp.(eV)</th>
+                            <th>HOMO(eV)</th>
+                            <th>LUMO(eV)</th>
+                            <th>SA</th>
+                            <th>InChi Key</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div> <!-- /#main -->
+
+
+
+
+
+
+
+
+
+    <li id="quick-links-dropdown" class="dropdown" style="display: none;">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Links<span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <li class="dropdown-header">Tags</li>
+        {% for tag in tags %}<li><a class="query_button set_name" id="#sets__in={{tag}}" href="#sets__in={{tag}}">{{tag}}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+
+      <div id="contextMenu" class="dropdown clearfix">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+          <li><a tabindex="-1" id="filter-acceptor">Filter By Acceptor</a></li>
+          <li><a tabindex="-1" id="filter-donor">Filter By Donor</a></li>
+          </ul>
+      </div>
+
+    {% endblock %}
+    {% block extrascripts %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js"></script>
+    <script src="{% static "js/contextmenu.js" %}"></script>
+
+
+    <script>
+    var votes_by_candidate;
+    var table;
+    function load_hash(hash) {
+        if (table != undefined) {
+            var settings = table.settings()[0];
+            settings.sAjaxSource = window.location.origin + "/rf/candidates?" + hash;
+            table.ajax.reload();
+        }
+    }
+
+    function add_query(new_query, load) {
+        var keyvalue_to_add = new_query.split("=");
+        var dict = get_url_vars_after_hash()
+        delete(dict[""]);
+        if (keyvalue_to_add[1] == "") {
+            delete(dict[keyvalue_to_add[0]])
+        } else {
+            dict[keyvalue_to_add[0]] = keyvalue_to_add[1]
+        }
+        var new_hash = $.param(dict)
+
+        if (table != undefined) {
+            var settings = table.settings()[0];
+            settings.sAjaxSource = window.location.origin + "/rf/candidates?" + new_hash;
+        }
+        window.location.hash = "#" + new_hash;
+        if (load) {
+            load_hash(new_hash);
+        }
+
+    }
+
+
+    function get_url_vars_after_hash()
+    {
+        var vars = {}, hash;
+        if (table != undefined) {
+            var settings = table.settings()[0];
+            var hashes = settings.sAjaxSource.split("?")[1].split("&");
+        } else {
+            var hashes = window.location.hash.substring(1).split("&");
+        }
+
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    function set_content_height() {
+        var height =  $(".subsubnav").height();
+        $("#content").css('margin-top', height+'px');
+    }
+
+    function update_filter() {
+        add_query("prop-absorption__gt=" +  $("#filter-min-absorption").val(), false);
+        add_query("prop-splitting__lt=" + $("#filter-max-splitting").val(), false);
+        add_query("sascore__lt=" + $("#filter-max-sascore").val(), false);
+        add_query("prop-rate__gt=" + $("#filter-min-rate").val(), false);
+        add_query("prop-strength__gt=" + $("#filter-min-strength").val(), false);
+        var hash = window.location.hash.substring(1);
+        load_hash(hash);
+    }
+
+    function reset_filters() {
+          $("#filter-min-absorption").val("");
+        $("#filter-max-splitting").val("");
+        $("#filter-max-sascore").val("");
+        $("#filter-min-rate").val("");
+        $("#filter-min-strength").val("");
+        add_query("prop-absorption__gt=", false);
+        add_query("prop-splitting__lt=", false);
+        add_query("sascore__lt=", false);
+        add_query("prop-rate__gt=", false);
+        add_query("prop-strength__gt=", true);
+    }
+
+    function on_vote_click(elem) {
+        $.post("/ballots/{{ballot_id}}/vote", {
+            action: elem.id
+        }).done(function(data) {
+                vote_id = data.id;
+                vote_rating = data.rating;
+                votes_by_candidate[data.candidate] = data;
+                var vote_class = VOTE_CLASSES[vote_rating]
+                var yes_class = "";
+                var meh_class = "";
+                var no_class = "";
+                if (vote_class === "vote-yes") {yes_class = "btn-success";} else {yes_class="btn-default"}
+                if (vote_class === "vote-no") {no_class = " btn-danger";} else {no_class="btn-default"}
+                if (vote_class === "vote-meh") {meh_class = "btn-warning";} else {meh_class="btn-default"}
+
+                $("#up-" + vote_id).removeClass().addClass("vote-button btn " + yes_class);
+                $("#meh-" + vote_id).removeClass().addClass("vote-button btn " + meh_class);
+                $("#down-" + vote_id).removeClass().addClass("vote-button btn " + no_class);
+                update_tallies(data.tallies)
+            });
+    }
+
+    function add_right_click_menu()  {
+     $("table").contextMenu({
+            menuSelector: "#contextMenu",
+            menuSelected: function (invokedOn, selectedMenu) {
+                var which = selectedMenu.attr("id").split("-")[1]
+                var tr = invokedOn.closest("tr");
+                var img = tr.find("."+which);
+                var query = img.attr("data-filter")
+                if (typeof query !== "undefined") {
+                    add_query(query, true);
+                    var parent = $("#current-"+which)
+                    parent.find("img").remove();
+                    parent.append("<img class='img-thumbnail filter-image' src='"+img.attr("src")+"'>");
+                }
+            }
+        });
+    }
+    $(window).load(function(){
+        var csrftoken = $.cookie('csrftoken');
+        // activate sidebar
+        $('[data-toggle=offcanvas]').click(function() {
+            $('.row-offcanvas').toggleClass('active');
+          });
+
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        function sameOrigin(url) {
+            // test that a given url is a same-origin URL
+            // url could be relative or scheme relative or absolute
+            var host = document.location.host; // host + port
+            var protocol = document.location.protocol;
+            var sr_origin = '//' + host;
+            var origin = protocol + sr_origin;
+            // Allow absolute or scheme relative URLs to same origin
+            return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                // or any other URL that isn't scheme relative or absolute i.e relative.
+                !(/^(\/\/|http:|https:).*/.test(url));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                    // Send the token to same-origin, relative URLs only.
+                    // Send the token only if the method warrants CSRF protection
+                    // Using the CSRFToken value acquired earlier
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+      $("#quick-links-dropdown").detach().appendTo("#extra-nav")
+      $("#quick-links-dropdown").show()
+
+      $("#select-batch").select2()
+
+        var hash = window.location.hash.substring(1);
+        load_hash(hash);
+
+        hash_dict = get_url_vars_after_hash();
+        $('#select-batch').select2("val", "sets__in="+hash_dict["sets__in"])
+        //$('#select-orderby').select2("val", "ordering="+hash_dict["ordering"])
+
+        $("#filter-min-absorption").val(hash_dict["prop-absorption__gt"]);
+        $("#filter-max-splitting").val(hash_dict["prop-splitting__lt"]);
+        $("#filter-max-sascore").val(hash_dict["sascore__lt"]);
+        $("#filter-min-rate").val(hash_dict["prop-rate__gt"]);
+        $("#filter-min-strength").val(hash_dict["prop-strength__gt"]);
+
+        if (hash_dict["acceptor"]) {
+            $("#current-acceptor").append("<img class='img-thumbnail filter-image' src='/rf/candidates/"+hash_dict["acceptor"]+"?format=svg'>");
+        }
+        if (hash_dict["donor"]) {
+            $("#current-donor").append("<img class='img-thumbnail filter-image' src='/rf/candidates/"+hash_dict["donor"]+"?format=svg'>");
+        }
+
+        $(".filter-option").change(function(e) {
+            var selected = $(this).find('option:selected');
+            var new_query = selected.val();
+            add_query(new_query, true);
+        });
+
+        $("#bubble_button").click(function(e) {
+            window.location.href = "/bubble" + window.location.hash;
+        });
+
+        $("#card_button").click(function(e) {
+            window.location.href = "/cards" + window.location.hash;
+        });
+
+        $("#filter-clear-all").click(function () {
+            reset_filters();
+        })
+        $("#filter-update").click(update_filter);
+
+       $(".floats-only").keypress(function(e) {
+            var a = [48,49,50,51,52,53,54,55,56,57,46];
+            var k = e.which;
+            if (k == 13) {
+                update_filter();
+            }
+            if (!(a.indexOf(k)>=0)){
+                e.preventDefault();
+            }
+       });
+        $(".floats-only").tooltip({
+            'delay': { show: 0, hide: 0 },
+            'placement': 'bottom'
+        });
+
+       $(".current-fragment").hover(function () {if ($(this).find("img").length) {$(this).find("i").css("color", "rgba(200,10,10,0.4)");}},
+                                    function () {$(this).find("i").css("color", "rgba(200,10,10,0)");}
+                                    );
+
+
+       $(".current-fragment").click(function () {
+            var which = $(this).attr("id").split("-")[1];
+            $(this).find("i").css("color", "rgba(200,10,10,0)");
+            $(this).find("img").remove();
+            add_query(which+"=", true);
+        });
+
+        set_content_height();
+
+
+        cols = [
+                {mData: 'nicknames', bSortable: true, searchable: true},
+                {mData: 'id', bSortable: false,
+                mRender: function(id) {return '<img  class="med-img" src="/rf/candidates/' + id + '?format=svg"/>';}
+                },
+                {mData: 'donor', bSortable: true,
+                mRender: function(uri) {
+                    if (uri == null) return "";
+                    var id = uri.split("/")[5];
+                    return '<img  class="small-img donor" data-filter="donor='+id+'" src="' + uri + '?format=svg"/>';}
+                },
+                {mData: 'bridge1', bSortable: true,
+                mRender: function(uri) {
+                    if (uri == null) return "";
+                    return '<img  class="small-img" src="' + uri + '?format=svg"/>';}
+                },
+                {mData: 'bridge2', bSortable: true,
+                mRender: function(uri) {
+                    if (uri == null) return "";
+                    return '<img  class="small-img" src="' + uri + '?format=svg"/>';}
+                },
+                {mData:'acceptor', bSortable:true,
+                mRender: function(uri) {
+                    if (uri == null) return "";
+                    var id = uri.split("/")[5];
+                    return '<img  class="small-img acceptor" data-filter="acceptor='+id+'" src="' + uri + '?format=svg"/>';}
+                },
+                {mData: 'absorption', bSortable: false,
+                mRender: function(d) {
+                    corrected_nm = absorption_to_nm(d);
+                    rgb = Math.nmToRGB(corrected_nm);
+                    return '<svg width="16" height="16"><circle r="7" cx="9" cy="9" style="fill: rgb('+rgb.red+', '+rgb.green+', '+rgb.blue+');"></circle></svg> ' + Math.round(corrected_nm/5) * 5
+                    return d3.rgb(rgb.red, rgb.green, rgb.blue);}},
+                {mData: 'rate', bSortable: true},
+                {mData: 'splitting', bSortable: true},
+                {mData: 'strength', bSortable: true},
+                {mData: 'weight', bSortable: true},
+                {mData: 'absorption', bSortable: true},
+                {mData: 'homo', bSortable: true},
+                {mData: 'lumo', bSortable: true},
+                {mData: 'sascore', bSortable: true},
+                {mData: 'inchi_key', bSortable: true, searchable: true},
+                ]
+        col_names = $.map(cols, function(d) {return d.mData;});
+
+        var sorting = hash_dict["ordering"];
+        add_query("ordering=", false);
+        delete(hash_dict["ordering"]);
+        var hash = window.location.hash.substring(1);
+        if (sorting == undefined) {
+            sorting = "-rate";
+        }
+        if (sorting[0] == "-") {
+            var sort_dir = "desc"
+            sorting = sorting.substring(1);
+        } else {
+            var sort_dir = "asc";
+
+        }
+        var sort_index = col_names.lastIndexOf(sorting);
+
+        table = $('#log-table').DataTable({
+                searching: true,
+                bProcessing: true,
+                bServerSide: true,
+                bStateSave: false,
+                iDisplayLength: 100,
+                sAjaxSource: window.location.origin + "/rf/candidates?" + hash,
+                sAjaxDataProp: "results",
+                aaSorting: [[sort_index, sort_dir]],
+                aoColumns: cols,
+                sDom: '<"top"irp>t<"bottom"p><"clear">',
+//                 fnDrawCallback: function() {
+//                     // sort_string = "";
+//                     // if (this.fnSettings().aaSorting[0][1] == "desc") {
+//                     //     sort_string = "-";
+//                     // }
+//                     // sort_string += col_names[this.fnSettings().aaSorting[0][0]];
+
+
+// //                    console.log("[fnDrawCallback] enter: " + this.fnSettings().aaSorting[0][1]);
+//                 },
+                fnServerData: function(source, oaData, callback, settings) {
+                    query = [];
+                    query.push({name: 'project', value: 'samsung'});
+
+                    query.push({
+                        name: 'limit',
+                        value: settings._iDisplayLength
+                    });
+                    query.push({
+                        name: 'offset',
+                        value: settings._iDisplayStart
+                    });
+
+                    sorting_column_names = [];
+                    if (settings.aaSorting.length > 0) {
+                        $.each(settings.aaSorting, function(i, sorting_array) {
+                            sorted_column_id = sorting_array[0];
+                            if (sorting_array[1] == 'desc') {
+                                direction = '-';
+                            }
+                            else {
+                                direction = '';
+                            }
+                            var sorted_column = settings.aoColumns[sorted_column_id];
+                            if (_.isString(sorted_column.mData)) {
+                                sorting_column_names.push(direction + sorted_column.mData);
+                            }
+                        });
+                    }
+
+                    if (sorting_column_names.length > 0) {
+                        $.each(sorting_column_names, function(i, name) {
+                            query.push({
+                                name: 'ordering',
+                                value: name
+                            });
+                        });
+                    }
+                    settings.jqXHR = $.get(
+                        source,
+                        query,
+                        function(data) {
+                            data.sEcho = oaData.sEcho;
+                            data.iTotalRecords = data.count;
+                            data.iTotalDisplayRecords = data.count;
+                            data.results.forEach(function(mol) {
+                                mol.properties.filter(function(p) {return p.method == "b3lyp_tddft_631gs_rpa_s0_geom"})
+                                    .forEach(function (p) {mol[p.name] = parseFloat(p.value).toFixed(3);})
+                            });
+                            console.log(data);
+                            callback(data);
+                        },
+                        'json'
+                    )
+                },
+            });
+
+
+
+        add_right_click_menu();
+
+    });  // end onload
+
+    $(window).resize(function () {
+        set_content_height();
+    });
+    </script>
+
+    {% endblock %}

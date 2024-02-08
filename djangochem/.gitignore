@@ -1,0 +1,7 @@
+dist
+migrate.log
+static_root
+django-debug.log
+djangochem/notebooks/Show*
+pipeline_template/pipeline_template.py
+/djangochem/settings/denntest.py

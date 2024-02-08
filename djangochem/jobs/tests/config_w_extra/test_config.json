@@ -1,0 +1,10 @@
+{
+  "extra_template_filenames": [],
+  "job_template_filename": "test_with_extra.inp",
+  "batch_template_filename": "batch.sh",
+  "loader_module": "loader",
+  "name": "test_worker",
+  "jobspec_prep": "jobspec_prep",
+  "default_details_filename": "default_details.json",
+  "parent_class_name": "Mol"
+}

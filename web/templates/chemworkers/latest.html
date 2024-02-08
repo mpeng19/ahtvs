@@ -1,0 +1,139 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+{% block extraheaders %}
+<meta http-equiv="refresh" content="1800">
+<!-- Custom styles for this template -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
+<script src="//d3js.org/d3.v3.js"></script>
+
+<style>
+
+.barchart td{
+    padding: 1px;
+}
+
+div .bar {
+  vertical-align: center;
+  color: white;
+  height: 1.5em;
+  display: inline;
+      white-space: nowrap;
+}
+
+table {
+    width: 100%;
+}
+
+.left-side {
+    text-align: right;
+    width: 45%;
+}
+
+.count {
+    position: relative;
+}
+
+.right-side {
+    width: 45%;
+}
+
+.time-label {
+    width: 10%;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.requested {
+    margin-left: 2px;
+    float: right;
+    background-color: steelblue;
+    text-align: left;
+}
+
+.completed {
+    float: left;
+    background-color: seagreen;
+    text-align: left;
+}
+
+.error {
+    margin-right: 2px;
+    float: left;
+    background-color: firebrick;
+}
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="container">
+    <h1>Activity for {{title}} workers</h1>
+        <div class="row">
+        <h3>Last 24 Hours</h3>
+            <table class="table-striped table-bordered barchart">
+            {% for hour in hours %}
+                <tr>
+                    <td class="time-label">
+                        {{hour.0|time:"H:i"}}
+                    </td>
+                    <td class="left-side">
+                        <span class="count">{{hour.1}}</span><div class="bar requested" style="width: {% widthratio hour.1 max_hour_val 70%}%;"></div>
+                    </td>
+
+                    <td class="right-side"><div class="bar completed" style="width: {% widthratio hour.2 max_hour_val 70%}%;"></div>
+                        <div class="bar error" style="width: {% widthratio hour.3 max_hour_val 70%}%;"></div><span class="count">{{hour.4}}</span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+            </div>
+
+             <div class="row">
+            <h3>Last 30 Days</h3>
+            <table class="table-striped table-bordered barchart">
+            {% for day in days %}
+                <tr>
+                    <td class="time-label">
+                        {{day.0|date:"D N d"}}
+                    </td>
+                    <td class="left-side">
+                         <span class="count">{{day.1}}</span><div class="bar requested" style="width: {% widthratio day.1 max_day_val 70%}%;"></div>
+                    </td>
+
+                    <td class="right-side"><div class="bar completed" style="width: {% widthratio day.2 max_day_val 70%}%;"></div>
+                        <div class="bar error" style="width: {% widthratio day.3 max_day_val 70%}%;"></div> <span class="count">{{day.4}}</span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <h3>Links</h3>
+        <div class="row">
+            <div class="list-group">
+            <a class="list-group-item {% if title == 'All' %}active{% endif %}" href="{%url 'chemworkers_latest_all' %}">All</a>
+
+            {% for key,vals in worker_groups.items %}
+            <a class="list-group-item  {% if title == key %}active{% endif %}" href="{%url 'chemworkers_latest' vals|join:',' %}">{{key}}</a>
+
+            {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block extrascripts %}
+
+<script>
+
+
+$(window).load(function(){
+
+});
+
+
+</script>
+
+{% endblock %}

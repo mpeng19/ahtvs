@@ -1,0 +1,87 @@
+ 
+ Your qprep is aliased to use gaussian 16 
+
+_DSM_BARRIER=SHM
+MANPATH=/opt/torque/man:
+GAUSS_ARCHDIR=/share/apps/Gaussian/g16_b01/g16/arch
+HOSTNAME=compute0-3-1.local
+BIOROLL=/opt/bio
+PBS_VERSION=TORQUE-3.0.5
+SHELL=/bin/bash
+HISTSIZE=1000
+PBS_JOBNAME=job.sh
+TMPDIR=/work/169300.vici.chem.tamu.edu
+HMMER_DB=/home/peterli3819/bio/hmmer/db
+GATEWAY_TMP=/work/169300.vici.chem.tamu.edu
+PBS_ENVIRONMENT=PBS_BATCH
+OLDPWD=/home/peterli3819
+QTDIR=/usr/lib64/qt-3.3
+VMDTMPDIR=/work/169300.vici.chem.tamu.edu
+QTINC=/usr/lib64/qt-3.3/include
+PBS_O_WORKDIR=/home/peterli3819/tutorials/ahtvs_jobs/0006_b3lyp_def2svpp_opt_gaussian_vici_FIHFMSQCAMIKPM-UHFFFAOYNA-N_Y55M
+ANT_HOME=/opt/rocks
+USER=peterli3819
+PBS_TASKNUM=1
+LD_LIBRARY_PATH=/share/apps/Gaussian/g16_b01/g16/bsd:/share/apps/Gaussian/g16_b01/g16:/share/apps/Gaussian/g16_b01/gv/lib
+PBS_O_HOME=/home/peterli3819
+ROCKS_ROOT=/opt/rocks
+PBS_WALLTIME=172800
+PBS_MOMPORT=15003
+PBS_GPUFILE=/var/spool/torque/aux//169300.vici.chem.tamu.edugpu
+GAUSS_BSDDIR=/share/apps/Gaussian/g16_b01/g16/bsd
+PBS_O_QUEUE=default
+PATH=/usr/lib64/qt-3.3/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/bio/ncbi/bin:/opt/bio/mpiblast/bin:/opt/bio/EMBOSS/bin:/opt/bio/clustalw/bin:/opt/bio/tcoffee/bin:/opt/bio/hmmer/bin:/opt/bio/phylip/exe:/opt/bio/mrbayes:/opt/bio/fasta:/opt/bio/glimmer/bin:/opt/bio/glimmer/scripts:/opt/bio/gromacs/bin:/opt/bio/gmap/bin:/opt/bio/tigr/bin:/opt/bio/autodocksuite/bin:/opt/bio/wgs/bin:/opt/ganglia/bin:/opt/ganglia/sbin:/usr/java/latest/bin:/opt/maui/bin:/opt/torque/bin:/opt/torque/sbin:/opt/rocks/bin:/opt/rocks/sbin:/home/peterli3819/bin:/share/apps/Gaussian/g16_b01/gauopen:/share/apps/Gaussian/g16_b01/g16/bsd:/share/apps/Gaussian/g16_b01/g16
+PBS_O_LOGNAME=peterli3819
+MAIL=/var/spool/mail/peterli3819
+PBS_O_LANG=en_US.UTF-8
+PBS_JOBCOOKIE=22DD22365A8907E0526C6649CEC8279D
+PWD=/work/169300.vici.chem.tamu.edu
+JAVA_HOME=/usr/java/latest
+LANG=C
+PBS_NODENUM=0
+MODULEPATH=/share/apps/Modules/modulefiles:/etc/modulefiles
+PBS_NUM_NODES=1
+GAUSS_EXEDIR=/share/apps/Gaussian/g16_b01/g16/bsd:/share/apps/Gaussian/g16_b01/g16
+PERLLIB=/share/apps/Gaussian/g16_b01/gauopen:/share/apps/Gaussian/g16_b01/g16/bsd:/share/apps/Gaussian/g16_b01/g16
+PBS_O_SHELL=/bin/bash
+BLASTDB=/home/peterli3819/bio/ncbi/db
+PBS_SERVER=vici.chem.tamu.edu
+PBS_JOBID=169300.vici.chem.tamu.edu
+ENVIRONMENT=BATCH
+HISTCONTROL=ignoredups
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+HOME=/home/peterli3819
+SHLVL=2
+g16root=/share/apps/Gaussian/g16_b01
+PBS_O_HOST=vici.chem.tamu.edu
+PBS_VNODENUM=0
+PYTHONPATH=/share/apps/Gaussian/g16_b01/gauopen:/share/apps/Gaussian/g16_b01/g16/bsd:/share/apps/Gaussian/g16_b01/g16
+GV_DIR=/share/apps/Gaussian/g16_b01/gv
+LOGNAME=peterli3819
+G16BASIS=/share/apps/Gaussian/g16_b01/g16/basis
+CVS_RSH=ssh
+QTLIB=/usr/lib64/qt-3.3/lib
+PBS_QUEUE=medium
+MODULESHOME=/share/apps/Modules
+PBS_O_MAIL=/var/spool/mail/peterli3819
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+OMP_NUM_THREADS=1
+BLASTMAT=/opt/bio/ncbi/data
+PGI_TERM=trace,abort
+PBS_NP=1
+PBS_NUM_PPN=1
+PBS_NODEFILE=/var/spool/torque/aux//169300.vici.chem.tamu.edu
+G_BROKEN_FILENAMES=1
+GAUSS_LEXEDIR=/share/apps/Gaussian/g16_b01/g16/linda-exe
+PBS_O_PATH=/share/apps/Molden/molden5.1:/opt/openmpi/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/bio/ncbi/bin:/opt/bio/mpiblast/bin:/opt/bio/EMBOSS/bin:/opt/bio/clustalw/bin:/opt/bio/tcoffee/bin:/opt/bio/hmmer/bin:/opt/bio/phylip/exe:/opt/bio/mrbayes:/opt/bio/fasta:/opt/bio/glimmer/bin:/opt/bio/glimmer/scripts:/opt/bio/gromacs/bin:/opt/bio/gmap/bin:/opt/bio/tigr/bin:/opt/bio/autodocksuite/bin:/opt/bio/wgs/bin:/opt/eclipse:/opt/ganglia/bin:/opt/ganglia/sbin:/usr/java/latest/bin:/opt/maven/bin:/opt/maui/bin:/opt/torque/bin:/opt/torque/sbin:/opt/pdsh/bin:/opt/rocks/bin:/opt/rocks/sbin:/home/peterli3819/bin
+BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`
+}
+_=/bin/env
+START DATE:Tue Jan  7 17:05:44 CST 2020
+END DATE:Tue Jan  7 21:25:58 CST 2020
+/work/169300.vici.chem.tamu.edu
+contents of /work/169300.vici.chem.tamu.edu dir
+total 201
+drwxr-xr-x   2 peterli3819 user      3 Jan  7 21:25 .
+drwxrwxr-x 156 root        user    175 Jan  7 21:25 ..
+-rw-r--r--   1 peterli3819 user 467739 Jan  7 21:25 gaussian_test.log

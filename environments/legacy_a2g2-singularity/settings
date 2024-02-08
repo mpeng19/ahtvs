@@ -1,0 +1,8 @@
+#!/bin/bash
+export DJANGO_SETTINGS_MODULE="djangochem.settings.postgres_docker"
+export DB_NAME="database-name"
+export POSTGRES_PASSWORD='postgres-password'
+export PGPORT=5440 # should be 5440 for postgres_docker settings
+export PGUSER="postgres"
+export HOSTNAME=localhost
+# export HOST_PGDATA=/your/pgdata/folder/ # for custom persistant database location

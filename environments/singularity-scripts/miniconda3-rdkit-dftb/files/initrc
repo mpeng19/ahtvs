@@ -1,0 +1,7 @@
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+PS1="Singularity $SINGULARITY_CONTAINER:\\w> "
+. /opt/conda/etc/profile.d/conda.sh
+conda activate chem

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ "$1" == "up" ]; then
+    sudo -E docker-compose up -d
+elif [ "$1" == "down" ]; then
+    sudo -E docker-compose down
+elif [ "$1" == "remove" ]; then
+    sudo -E docker-compose down -v
+elif [ "$1" == "create" ]; then
+    if [[ -z "${POSTGRES_PASSWORD}" ]]; then
+        echo "variable POSTGRES_PASSWORD required"
+        exit 0
+    fi
+    if [[ -z "${DB_NAME}" ]]; then
+        echo "variable DB_NAME required"
+        exit 0
+    fi
+    sudo -E docker-compose up -d
+    sudo docker exec -it a2g2_postgres createdb -U postgres $DB_NAME
+else
+    echo 'Run this in this folder
+up: start postgres docker
+down: shutdown postgres docker
+remove: shutodown and remove postgres volume
+create: create db in postgres'
+fi
+
+
+
+

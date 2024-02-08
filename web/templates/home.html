@@ -1,0 +1,215 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+{% block extraheaders %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if request.user.is_staff %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Staff Tools</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="/ballots/manage">Manage Ballots</a></li>
+                        <li class="list-group-item"><a href="/admin">Site Admin</a></li>
+                        <li class="list-group-item"><a href="{% url 'create_invitations' %}">Invite Users</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endif %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Latest Batches</h4>
+                </div>
+                <div class="panel-body">
+                <table class="table">
+                <thead>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Size</th>
+                </thead>
+                <tbody>
+                {% for cset in latest_sets %}
+                    <tr>
+                        <td><a href="cards#sets__in={{cset.name}}&ordering=-rate">{{cset.name}}</a></td>
+                        <td>{{cset.creation_time |date:"M d Y" }}</td>
+                        <td>{{cset.size}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+                </div>
+            </div>
+
+    <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Latest Comments</h4>
+                </div>
+                <div class="panel-body">
+                <table class="table" id="comments-table"
+                    <thead>
+                    <th>User</th>
+                    <th>Time</th>
+                    <th>Comment</th>
+                    </thead>
+                </table>
+                </div>
+            </div>
+    </div>
+
+         <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Ballots</h4>
+                </div>
+                <div class="panel-body">
+                    {% if unfinished_ballots %}
+
+                    <table class="table">
+                    <thead>
+                    <th>Name</th>
+                    <th>Closes</th>
+                    <th class="text-right">Remaining</th>
+                    </thead>
+                    <tbody>
+                        {% for ballot in unfinished_ballots %}
+                        <tr>
+                            <td>
+                                <a href="/ballots/{{ballot.id}}">{{ballot.name}}</a>
+                            </td>
+                            <td>
+                                {% if ballot.closed %}
+                                CLOSED {{ballot.close_time}}
+                                {% else %}
+
+                                {% if ballot.close_time == None %}Never{% else %} {{ballot.close_time}}{% endif %}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ballot.remaining > 0 %}
+                                <span class="pull-right badge">{{ballot.remaining}}</span>
+                                {% else %}
+                                <i class="pull-right fa fa-check-circle-o" style="color: #999; font-size: 1.5em;"></i>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% else %}
+                        <p>You have no open ballots at this time</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Voting Results</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                    {% for cset in sets_with_ballots %}
+                        <li class="list-group-item"><a href="/ballots/results/{{cset.id}}">{{cset.name}}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                {% if request.user.is_staff %}
+                    <h4>User Sets</h4>
+                {% else %}
+                    <h4>My Sets</h4>
+                {% endif %}
+
+                </div>
+                <div class="panel-body">
+                 <table class="table">
+                <thead>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Size</th>
+                </thead>
+                <tbody>
+                {% for cset in user_sets %}
+                    <tr>
+                        <td><a href="cards#sets__in={{cset.name}}">{{cset.name}}</a></td>
+                        <td>{{cset.creation_time |date:"M d Y" }}</td>
+                        <td>{{cset.size}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+
+                </div>
+            </div>
+    </div>
+</div>
+<div class="container">
+
+
+{% endblock %}
+
+{% block extrascripts %}
+<script src="{% static "js/date.format.js" %}"></script>
+
+<script>
+    $(window).load(function() {
+        $.ajax({
+          url:  "/rf/comments/?ordering=-time&limit=5",
+          dataType: 'json',
+          async: true,
+          success: function( comments ) {
+            var comments_table = $("#comments-table").find('tbody')
+            $.each(comments.results, function (i, comment) {
+                var date = new Date(comment.time);
+                var date_string = date.format("mmmm dd");
+
+                var show_text = comment.text;
+                if(show_text.length > 20)
+                    show_text = show_text.substring(0,20-3)+"...";
+                console.log(comment)
+                comments_table.append($('<tr>')
+                                .append($('<td>')
+                                    .text(comment.user)
+                                )
+                                .append($('<td>')
+                                    .text(date_string)
+                                )
+                                .append($('<td>')
+                                    .append($('<a>')
+                                        .attr("href", "/detail/"+comment.candidate)
+                                        .text(comment.text)
+                                    )
+                                )
+                            );
+            });
+          }
+        });
+    });
+
+  // {% for cset in latest_sets %}
+  //                   <tr>
+  //                       <td><a href="cards#sets__in={{cset.name}}&ordering=-rate">{{cset.name}}</a></td>
+  //                       <td>{{cset.creation_time |date:"M d Y" }}</td>
+  //                       <td>{{cset.size}}</td>
+  //                   </tr>
+  //               {% endfor %}
+
+</script>
+{% endblock %}

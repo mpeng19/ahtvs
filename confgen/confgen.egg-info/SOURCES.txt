@@ -1,0 +1,9 @@
+README.rst
+setup.py
+confgen.egg-info/PKG-INFO
+confgen.egg-info/SOURCES.txt
+confgen.egg-info/dependency_links.txt
+confgen.egg-info/top_level.txt
+old_confgen/__init__.py
+old_confgen/conformer_generator.py
+old_confgen/run_generator.py

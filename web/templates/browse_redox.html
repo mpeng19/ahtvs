@@ -1,0 +1,346 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+{% block extraheaders %}
+<!-- Custom styles for this template -->
+
+<link href="{% static "css/simple-sidebar.css" %}" rel="stylesheet">
+<link href="{% static "css/cards.css" %}" rel="stylesheet">
+<link href="{% static "css/bubble.css" %}" rel="stylesheet">
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2-bootstrap.min.css" rel="stylesheet">
+
+<script src="//d3js.org/colorbrewer.v1.min.js"></script>
+<script src="{% static "js/wavelength.js" %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
+<script src="//d3js.org/d3.v3.js"></script>
+<script src="{% static "js/wavelength.js" %}"></script>
+<script src="{% static "js/bubble.js" %}"></script>
+
+{% endblock %}
+
+{% block brand %}Flow Battery{% endblock %}
+
+{% block browse_options %}
+<li><a id="card_button" href="#">Cards</a>
+</li>
+<li><a id="bubble_button"  href="#">Bubble</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="content" class="container-fluid">
+        <div id="progress"><i class="fa fa-cog fa-spin"></i></div>
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-xs-6">
+                <div class="sidebar-nav-fixed subnav affix">
+                    <form class="navbar-left" role="search">
+                            <label class="control-label">Tag</label>
+                            <select id="select-batch" class="filter-option form-control">
+                                {% for tag in tags %}
+                                <option value="reduced__sets__name__in={{tag}}">{{tag}}</option>
+                                {% endfor %}
+                            </select>
+                            <label class="control-label">Order</label>
+                            <select id="select-orderby" class="filter-option form-control">
+                                <option value="raw_order_by=-redox_potential">Potential</option>
+                                <option value="raw_order_by=reduced__water_solvation_energy">Solvation</option>
+                                <option value="raw_order_by=log_hyd_constant">Log K hyd</option>
+                            </select>
+                            <input id="filter-min-potential" type="text" class="form-control floats-only" data-toggle="tooltip" title="Min Potential (eV)" placeholder="Min Potential (eV)">
+                            <input id="filter-max-potential" type="text" class="form-control floats-only" data-toggle="tooltip" title="Max Potential (eV)" placeholder="Max Potential (eV)">
+                            <input id="filter-max-solvation" type="text" class="form-control floats-only" data-toggle="tooltip" title="Max Solvation (eV)" placeholder="Max Solvation (eV)">
+                            <input id="filter-max-hydration" type="text" class="form-control floats-only" data-toggle="tooltip" title="Max Log K" placeholder="Max Log K">
+                            <input id="filter-max-subs" type="text" class="form-control floats-only" data-toggle="tooltip" title="Max Substituents" placeholder="Max Substituents">
+                            <button id="filter-clear-all" class="btn btn-danger">Clear All</button>
+                            <button id="filter-update" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+            <div id="card-row">
+                <div class="col-lg-10 col-md-9">
+                    <div id="molecules">
+                    <p>
+                    Use the Filter bar to select some molecules to view.
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <div id="bubble-row">
+                <div class="col-xs-12 col-md-5 col-lg-8">
+                    <div class="panel">
+                        <div id="chart">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 col-lg-2">
+                    <div class="card" id="selected-mol-card">
+                    </div>
+                </div>
+            </div>
+    </div> <!-- /#container-fluid -->
+
+<li id="quick-links-dropdown" class="dropdown" style="display: none;">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Links<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Tags</li>
+    {% for tag in tags %}<li><a class="query_button set_name" id="#sets__name__in={{tag}}" href="#sets__name__in={{tag}}">{{tag}}</a></li>
+    {% endfor %}
+  </ul>
+</li>
+
+
+{% endblock %}
+{% block extrascripts %}
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js"></script>
+
+<script id="card-template" type="x-tmpl-mustache">
+    {% verbatim %}
+        <div class="card redox">
+            <img src='/inchi_img/{{red_inchi_key}}.svg'>
+            <img src='/inchi_img/{{ox_inchi_key}}.svg'>
+            <table class="table table-striped">
+            {{#nicknames}}
+                <tr><td> <strong>Nicknames</strong>
+                    </td><td colspan=2> {{nicknames}}</td></tr> 
+            {{/nicknames}}
+            
+            {{#redox_potential}}
+                <tr><td> <strong>Potential (eV)</strong></td><td>
+                        {{redox_potential}} </td><td>
+                        <div class="harvey" data-size="12" data-value={{low_redox_potential_percent}} data-toggle="tooltip" title="low redox (range: within 0.25 of 0ev)"></div>
+                        <div class="harvey" data-size="12" data-value={{high_redox_potential_percent}} data-toggle="tooltip" title="high redox (range: within 0.25 of 1ev)"></div></td></tr> 
+            {{/redox_potential}}
+            
+            {{#log_hyd_constant}}
+                <tr><td> <strong>Log K hyd</strong></td><td>
+                        {{log_hyd_constant}} </td><td>
+                        <div class="harvey" data-size="12" data-value={{log_hyd_constant_percent}} data-toggle="tooltip" title="LogK Hyd (range: 3 to 0)"></div></td></tr> 
+            {{/log_hyd_constant}}
+            
+            {{#michael_hydration_energy}}
+                <tr><td> <strong>Mike Energy (eV)</strong></td><td>
+                        {{michael_hydration_energy}}</td><td>
+                        <div class="harvey" data-size="12" data-value={{michael_hydration_percent}} data-toggle="tooltip" title="Michael (range: -0.5 to 0ev)"></div></td></tr> 
+            {{/michael_hydration_energy}}
+            
+            {{#solvation}}
+                <tr><td> <strong>Solvation </strong>
+                    </td><td colspan=2> {{solvation}} </td></tr> 
+            {{/solvation}}
+            
+            {{#weight}}
+                <tr><td> <strong>Weight (amu)</strong>
+                    </td><td colspan=2> {{weight}}</td></tr> 
+            {{/weight}}
+            
+            {{#red_cas}}
+                <tr><td> <strong>Reduced CAS </strong>
+                    </td><td colspan=2> {{red_cas}}</td></tr> 
+            {{/red_cas}}
+            
+            {{#ox_cas}}
+                <tr><td> <strong>Oxidized CAS</strong>
+                    </td><td colspan=2> {{ox_cas}}</td></tr> 
+            {{/ox_cas}}
+            
+            {{#red_sa}}
+                <tr><td> <strong>Reduced SA</strong>
+                    </td><td colspan=2> {{red_sa}}</td></tr> 
+            {{/red_sa}}
+            
+            {{#red_inchi_key}}
+                <tr><td> <strong>Reduced IKEY</strong>
+                    </td><td colspan=2> {{red_inchi_key}}</td></tr> 
+            {{/red_inchi_key}}
+            
+                <tr><td colspan=2><a href="/redox_graph/{{id}}">view family graph</a></td></tr>
+            </table>
+        </div>
+    {% endverbatim %}
+</script>
+
+<script id="navcard-template" type="x-tmpl-mustache">
+    {% verbatim %}
+    <ul class="pager">
+
+        {{#previous}}
+        <li><a class="prev-next-button" data-query="{{previous}}" href="#">Previous</a></li>
+        {{/previous}}
+        <li>{{lower}} to {{upper}} of {{total_count}} total</li>
+        {{#next}}
+        <li><a class="prev-next-button" data-query="{{next}}" href="#">Next</a></li>
+        {{/next}}
+    </ul>
+    {% endverbatim %}
+</script>
+
+<script>
+
+
+function load_hash(hash) {
+ if (window.location.pathname === "/redox_cards") {
+        $("#bubble-row").hide();
+        $("#card-row").show();
+        load_redox_cards(hash);
+    } else {
+        $("#card-row").hide();
+        $("#bubble-row").show();
+        init_redox_bubbles(hash);
+    }
+}
+
+
+function add_query(new_query, load) {
+    var current_q_list = window.location.hash.substring(1).split("&");
+    var keyvalue_to_add = new_query.split("=");
+
+
+    dict = get_url_vars_after_hash()
+    delete(dict[""]);
+    if (keyvalue_to_add[1] == "") {
+        delete(dict[keyvalue_to_add[0]])
+    } else {
+        dict[keyvalue_to_add[0]] = keyvalue_to_add[1]
+    }
+
+
+    //new_hash = $.param(dict)
+
+    var new_hash = $.map(dict, function(k,v) { return v + "=" + k;}).join("&")
+    window.location.hash = "#" + new_hash;
+    if (load) {
+        load_hash(new_hash);
+    }
+}
+function get_url_vars_after_hash()
+{
+    var vars = {}, hash;
+    var hashes = window.location.hash.substring(1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+function set_content_height() {
+    var height =  $("#subnav").height();
+    $("#content").css('margin-top', height+'px');
+}
+
+function update_filter() {
+    add_query("redox_potential__gt=" + $("#filter-min-potential").val(), false);
+    add_query("redox_potential__lt=" + $("#filter-max-potential").val(), false);
+    add_query("reduced__water_solvation_energy__lt=" + $("#filter-max-solvation").val(), false);
+    add_query("log_hyd_constant__lt=" + $("#filter-max-hydration").val(), false);
+    add_query("substituent_count__lte=" + $("#filter-max-subs").val(), false);
+
+    var hash = window.location.hash.substring(1);
+    load_hash(hash);
+}
+
+function reset_filters() {
+    $("#filter-min-potential").val("");
+    $("#filter-max-potential").val("");
+    $("#filter-max-solvation").val("");
+    $("#filter-max-hydration").val("");
+    $("#filter-max-subs").val("");
+    update_filter()
+}
+
+$(window).load(function(){
+  $("#quick-links-dropdown").detach().appendTo("#extra-nav")
+  $("#quick-links-dropdown").show()
+
+  $("#select-batch").select2()
+  $("#select-orderby").select2()
+
+    var hash = window.location.hash.substring(1);
+    load_hash(hash);
+
+    hash_dict = get_url_vars_after_hash();
+    $('#select-batch').select2("val", "reduced__sets__name__in="+hash_dict["reduced__sets__name__in"])
+
+    if (hash_dict["order_by"]) {
+        $('#select-orderby').select2("val", "order_by="+hash_dict["order_by"])
+    } else {
+        $('#select-orderby').select2("val", "raw_order_by="+hash_dict["raw_order_by"])
+    }
+
+    if (hash_dict["redox_potential__gt"]) {
+        $("#filter-min-potential").val(hash_dict["redox_potential__gt"]);
+    } else {
+        $("#filter-min-potential").val({{redox_potential__min}});
+    }
+    if (hash_dict["redox_potential__lt"]) {
+        $("#filter-max-potential").val(hash_dict["redox_potential__lt"]);
+    } else {
+        $("#filter-max-potential").val({{redox_potential__max}});
+    }
+
+    if (hash_dict["reduced__water_solvation_energy__lt"]) {
+        $("#filter-max-solvation").val(hash_dict["reduced__water_solvation_energy__lt"]);
+    } else {
+        $("#filter-max-solvation").val({{water_solvation_energy__max}});
+    }
+    if (hash_dict["log_hyd_constant__lt"]) {
+        $("#filter-max-hydration").val(hash_dict["log_hyd_constant__lt"]);
+    } else {
+        $("#filter-max-hydration").val({{log_hyd_constant__max}});
+    }
+    if (hash_dict["substituent_count__lte"]) {
+        $("#filter-max-subs").val(hash_dict["substituent_count__lte"]);
+    } else {
+        $("#filter-max-subs").val({{substituent_count__max}});
+    }
+
+
+    $(".filter-option").change(function(e) {
+        var selected = $(this).find('option:selected');
+        var new_query = selected.val();
+        add_query(new_query, true);
+    });
+
+
+    $("#filter-update").click(update_filter);
+    $("#filter-clear-all").click(function () {
+        reset_filters();
+    })
+   $(".floats-only").keypress(function(e) {
+        var a = [48,49,50,51,52,53,54,55,56,57,46,45];
+        var k = e.which;
+        if (k == 13) {
+            update_filter();
+        }
+        if (!(a.indexOf(k)>=0)){
+            e.preventDefault();
+        }
+   });
+      $(".floats-only").tooltip({
+        'delay': { show: 0, hide: 0 },
+        'placement': 'bottom'
+    });
+
+});
+
+</script>
+
+{% endblock %}
+
+{% block navscripts %}
+
+<script type="text/javascript">
+    $("#bubble_button").click(function(e) {
+        window.location.href = "/redox_bubble" + window.location.hash;
+    });
+
+    $("#card_button").click(function(e) {
+        window.location.href = "/redox_cards" + window.location.hash;
+    });
+</script>
+{% endblock %}

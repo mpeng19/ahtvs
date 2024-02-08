@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/jobdirparser.py", line 117, in update_db_for_job
+    info = storage.load_json(DEFAULT_JOB_INFO_FILENAME)
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/storage/filestorage.py", line 94, in load_json
+    with open(info_filename, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../chemconfigs/conformer/job_info.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/management/commands/parsejobs.py", line 95, in main
+    dirparser.update_db_for_job(completed_path)
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/jobdirparser.py", line 131, in update_db_for_job
+    raise UserWarning("No file found for job dir {}. {}".format(storage, err))
+UserWarning: No file found for job dir <ReadDir ../chemconfigs/conformer/>. [Errno 2] No such file or directory: '../chemconfigs/conformer/job_info.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/jobdirparser.py", line 123, in update_db_for_job
+    new_calc_keys = self._create_calcs_for_completed_job(info, storage)
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/jobdirparser.py", line 158, in _create_calcs_for_completed_job
+    newkey = self.db_interface.add_result(calc, info, suffix)
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/dbinterface/postgresinterface.py", line 80, in add_result
+    job = self._update_job(result, jobspec)
+  File "/Users/hirzel/workspace/a2g2/djangochem/jobs/dbinterface/postgresinterface.py", line 101, in _update_job
+    job = Job.objects.get(pk=jobspec[JOB_KEY])
+  File "/Users/hirzel/miniconda3/envs/a2g2/lib/python3.5/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/hirzel/miniconda3/envs/a2g2/lib/python3.5/site-packages/django/db/models/query.py", line 387, in get
+    self.model._meta.object_name
+jobs.models.DoesNotExist: Job matching query does not exist.

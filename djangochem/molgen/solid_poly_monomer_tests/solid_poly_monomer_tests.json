@@ -1,0 +1,32 @@
+{
+  "cleaners": {
+  },
+   "molecules": [
+    {
+      "smiles": "",
+      "label": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He]C1=CC2=CC=CC=CC2=C1"
+        },
+        {
+          "smiles": "[He]C1=CC([He])=C2C1=C([He])C([He])=CC([He])=C2[He]"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "label": "",
+      "group": "rgroup_type_1",
+      "blocks": [
+        {
+          "smiles": "[He]C"
+        },
+        {
+          "smiles": "[He]F"
+        }
+      ]
+    }
+  ]
+}

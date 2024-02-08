@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards</title>
+
+    <body>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.slider.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+
+        <script src="//d3js.org/d3.v3.js"></script>
+        <script src="/static/js/wavelength.js"></script>
+        <link rel="stylesheet" href="/css/ChemDoodleWeb.css" type="text/css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+        <script type="text/javascript" src="/js/ChemDoodleWeb.js"></script>
+        <script type="text/javascript" src="/js/ChemDoodleWeb-uis.js"></script>
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/foundation.min.css" />
+</head>
+
+<style>
+
+
+.page-break {
+    page-break-after:always;
+}
+.dot {
+    stroke: #777;
+    stroke-width: 0.5px;
+}
+.selected {
+    stroke: #333;
+    stroke-width: 6px;
+    stroke-opacity: 0.5;
+}
+.color-block {
+    display: inline-block;
+    margin-left: 0.2em;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.5em;
+}
+
+#mol-details {
+    z-index: 2;
+}
+#mol-details img {
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px 1px 0px 1px;
+    width: 260px;
+    height: 260px;
+    background: white;
+}
+#mol-details table {
+    width: 260px;
+}
+
+#mol-details td {
+    padding-bottom: 0.3em;
+    padding-top: 0.3em;
+}
+.detail {
+    display: inline-block;
+    font-size: 0.7em;
+    margin-right: 1em;
+    overflow: hidden;
+    width: 24em;
+}
+.detail-list {
+    margin-top: 0em;
+}
+.crop-height {
+    overflow: hidden;
+    /*  border-style: solid;
+  border-color: #ccc;
+  border-width: 1px 1px 0px 1px;
+*/
+}
+.detail img {
+    position: relative;
+    top: 0em;
+    background: white;
+    width: 260px;
+}
+.detail table {
+    position:relative;
+    z-index: 2;
+    width: 100%;
+    margin-top: 0em;
+    border-width: 0px;
+}
+.detail td {
+    line-height: 0.2em;
+    font-size: 0.9em;
+}
+#table-panel {
+    display: inline-block;
+}
+.no-break {
+ page-break-inside: avoid !important;
+}
+.inchi-table {
+    display: inline-block;
+    font-size: 0.8em;
+    display: table-header-group;
+    page-break-after:always;
+}
+.inchi-table tbody {
+    white-space: nowrap;
+}
+
+.inchi-table tbody:nth-of-type(odd) tr{
+    background-color: #FFF;
+}
+.inchi-table tbody:nth-of-type(even) tr{
+    background-color: #F0F0F0;
+}
+
+.inchi-table img {
+    height: 1.2in;
+}
+
+.background {
+    fill: #eee;
+}
+line {
+    stroke: #fff;
+}
+text.active {
+    fill: red;
+}
+.axis path, .axis line, .row_line line, .column line {
+    fill: none;
+    stroke: #DDD;
+    stroke-width: 0;
+}
+.chart-background {
+    fill: #fefefe;
+}
+.chart-border {
+    fill: none;
+    stroke-width: 2;
+    stroke: #aaa;
+}
+
+
+#controls ul {
+    margin-left: 1.1em;
+}
+
+#controls li {
+    margin-left: 0.1em;
+}
+.control-group {
+    background-color: white;
+    padding: 0.4em;
+    margin: 0.1em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddd;
+}
+.check-label {
+    display: inline-block;
+    font-weight: lighter;
+    font-size: 0.7em;
+    margin-left: 0.2em;
+    margin-right: 0.5em;
+
+}
+
+.control-group label{
+    margin-bottom: 0px;
+    font-weight: bolder;
+
+}
+
+</style>
+
+<body><div id="mol-list"></div></body>
+<script>
+var data;
+
+var dispatch = d3.dispatch("load", "filter");
+
+d3.json("/rf/candidates/?format=json&" + window.location.search.substring(1), function(input_data) {
+    console.log("loaded")
+
+    data = input_data.results;
+    dispatch.load();
+    dispatch.filter();
+});
+
+
+
+function get_parameter_by_name(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function image_url(inchi_key) {
+    return '/inchi_img/' + inchi_key + ".svg"
+}
+
+
+dispatch.on("filter.bubbles", function() {
+        filtered = data;
+
+        d3.selectAll(".no-break").remove()
+
+        var broken_up_list = []
+        var i = 0;
+        while (i < filtered.length) {
+            if (i % 5 == 0) {
+                broken_up_list.push([])
+            }
+            broken_up_list[broken_up_list.length - 1].push(filtered[i])
+            i += 1;
+        }
+        d3.select("#mol-list").selectAll(".inchi-table")
+            .data(broken_up_list)
+            .enter()
+            .append("div")
+            .attr("class", "no-break")
+            .append("table")
+            .attr("class", "inchi-table").each(function(sublist) {
+                var table = d3.select(this)
+                var headrow = table.append("thead").append("tr")
+                headrow.append("th").html("Structure");
+                headrow.append("th").html("Color");
+                headrow.append("th").html("Splitting<br>(eV)");
+                headrow.append("th").html("Strength");
+                headrow.append("th").html("Absorp.<br>(eV)");
+                headrow.append("th").html("Rate<br>(1/us)");
+                headrow.append("th").html("HOMO<br>(eV)");
+                headrow.append("th").html("LUMO<br>(eV)");
+                headrow.append("th").html("Weight");
+                headrow.append("th").html("SA<br>Score");
+                table.selectAll("tbody")
+                    .data(sublist)
+                    .enter().append("tbody").each(function(d, i) {
+                        var tbody = d3.select(this)
+                        var trA = tbody.append("tr").attr("class", "mol-row")
+                        t1 = {}
+                        d.properties.filter(function(x) {return x.method == "b3lyp_tddft_631gs_rpa_t1_geom"}).forEach(function (obj) {t1[obj.name] = obj.value; console.log(obj)})
+
+
+                        trA.append("td").append("img")
+                            .attr("src", function(d) {
+                                return image_url(d.inchi_key)
+                            })
+
+
+                        trA.append("td")
+                            .append("svg")
+                            .attr("width", "16")
+                            .attr("height", "15")
+                            .append("circle")
+                            .attr("r", "7")
+                            .attr("cx", "7")
+                            .attr("cy", "7")
+
+                            .style("fill", function() {
+                                rgb = Math.nmToRGB(absorption_to_nm(d.absorption));
+                                return d3.rgb(rgb.red, rgb.green, rgb.blue);
+                                //return  "#ED3";
+                            })
+
+                        trA.append("td").text(parseFloat(d.splitting).toFixed(3))
+                        trA.append("td").text(parseFloat(d.strength).toFixed(3))
+                        trA.append("td").text(parseFloat(d.absorption).toFixed(2))
+                        trA.append("td").text(parseFloat(d.rate).toFixed(2))
+
+                        trA.append("td").text(parseFloat(d.homo).toFixed(2))
+                        trA.append("td").text(parseFloat(d.lumo).toFixed(2))
+                        trA.append("td").text(parseFloat(d.weight).toFixed(1))
+                        trA.append("td").text(parseFloat(d.sascore).toFixed(1))
+                        var trB = tbody.append("tr").attr("class", "mol-row")
+
+
+
+                        trB.append("td").attr("colspan", "12").attr("width", "1200").text("SMILES " + d.smiles)
+                    });
+            }); // end table
+
+
+
+}); // end filter function
+</script>
+</body>

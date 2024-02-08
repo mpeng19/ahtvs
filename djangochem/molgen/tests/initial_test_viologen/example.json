@@ -1,0 +1,68 @@
+{
+  "cleaners": {
+  },
+   "molecules": [
+    {
+      "smiles": "",
+      "label": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He][N+]1=CC=C(C=C1)C1=CC=[N+]([He])C=C1"
+        },
+        {
+          "smiles": "[He][N+]1=CC=C(C=C1)C1=CC=[NH+]C=C1"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "label": "",
+      "group": "rgroup_type_1",
+      "blocks": [
+        {
+          "smiles": "[He]C"
+        },
+        {
+          "smiles": "[He]CC"
+        },
+        {
+          "smiles": "[He]C#N"
+        },
+        {
+          "smiles": "[He]C(F)(F)F"
+        },
+        {
+          "smiles": "[He]CC(F)(F)F"
+        },
+        {
+          "smiles": "[He]c1nnn[nH]1"
+        },
+        {
+          "smiles": "[He]n1cnnn1"
+        },
+        {
+          "smiles": "[He]c1ccncc1"
+        },
+        {
+          "smiles": "[He]c1cccnc1"
+        },
+        {
+          "smiles": "[He]c1ccccn1"
+        },
+        {
+          "smiles": "[He]c1ncccn1"
+        },
+        {
+          "smiles": "[He]c1ccncn1"
+        },
+        {
+          "smiles": "[He]c1cncnc1"
+        },
+        {
+          "smiles": "[He]c1ncncn1"
+        }
+      ]
+    }
+  ]
+}

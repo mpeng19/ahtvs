@@ -1,0 +1,12 @@
+{% extends "base-register.html" %}
+{% load bootstrap3 %}
+
+{% block title %}Closed{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Invitation Failed</h1>
+  <p class="lead">Registration is closed or your invitation has been already used or expired.  Please contact support for assistance creating an account.  Thank you.</p>
+  <p><a href="{% url 'home' %}">Home</a></p>
+</div>
+{% endblock %}

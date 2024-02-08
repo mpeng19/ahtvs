@@ -1,0 +1,108 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+{% block extraheaders %}
+{% endblock %}
+
+{% block brand %}Flow Battery{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if request.user.is_staff %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Staff Tools</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="/ballots/manage">Manage Ballots</a></li>
+                        <li class="list-group-item"><a href="/admin">Site Admin</a></li>
+                        <li class="list-group-item"><a href="{% url 'create_invitations' %}">Invite Users</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endif %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Latest Batches</h4>
+                </div>
+                <div class="panel-body">
+                <table class="table">
+                <thead>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Size</th>
+                </thead>
+                <tbody>
+                {% for cset in latest_sets %}
+                    <tr>
+                        <td><a href="redox_cards#reduced__sets__name__in={{cset.name}}&raw_order_by=-redox_potential">{{cset.name}}</a></td>
+                        <td>{{cset.creation_time |date:"M d Y" }}</td>
+                        <td>{{cset.size}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+                </div>
+            </div>
+    </div>
+
+
+
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                {% if request.user.is_staff %}
+                    <h4>User Sets</h4>
+                {% else %}
+                    <h4>My Sets</h4>
+                {% endif %}
+
+                </div>
+                <div class="panel-body">
+                 <table class="table">
+                <thead>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Size</th>
+                </thead>
+                <tbody>
+                {% for cset in user_sets %}
+                    <tr>
+                        <td><a href="redox_cards#reduced__sets__name__in={{cset.name}}">{{cset.name}}</a></td>
+                        <td>{{cset.creation_time |date:"M d Y" }}</td>
+                        <td>{{cset.size}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+
+                </div>
+            </div>
+    </div>
+</div>
+<div class="container">
+
+
+{% endblock %}
+
+{% block extrascripts %}
+
+<script type="text/javascript">
+    $("#bubble_button").click(function(e) {
+        window.location.href = "/redox_bubble" + window.location.hash;
+    });
+
+    $("#card_button").click(function(e) {
+        window.location.href = "/redox_cards" + window.location.hash;
+    });
+</script>
+{% endblock %}

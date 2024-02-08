@@ -1,0 +1,8 @@
+{
+  "extra_template_filenames": [],
+  "job_template_filename": "test.inp",
+  "batch_template_filename": "batch.sh",
+  "loader_module": "loader",
+  "name": "test_worker",
+  "parent_class_name": "Mol"
+}

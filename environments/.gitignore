@@ -1,0 +1,20 @@
+**.img
+**.simg
+# !.gitignore
+# !a2g2-docker-dev
+# !a2g2-docker-dev/*
+# !a2g2-singularity
+# !a2g2-singularity/**
+# !singularity-scripts
+# !singularity-scripts/**
+# !confgen-singularity
+# !confgen-singularity/**
+# #!docker
+# !a2g2_conda_env.yml
+# !setup_conda.sh
+# !pip_requirements.txt
+# !setup_with_srun.sh
+# !postgres-docker
+# !postgres-docker/*
+# !/setup_env.sh
+# !/setup_env_mac.sh

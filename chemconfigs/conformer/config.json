@@ -1,0 +1,9 @@
+{
+  "name": "conformer",
+  "job_template_filename": "job.sh",
+  "batch_template_filename": "batch.sh",
+  "loader_module": "loader",
+  "parent_class_name": "Mol",
+  "extra_template_filenames": ["smiles.smi"],
+  "default_details_filename": "default_details.json"
+}

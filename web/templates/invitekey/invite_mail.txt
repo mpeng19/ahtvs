@@ -1,0 +1,7 @@
+{{message}}
+
+You are invited to website of the Harvard-MIT-Samsung collaboration.
+Click to this address to accept the invitation:
+{{invite_url}}
+
+

@@ -1,0 +1,7 @@
+$molecule
+{{jobspec.charge}} 1
+{% for a in jobspec.coords -%}
+    {{a.element}} {{'%0.5f'|format(a.x|float)}} {{'%0.5f'|format(a.y|float)}} {{'%0.5f'|format(a.z|float)}}
+{% endfor -%}
+$end
+

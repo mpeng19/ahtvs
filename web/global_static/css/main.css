@@ -1,0 +1,276 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.navbar-custom {
+    background-image: -webkit-linear-gradient(top, #ddd 0%, #d8d8d8 100%);
+    background-image: linear-gradient(to bottom, #ddd 0%, #d8d8d8 100%);
+
+}
+
+.floats-only {
+    width: 20px;
+    min-width: 150px;
+}
+
+.subnav {
+  margin:0;
+  top: 0px;
+  margin-top: 50px;
+  z-index: 1020;
+  background-color: rgb(247,247,247);
+  border: 1px solid #E1E1E1;
+  border-radius: 0 0 5px 5px;
+  padding: 8px;
+}
+
+.subnav.affix {
+   margin-top: 50px;
+}
+
+#leftnav-placeholder {
+  height: 390px;
+  width: 200px;
+}
+
+#sidebar input {
+   margin-top: 3px;
+   margin-bottom: 3px;
+   min-width: 150px;
+}
+
+#accordian-search {
+   margin-top: 5px;
+   margin-bottom: 10px;
+}
+ 
+#sidebar label {
+    margin-top: 5px;
+}
+
+.progress {
+    height: 30px;
+    width: 60%;
+}
+
+.progress-bar {
+    height: 100%;
+}
+
+.progress-text {
+    font-size: 1.2em;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-top: 5px;
+    padding-left: .5em;
+}
+
+
+
+.vote-yes {
+    background-color: #5cb85c;
+    background-image: linear-gradient(to bottom,#5cb85c 0,#449d44 100%);
+    background-image: -webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);
+}
+
+.vote-no {
+    background-color: #d9534f;
+    background-image: linear-gradient(to bottom,#d9534f 0,#c9302c 100%);
+    background-image: -webkit-linear-gradient(top,#d9534f 0,#c9302c 100%);
+}
+
+.vote-meh {
+    background-color: #f0ad4e;
+    background-image: linear-gradient(to bottom,#f0ad4e 0,#ec971f 100%);
+    background-image: -webkit-linear-gradient(top,#f0ad4e 0,#ec971f 100%);
+}
+
+.vote-buttons {
+    width: 115px;
+}
+
+.top-spacer {
+    height: 50px;
+}
+
+
+#progress {
+    position: fixed;
+    top: 200px;
+    left: 45%;
+    z-index: 10;
+    font-size: 10em;
+    color: rgba(10,10,10,0.6);
+    display: none;
+}
+
+#contextMenu {
+  position: absolute;
+  display:none;
+}
+
+.filter-image {
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    margin-top: 1px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.current-fragment{
+  text-align: left;
+}
+
+.remove {
+    position:relative;
+    right: -40px;
+    top: 5px;
+    color: rgba(10,10,10,0);
+    z-index:1;
+    font-size: 2em;
+}
+
+.detail-img {
+    background: white;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: solid;
+    border-width: 1px;
+    border-color: #D4D4D4;
+    padding: 10px;
+}
+
+
+.detailBox {
+    width:320px;
+    border:1px solid #bbb;
+    margin:15px;
+    border-radius: 5px
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+
+
+
+body,html,.row-offcanvas {
+  height:100%;
+}
+
+body {
+  padding-top: 50px;
+}
+
+#sidebar {
+  width: inherit;
+  min-width: 220px;
+  max-width: 220px;
+  background-color:#f5f5f5;
+  float: left;
+  height:100%;
+  position:relative;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+#main {
+  height:100%;
+  overflow:auto;
+}
+
+/*
+ * off Canvas sidebar
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    width:calc(100% + 220px);
+  }
+    
+  .row-offcanvas-left
+  {
+    left: -220px;
+  }
+
+  .row-offcanvas-left.active {
+    left: 0;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+  }
+}
+
+

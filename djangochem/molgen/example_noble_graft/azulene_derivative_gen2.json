@@ -1,0 +1,98 @@
+{
+  "cleaners": {
+  },
+   "molecules": [
+    {
+      "smiles": "",
+      "label": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He]C1=CC2=CC=CC=CC2=C1"
+        },
+        {
+          "smiles": "[He]C1=CC([He])=C2C=CC=CC=C12"
+        },
+        {
+          "smiles": "[He]C1=CC=CC([He])=C2C=CC=C12"
+        },
+        {
+          "smiles": "[He]C1=CC([He])=CC2=CC=CC2=C1"
+        },
+        {
+          "smiles": "[He]C1=CC=C2C=CC=C2C=C1"
+        },
+        {
+          "smiles": "[He]C1=CC2=CC=C([He])C=CC2=C1"
+        },
+        {
+          "smiles": "[He]C1=C([He])C2=CC=CC=CC2=C1[He]"
+        },
+        {
+          "smiles": "[He]C1=C([He])C2=C([He])C([He])=C([He])C([He])=C([He])C2=C1[He]"
+        },
+        {
+          "smiles": "[He]C1=C([He])C2=C([He])C([He])=CC([He])=C([He])C2=C1[He]"
+        },
+        {
+          "smiles": "[He]C1=CC([He])=C2C1=C([He])C([He])=CC([He])=C2[He]"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "label": "",
+      "group": "rgroup_type_1",
+      "blocks": [
+        {
+          "smiles": "[He]C"
+        },
+        {
+          "smiles": "[He]CC"
+        },
+        {
+          "smiles": "[He]C#N"
+        },
+        {
+          "smiles": "[He]C(F)(F)F"
+        },
+        {
+          "smiles": "[He]CC(F)(F)F"
+        },
+        {
+          "smiles": "[He]c1nnn[nH]1"
+        },
+        {
+          "smiles": "[He]n1cnnn1"
+        },
+        {
+          "smiles": "[He]c1ccncc1"
+        },
+        {
+          "smiles": "[He]c1cccnc1"
+        },
+        {
+          "smiles": "[He]c1ccccn1"
+        },
+        {
+          "smiles": "[He]c1ncccn1"
+        },
+        {
+          "smiles": "[He]c1ccncn1"
+        },
+        {
+          "smiles": "[He]c1cncnc1"
+        },
+        {
+          "smiles": "[He]c1ncncn1"
+        },
+        {
+          "smiles": "[He]Cl"
+        },
+        {
+          "smiles": "[He]F"
+        }
+      ]
+    }
+  ]
+}

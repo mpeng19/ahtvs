@@ -1,0 +1,18 @@
+{"worker_name": "conformer",
+ "project_name": "test",
+ "job_key": 3646630,
+ "smiles": "N#Cc1ccc2sc(C3CSc4cscc4S3)c(C3CSc4cscc4S3)c2c1",
+ "inchikey": "XVPOLIBWPCUXLY-UHFFFAOYNA-N",
+ "charge": 0,
+ "priority": 0,
+ "details": {"generation": 1,
+             "mass": 502.9092964160001,
+             "stoichiometry": "C21H13NS7",
+             "partitions": ["aspuru-guzik",
+                            "serial_requeue"],
+             "conformer_count": 5,
+             "molecular_charge": 0,
+             "electron_count": 258},
+ "parent_class": "Mol",
+ "uuid": "852fea65-fdcd-47fb-9990-8bb659a2200d"
+}

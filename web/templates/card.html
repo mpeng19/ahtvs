@@ -1,0 +1,91 @@
+
+{% load staticfiles %} {% load form_css %}
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}Celeste{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/main.css" %}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+
+    <link href="{% static "css/cards.css" %}" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2-bootstrap.min.css" rel="stylesheet">
+<script src="{% static "js/wavelength.js" %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
+<script src="//d3js.org/d3.v3.js"></script>
+
+</head>
+
+<body>
+  <div class="card">
+
+        <img src='/api/latest/candidate/?inchi_key={{candidate.inchi_key}}&format=svg'>
+        <table class="table table-striped">
+            <tr><td><strong>Nicknames</strong></td><td>{{candidate.nicknames}}</td></tr>
+            <tr><td ><strong>S<sub>1</sub> (eV)</strong></td><td >{{candidate.absorption|floatformat:2}}</td></tr>
+            <tr><td><strong>&Delta;E<sub>ST</sub> (eV)</strong></td><td>{{candidate.splitting|floatformat:3}}</td></tr>
+            <tr><td><strong>HOMO (eV)</strong></td><td>{{candidate.homo|floatformat:2}}</td></tr>
+            <tr><td><strong>LUMO (eV)</strong></td><td>{{candidate.lumo|floatformat:2}}</td></tr>
+
+            <tr><td><strong>rate (1/&micro;s)</strong></td><td>{{candidate.rate|floatformat:2}}</td></tr>
+            <tr><td><strong>sascore</strong></td><td>{{candidate.sascore|floatformat:1}}</td></tr>
+            <tr><td><strong>f</strong></td><td>{{candidate.strength|floatformat:4}}</td></tr>
+            <tr><td><strong>weight (amu)</strong></td><td>{{candidate.weight|floatformat}}</td></tr>
+            <tr><td><strong>Color Est. (nm)</strong></td><td>
+                <span data-color="{{candidate.absorption}}" class="color-nm"></span>&nbsp;&nbsp;&nbsp;
+                <svg width="16" height="16"><circle data-color="{{candidate.absorption}}" class="colordot" id="colordot-{{pk}}" r="7" cx="7" cy="9" fill="white"></circle></svg>
+            </td></tr>
+
+        </table>
+    </div>
+</body>
+
+<script>
+var vars = {}, keyval;
+var keyvals = window.location.search.substring(1).split('&');
+for(var i = 0; i < keyvals.length; i++)
+{
+    keyval = keyvals[i].split('=');
+    vars[keyval[0]] = keyval[1];
+}
+
+
+$(window).load(function() {
+
+
+    $(".colordot").each(function () {
+        dot = $(this);
+
+        rgb = Math.nmToRGB(absorption_to_nm(dot.attr("data-color")));
+        dot.attr("fill", "rgb("+rgb.red + ", " + rgb.green + ", " + rgb.blue + ")");
+
+    })
+
+    $(".color-nm").each(function () {
+        span = $(this);
+        var nm = absorption_to_nm(span.attr("data-color"));
+        var rgb = Math.nmToRGB(nm);
+        nm = Math.round (nm/5) * 5
+        span.text("~" + nm.toString())
+
+    })
+
+});
+</script>
+</html>

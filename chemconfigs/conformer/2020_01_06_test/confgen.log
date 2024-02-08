@@ -1,0 +1,33 @@
+The smiles strings that will be run are:
+C1=CC=C(C=C1)C1=C2C=CC=CC2=CC=C1
+Analysing smiles string C1=CC=C(C=C1)C1=C2C=CC=CC2=CC=C1
+Generating initial conformations
+Minimising conformations using the mmff force field
+Generated 4 initial confs
+Minimising conformer number 0
+Minimising conformer number 1
+Minimising conformer number 2
+Minimising conformer number 3
+Minimisation complete, generated conformations with the following energies:
+59.991600759689675
+59.99160079801318
+59.99160082646675
+59.991600836485304
+Clustering structures using an energy window of 0.3 and a rms tolerance of 0.3 and a Report Energy Window of 3.5
+clustering cluster 0 of 4
+clustering cluster 1 of 4
+clustering cluster 2 of 4
+clustering cluster 3 of 4
+7 ignore passes made
+0 overlays needed out of a possible 16
+Cluster 0 has energy 59.991600759689675
+Cluster 1 has energy 59.99160079801318
+Comparing 1 2 RMSD 7e-05
+Removed Conf_2
+n-59-260-p8.chem.tamu.edu
+gen time  8.977943  sec
+min time  0.091787  sec
+cluster time  0.000265  sec
+recluster time  1.005941  sec
+total time  10.075961  sec
+Terminated successfully

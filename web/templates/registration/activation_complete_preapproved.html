@@ -1,0 +1,16 @@
+{% extends "base-register.html" %}
+
+{% block title %}Account activation complete{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Success!</h1>
+  <p class="lead">Account successfully created.</p>
+  <p>You are already logged in, welcome!</p>
+
+  <p><a href="{% url 'home' %}"
+		class="btn btn-success"
+        role="button">Get Started</a>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base-nav.html" %}
+{% load admin_urls %}
+{% load bootstrap3 %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>Profile</h1>
+  <ul>
+  <li>Username: {{ user.get_username }}</li>
+  <li>Full Name: {{ user.get_full_name }}</li>
+  </ul>
+  <p><a href="{% url 'django.contrib.auth.views.password_change' %}">Change password</a></p>
+</div>
+{% endblock %}

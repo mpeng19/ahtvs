@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  a2g2:
+    # build: .
+    image: verysure/django-rdkit:180404
+    networks:
+      - backend
+    depends_on:
+      - db
+    environment:
+      # this shouldn't likely change as it enables the use of
+      # the DB_* env variables below
+      DJANGO_SETTINGS_MODULE: 'djangochem.settings.docker'
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASSWORD: UUn7tJSyYnBwC9u
+      DB_HOST: db
+    volumes:
+      - ../..:/a2g2
+    ports:
+      - "127.0.0.1:9999:9999"
+#    entrypoint:
+#      - /bin/bash
+#      - --login
+#    command:
+#      - pip install -e /a2g2/djangochem
+
+
+  db:
+    image: postgres:alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backend
+    environment:
+      POSTGRES_PASSWORD: UUn7tJSyYnBwC9u
+#    container_name: a2g2_postgres-dev
+
+networks:
+  backend:
+
+volumes:
+  db-data:

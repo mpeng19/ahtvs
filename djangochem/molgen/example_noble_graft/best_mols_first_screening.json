@@ -1,0 +1,38 @@
+{
+  "cleaners": {
+  },
+   "molecules": [
+    {
+      "smiles": "",
+      "label": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He]c1cc(OCC)c-2c(C)[o+]c(C)c-2c(OCC)c1"
+        },
+        {
+          "smiles": "[He]C(c1c-2c(CC(F)(F)F)c(CC(F)(F)F)c(CC(F)(F)F)c-2c(CC(F)(F)F)c(CC(F)(F)F)c(CC(F)(F)F)c1CC(F)(F)F)C(F)(F)F"
+        },
+        {
+          "smiles": "[He]C(C)c1c(CC)c2-c(c1CC)c(CC)c(CC)c(CC)c(CC)c2CC"
+        },
+        {
+          "smiles": "[He]c1c(c(c2-c(c(c(c2C(F)(F)F)C(F)(F)F)C(F)(F)F)c(c1C(F)(F)F)C(F)(F)F)C(F)(F)F)C(F)(F)F"
+        },
+        {
+          "smiles": "[He]c1cc(OCC)c-2c(C)[n+](C)c(C)c-2c(OCC)c1"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "label": "",
+      "group": "rgroup_type_1",
+      "blocks": [
+        {
+          "smiles": "[He][H]"
+        }
+      ]
+    }
+  ]
+}

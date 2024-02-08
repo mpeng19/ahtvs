@@ -1,0 +1,9 @@
+{
+    "extra_template_filenames": ["gaussian_test.inp"],
+    "job_template_filename": "job.sh",
+    "loader_module": "loader_b3lyp_gaussian",
+    "name": "b3lyp_def2svpp_opt_gaussian_vici",
+    "parent_class_name": "Geom",
+    "default_details_filename": "default_details.json"
+ }
+

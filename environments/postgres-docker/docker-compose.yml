@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  a2g2_postgres:
+    image: postgres:alpine
+    volumes:
+      - db-data2:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+     - "127.0.0.1:5440:5432"
+    container_name: a2g2_postgres
+volumes:
+  db-data2:

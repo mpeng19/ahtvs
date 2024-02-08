@@ -1,0 +1,42 @@
+.box {
+  font: 10px sans-serif;
+}
+
+.box line,
+.box rect,
+.box circle {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.box .center {
+  stroke-dasharray: 3,3;
+}
+
+.box .outlier {
+  fill: none;
+  stroke: #ccc;
+}
+
+.tag-label {
+padding-left: 125px;
+ display: inline-block;
+}
+
+.feature-label {
+    float: left;
+    width: 80px;
+    margin-top: 120px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+.feature-row {
+    padding-top: 20px;
+    border-color: #ccc;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+}

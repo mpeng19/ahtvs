@@ -1,0 +1,79 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+
+{% block extraheaders %}
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="/static/css/ChemDoodleWeb.css" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script type="text/javascript" src="/static/js/ChemDoodleWeb.js"></script>
+    <script type="text/javascript" src="/static/js/ChemDoodleWeb-uis.js"></script>
+
+    <style>
+        .geom {
+
+        }
+        .table-nonfluid {
+           width: auto;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="panel">
+            <h3>Geometries</h3>
+        </div>
+        <table class="table table-bordered table-responsive table-nonfluid">
+        <tbody>
+            {% for name, conf_list in all_calcs %}
+            <tr>
+                <td><h5>{{name}}</h5></td>
+                {% for calc_dict in conf_list %}
+                <td>
+                    <div class="geom" >
+                    {% if calc_dict.id %}
+                    <script type="text/javascript">
+                        // Create 3D SketcherCanvas variable
+                        var sketcher3D{{calc_dict.id}} = new ChemDoodle.TransformCanvas3D('sketcher3D{{calc_dict.id}}', 200, 200);
+                        sketcher3D{{calc_dict.id}}.specs.set3DRepresentation('Ball and Stick');
+                        // Read xyz from xyz
+                        setTimeout(function () {
+                            $.ajax({
+                                url:'/api/latest/calculation/{{calc_dict.id}}?format=xyz',
+                                tryCount : 0,
+                                retryLimit : 3,
+                                error : function(xhr, textStatus, errorThrown ) {
+                                        if (xhr.status == 301) {
+                                            this.tryCount++;
+                                            if (this.tryCount <= this.retryLimit) {
+                                                //try again
+                                                $.ajax(this);
+                                                return;
+                                            }
+                                            return;
+                                        }  else {
+                                            console.log("no love")
+                                        }
+                                    },
+                                success: function(data) {
+                                  var xyz = new ChemDoodle.readXYZ(data);
+                                  // Load molecule in sketcher3D
+                                  sketcher3D{{calc_dict.id}}.loadMolecule(xyz);
+                            }
+                                });
+                        }, Math.floor(Math.random() * 100));
+
+                    </script>
+                    {% endif %}
+
+                    </div>
+                </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+
+        </table>
+    </div>
+{% endblock %}

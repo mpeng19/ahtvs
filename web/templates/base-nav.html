@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="navtop navbar navbar-default navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i></button>
+            <a class="navbar-brand" href="/">{% block brand %} MSS <i class="fa fa-space-shuttle"></i>{% endblock %}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                {% block browse_options %}
+                <li><a id="card_button" href="#">Cards</a>
+                </li>
+                <li><a id="bubble_button"  href="#">Bubble</a>
+                </li>
+                <li><a id="table_button"  href="#">Table</a>
+                </li>
+                {% endblock %}
+              </ul>
+            </li>
+
+            {% if voting %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vote <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a id="ballot_card_button" href="#">Card Ballot</a>
+                </li>
+                <li><a id="ballot_table_button"  href="#">Table Ballot</a>
+                </li>
+              </ul>
+            </li>
+            {% endif %}
+     </ul>
+            {% block navcontent %}
+            {% endblock %}
+            <ul id="extra-nav" class="nav navbar-nav navbar-right">
+            </ul>
+
+            <ul id="user-nav" class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.get_username }} <i class="fa fa-user"></i></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/accounts/password_change">Change Password</a>
+                        </li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/accounts/logout">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+{% block content %} {% endblock %}
+<hr>{% endblock %} {% block navscripts %}
+<script>
+
+$("#bubble_button").click(function(e) {
+    window.location.href = "/bubble" + window.location.hash;
+});
+
+$("#card_button").click(function(e) {
+    window.location.href = "/cards" + window.location.hash;
+});
+
+$("#table_button").click(function(e) {
+    window.location.href = "/table" + window.location.hash;
+});
+
+$("#ballot_table_button").click(function(e) {
+    window.location.href = "/ballot_table/{{ballot_id}}" + window.location.hash;
+});
+$("#ballot_card_button").click(function(e) {
+    window.location.href = "/ballots/{{ballot_id}}" + window.location.hash;
+
+});
+</script>
+{% endblock %}

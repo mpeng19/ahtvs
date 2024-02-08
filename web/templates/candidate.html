@@ -1,0 +1,228 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+{% load form_css %}
+{% block extraheaders %}
+    <link type="text/css" href="{% static "css/ChemDoodleWeb.css" %}" rel="stylesheet">
+    <script type="text/javascript" src="{% static "js/ChemDoodleWeb.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/ChemDoodleWeb-uis.js" %}"></script>
+    <script src="{% static "js/wavelength.js" %}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="{% static "js/csrf.js" %}"></script>
+    <script src="{% static "js/date.format.js" %}"></script>
+
+
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div id="left-group" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="row">
+                    <div id="images" class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="titleBox">
+                            <label>Structure</label>
+                        </div>
+                        <div class="row">
+                            <img class="detail-img" src='/inchi_img/{{candidate.inchi_key}}.svg'>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>Donor</label>
+                            {% if candidate.donor %}
+                                <img class='detail-img' src="/inchi_img/{{candidate.donor}}.svg">
+                            {% endif %}
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>Acceptor</label>
+                            {% if candidate.acceptor %}
+                                <img class='detail-img'  src="/inchi_img/{{candidate.acceptor}}.svg">
+                            {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <label>B3LYP-631g* Lowest Energy Conformer</label>
+                            <script type="text/javascript">
+                            // Create 3D SketcherCanvas variable
+                            var sketcher3D = new ChemDoodle.TransformCanvas3D('sketcher3D', 300, 300);
+                            sketcher3D.specs.set3DRepresentation('Ball and Stick');
+                            // Read xyz from xyz
+                            setTimeout(function () {
+
+                                $.getJSON("/api/latest/calculation/?worker_name=b3lyp_6-31gs_sp&inchi_key={{candidate.inchi_key}}&format=json&order_by=properties__total_energy&limit=1", function( data ) {
+                                        parent_calc_url = data["objects"][0]["parent_calculation_list"];
+                                        xyz_url = parent_calc_url + "?format=xyz";
+                                        $.ajax({
+                                            url: xyz_url,
+                                            tryCount : 0,
+                                            retryLimit : 3,
+                                            error : function(xhr, textStatus, errorThrown ) {
+                                                    if (xhr.status == 301) {
+                                                        this.tryCount++;
+                                                        if (this.tryCount <= this.retryLimit) {
+                                                            //try again
+                                                            $.ajax(this);
+                                                            return;
+                                                        }
+                                                        return;
+                                                    }  else {
+                                                        console.log("no love")
+                                                    }
+                                                },
+                                            success: function(data) {
+                                              var xyz = new ChemDoodle.readXYZ(data);
+                                              // Load molecule in sketcher3D
+                                              sketcher3D.loadMolecule(xyz);
+                                        }
+
+                                    });
+
+                                
+                                    });
+                            }, Math.floor(Math.random() * 100));
+
+                        </script>
+                        </div>
+                        </div>
+                    </div> 
+                    <div id="parameters" class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="titleBox">
+                            <label>Properties</label>
+                        </div>
+                        <table class="table table-striped table-bordered">
+                            <tr><td><strong>Nicknames</strong></td><td>{{candidate.nicknames}}</td></tr>
+                            <tr><td><strong>Key</strong></td><td>{{candidate.inchi_key}}</td></tr>
+                            <tr><td><strong>weight (amu)</strong></td><td>{{candidate.weight}}</td></tr>
+                            <tr><td><strong>sascore</strong></td><td>{{candidate.sascore}}</td></tr>
+
+                            {% if request.user.is_staff %}
+                                <tr><td><strong>Calc Time</strong></td><td>{{candidate.calc_time}}</td></tr>
+                            {% endif %}
+                        </table>
+                            
+                            {% for method in properties|dictsort:"name" %}
+                                <table class="table table-striped table-bordered">
+                                <tr><td colspan=2><strong>{{method.name}}</strong></td>
+                                {% for prop in method.prop_list %}
+
+                                    {% if prop.name == 'absorption' %}
+                                        <tr><td><strong>Color Est. (nm)</strong></td><td><span class="color-nm" data-color="{{prop.value}}"> &#126;</span>
+                                            <svg width="16" height="16"><circle class="colordot" data-color="{{prop.value}}" r="7" cx="9" cy="9"></circle></svg>
+                                        </td></tr>
+                                    {% else %}
+                                        <tr><td><strong>{{prop.name}}</strong></td><td>{{prop.value|floatformat:3}}</td></tr>
+                                    {% endif %}                        
+                                {% endfor %}
+                                </table>                                
+                            {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="right-group" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="row">
+                    <div class="panel">
+                        <div id="comments" class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                            <div class="titleBox">
+                                <label>Comments</label>
+                            </div>
+                            <div class="actionBox">
+                                <ul id="comment-list" class="commentList">
+                                    {% for comment in comments %}
+                                        <li>
+                                            <!--           <div class="commenterImage">
+                                                <img src="//lorempixel.com/50/50/people/6" />
+                                            </div> -->
+                                            <div class="commentText">
+                                                <p class="">{{comment.text}}</p> <span class="date sub-text">{{comment.time}}</span><span class="sub-text"> -- {{comment.user.username}}</span>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <form id="comment-form" class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <input id="comment-text" name="text" class="form-control" type="text" placeholder="Your comments" />
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="add-comment" class="btn btn-default">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <!-- INSERT EXPERIMENTAL PROGRESS AND DETAILS HERE -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="left-group" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <table class="table table-bordered"><tr>
+                <td><strong>SMILES</strong></td><td>{{candidate.smiles}}</td>
+                </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{%block extrascripts%}
+<script>
+    var vars = {}, keyval;
+    var keyvals = window.location.search.substring(1).split('&');
+    
+    for(var i = 0; i < keyvals.length; i++)
+    {
+    keyval = keyvals[i].split('=');
+    vars[keyval[0]] = keyval[1];
+    }
+    
+    function add_comment(comment) {
+        var date = new Date(comment.time);
+        var date_string = date.format("mmmm dd, yyyy, h:MM tt");
+        $("#comment-list")
+            .append("<li>")
+            .append("<div class='commentText'>")
+            .append("<p class=''>"+comment.text+"</p> <span class='date sub-text'>"+date_string+"</span><span class='sub-text'> -- "+comment.user+"</span>");
+    }
+    $('#add-comment').click( function(evt) {
+        evt.preventDefault();
+        var postdata = {
+                "text": $("#comment-text").val(),
+                "time": new Date().toISOString(),
+                "user": '{{request.user.username}}',
+                "candidate": {{candidate.id}}
+            }
+
+        $.ajax({
+            type: "POST",
+            url: "/rf/comments/",
+            data: JSON.stringify(postdata),
+            success: function(data) { 
+                add_comment(data);
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            crossDomain:false,
+        });
+    });
+
+
+    $(window).load(function() {
+        $(".colordot").each(function () {
+            var dot = $(this);
+            var rgb = Math.nmToRGB(absorption_to_nm(dot.attr("data-color")));
+            dot.attr("fill", "rgb("+rgb.red + ", " + rgb.green + ", " + rgb.blue + ")");
+        })
+        $(".color-nm").each(function () {
+            span = $(this);
+            var nm = absorption_to_nm(span.attr("data-color"));
+            var rgb = Math.nmToRGB(nm);
+            nm = Math.round (nm/5) * 5
+            span.text("~" + nm.toString())
+        })
+
+
+    });
+</script>
+{% endblock %}

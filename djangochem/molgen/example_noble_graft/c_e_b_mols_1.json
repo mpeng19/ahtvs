@@ -1,0 +1,47 @@
+{
+  "cleaners": {
+  },
+   "molecules": [
+    {
+      "smiles": "",
+      "label": "",
+      "group": "core",
+      "blocks": [
+        {
+          "smiles": "[He]C1=C2OC(=O)C=C(C)C2=CC=C1O"
+        },
+        {
+          "smiles": "[He]C1=C2OC(=O)C=C(C)C2=CC=C1N"
+        },
+        {
+          "smiles": "[He]C1=C2OC3=C(C=C(CN(CC(=O)OCOC(C)=O)CC(=O)OCOC(C)=O)C(OC(C)=O)=C3)C3(OC(=O)C4=CC=CC=C34)C2=CC(CN(CC(=O)OCOC(C)=O)CC(=O)OCOC(C)=O)=C1OC(C)=O"
+        },
+        {
+          "smiles": "[He]C1=CC(=O)C=C2C1=NC1=CC(Cl)=C(O)C(Cl)=C1C2(C)C"
+        },
+        {
+          "smiles": "[He]C1=C2C(C)=CC(=O)OC2=C(F)C(O)=C1F"
+        },
+        {
+          "smiles": "[He]c1ccc2C(=O)OC3(c2c1)c1ccc(O)cc1Oc1cc(O)ccc31"
+        },
+        {
+          "smiles": "[He]c1ccc2c(c1)C(=O)OC21c2ccc3cc(O)ccc3c2Oc2c1ccc1cc(O)ccc21"
+        },
+        {
+          "smiles": "[He]c1ccc2c(N)cc3OC4=CC(C=CC4=Nc3c2c1)N(CC)CC"
+        }
+      ]
+    },
+    {
+      "smiles": "",
+      "label": "",
+      "group": "rgroup_type_1",
+      "blocks": [
+        {
+          "smiles": "[He][H]"
+        }
+      ]
+    }
+  ]
+}

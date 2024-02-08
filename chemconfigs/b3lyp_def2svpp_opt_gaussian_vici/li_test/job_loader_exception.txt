@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/chenghanli/ahtvs/djangochem/jobs/jobdirparser.py", line 156, in update_db_for_job
+    results = self._parse_results_for_completed_job(info, storage)
+  File "/Users/chenghanli/ahtvs/djangochem/jobs/jobdirparser.py", line 186, in _parse_results_for_completed_job
+    results = self.loader_module.load_calc_list(tempdir, info)
+AttributeError: module 'loader_b3lyp_gaussian' has no attribute 'load_calc_list'

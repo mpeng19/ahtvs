@@ -1,0 +1,44 @@
+Metadata-Version: 1.1
+Name: a2g2
+Version: 1.0
+Summary: A molecular high-throughput discovery platform
+Home-page: UNKNOWN
+Author: Alan Aspuru-Guzik
+Author-email: alan@aspuru.com
+License: Proprietary
+Description: ======
+        djangochem
+        ======
+        
+        djangochem is a django app for the storage of theoretical chemistry calculations and data
+        
+        
+        setting up test environment:
+        docker run -p 27017:27017 --name some-mongo -d mongo
+        docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+        
+        
+        requirements:
+        
+        docker (it's still in beta for mac but it should be out soon) - 
+            This is really just for running the databases.  You can also setup the databases in other ways, or use dbs that are hosted on other machines.  Docker is just super easy.
+            
+        python3
+        
+        
+        run tests
+        ---------
+        
+        ./manage.py test
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.10
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content

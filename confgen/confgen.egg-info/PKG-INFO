@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: confgen
+Version: 2.0
+Summary: Conformer Generator for Molecules
+Home-page: UNKNOWN
+Author: Daniel P. Tabor
+Author-email: daniel.tabor@chem.tamu.edu
+License: Proprietary
+Description: ======
+        confgen
+        ======
+        
+        confgen is an app for the generation of conformers 
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content

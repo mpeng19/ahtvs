@@ -1,0 +1,186 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+
+{% block extraheaders %}
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="{% static "js/fisheye.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+              <div class="large-12 columns">
+                <div class="panel">
+                    <h3>Redox Graph Experiment</h3>
+                    Each edge in this graph represents a redox pair.  For a given substitution pattern, the graph represents all possible redox pathways from hydroquinone to fully oxidized quinone.
+                </div>
+                <h3 class="text-center"> <i class="fa fa-arrow-left"></i> reduced <i class="fa fa-ellipsis-h"></i> oxidized <i class="fa fa-arrow-right"></i> </h3>
+                <div class="panel" id="graph">
+
+              </div>
+        </div>
+    </div>
+
+    <script>
+    var width = 1200,
+        height = 800,
+        link_size = 300;
+
+    var color = d3.scale.category20();
+
+    var force = d3.layout.force()
+        .charge(-3000)
+        .linkDistance(link_size)
+        .gravity(0.05)
+        .size([width, height]);
+
+
+    var svg = d3.select("#graph").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var fisheye = d3.fisheye.circular()
+        .radius(50)
+        .distortion(2);
+
+    d3.json("/redox_graph_json/{{redoxpair_id}}", function(error, graph) {
+         var root = graph.nodes[0];
+         var max_depth = d3.max($.map(graph.nodes, function(d) {return d.depth;}));
+         var graph_width = max_depth * link_size;
+         var start_x = (width - graph_width) / 2;
+
+         root.fixed = true;
+         root.x = start_x;
+         root.y = height / 2;
+
+
+        force
+            .nodes(graph.nodes)
+            .links(graph.edges)
+            .start();
+
+        var link = svg.selectAll(".link")
+            .data(graph.edges)
+            .enter().append("line")
+            .attr("class", "link")
+            .style("stroke-width", "1")
+            .style("stroke", "grey")
+
+
+
+        var node = svg.selectAll(".node")
+            .data(graph.nodes)
+            .enter().append("g")
+            .attr("class", "node")
+            .call(force.drag);
+
+        var quinone = svg.selectAll(".node");
+
+        //.attr("transform", "scale(1, 1)");
+
+        quinone.append("circle")
+            .attr("class", "node")
+            .attr("r", "40")
+            .style("stroke", "grey")
+            .style("fill", "white")
+            .style("stroke-width", "1")
+            .call(force.drag);
+
+
+        node.append("title")
+            .text(function(d) {
+                return d.label;
+            });
+
+        quinone.append("image")
+            .attr("xlink:href", function(d) {
+                return "/inchi_img/"+d.inchi_key+".svg";
+            })
+            .attr("x", -35)
+            .attr("y", -35)
+            .attr("width", 70)
+            .attr("height", 70)
+            .select("rect").remove();
+
+        svg.on("mousemove", function() {
+            fisheye.focus(d3.mouse(this));
+
+
+            quinone.each(function(d) {
+                d.fisheye = fisheye(d);
+                })
+                .attr("transform", function(d) {
+                    return "translate(" + (d.x) + "," + d.y +") " + "scale(" + (d.fisheye.z) + ") ";
+                })
+                .sort(function(a,b) {
+                    if (Math.abs(a.fisheye.z - b.fisheye.z) < 0.01) {
+                        return (a.y > b.y) ? 1 : ( (b.y > a.y) ? -1 : 0 );
+                    } else {
+                        return (a.fisheye.z > b.fisheye.z) ? 1 : ( (b.fisheye.z > a.fisheye.z) ? -1 : 0 );
+                    }
+                });
+            link.style("stroke-width", function(d) {
+                        return d3.max([1.5*d.source.fisheye.z, 1.5*d.target.fisheye.z])
+                    })
+                .style("stroke", function(d) {
+                        return d3.rgb(d3.max([100*d.source.fisheye.z, 100*d.target.fisheye.z]),100,100);
+                    });
+            // link.attr("x1", function(d) {
+            //     return d.source.fisheye.x;
+            //     })
+            //     .attr("y1", function(d) {
+            //         return d.source.fisheye.y;
+            //     })
+            //     .attr("x2", function(d) {
+            //         return d.target.fisheye.x;
+            //     })
+            //     .attr("y2", function(d) {
+            //         return d.target.fisheye.y;
+            //     });
+        });
+
+
+        force.on("tick", function(e) {
+            var kx = 1.2 * e.alpha;
+
+            graph.nodes.forEach(function(d,i) {
+                d.x = start_x + (d.depth) * 300;
+                if (e.alpha < 0.01) {
+                    d.fixed = true;
+                }
+
+            });
+
+            link.attr("x1", function(d) {
+                return d.source.x;
+                })
+                .attr("y1", function(d) {
+                    return d.source.y;
+                })
+                .attr("x2", function(d) {
+                    return d.target.x;
+                })
+                .attr("y2", function(d) {
+                    return d.target.y;
+                });
+
+            node.attr("cx", function(d) { return d.x; })
+                .attr("cy", function(d) { return d.y; });
+
+            quinone
+                .attr("transform", function(d) {
+                quinone.each(function(d) {
+                    d.fisheye = fisheye(d);
+                })
+
+                })
+                .attr("transform", function(d) {
+                    return "translate(" + (d.x) + "," + d.y + ") " + "scale(" + (d.fisheye.z) + ") ";
+                });
+
+
+
+        });
+    });
+    </script>
+{% endblock %}

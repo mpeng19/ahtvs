@@ -1,0 +1,157 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+{% block extraheaders %}
+<!-- Custom styles for this template -->
+<link href="{% static "css/simple-sidebar.css" %}" rel="stylesheet">
+<link href="{% static "css/cards.css" %}" rel="stylesheet">
+<script src="{% static "js/wavelength.js" %}"></script>
+<link href="{% static "css/box.css" %}" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
+<script src="//d3js.org/d3.v3.js"></script>
+<script src="{% static "js/wavelength.js" %}"></script>
+<script src="{% static "js/box.js" %}"></script>
+
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="container-fluid">
+        <div class="row" id="card-row">
+            <div id="plots">
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block extrascripts %}
+
+<script>
+
+function set_content_height() {
+    var height =  $("#subnav").height();
+    $("#content").css('margin-top', height+'px');
+}
+
+
+var margin = {top: 10, right: 50, bottom: 20, left: 50},
+    width = 120 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var min = Infinity,
+    max = -Infinity;
+
+var chart = d3.box()
+    .whiskers(iqr(10))
+    .width(width)
+.height(height);
+
+
+
+// Returns a function to compute the interquartile range.
+function iqr(k) {
+  return function(d, i) {
+    var q1 = d.quartiles[0],
+        q3 = d.quartiles[2],
+        iqr = (q3 - q1) * k,
+        i = -1,
+        j = d.length;
+    while (d[++i] < q1 - iqr);
+    while (d[--j] > q3 + iqr);
+    return [i, j];
+  };
+}
+
+
+$(window).load(function(){
+    data = {};
+    features = ["strength", "rate", "splitting", "weight", "absorption", "sascore"]
+    completed = 0;
+    input_data = [];
+    loading_done = false
+    tags = [{% for t in tags %}'{{t}}',{% endfor %}];
+    features.forEach(function(feature) {
+        data[feature] = {}
+        data[feature]["min"] = Infinity;
+        data[feature]["max"] = -Infinity;
+        data[feature]["values"] = []
+    });
+    tags.forEach(function(tag, tag_index) {
+
+        query = "sets__name="+tag
+        d3.json("/api/latest/minicandidate/?format=json&"+query+"&limit=5000", function(input_data) {
+
+            features.forEach(function(feature) {
+
+
+                input_data.objects.forEach(function(mol) {
+                    var value = mol[feature]
+                    d = data[feature]["values"][tag_index];
+                if (!d) {
+                    d = data[feature]["values"][tag_index] = [value];
+                } else {
+                    d.push(value);
+                }
+                if (value > data[feature]["max"]) data[feature]["max"] = value;
+                if (value < data[feature]["min"]) data[feature]["min"] = value;
+              });
+            });
+              completed += 1;
+
+                if (completed == tags.length) {
+                    loading_done = true;
+                }
+
+
+            });
+
+    });  // end tags foreach
+
+    function waitForElement(){
+        if(loading_done){
+            d3.select("#plots").selectAll("div")
+                .data(tags)
+                .enter()
+                .append("div")
+                .style("width", function(d) {
+                    return width + margin.left + margin.right + "px";
+                })
+                .attr("class", "tag-label")
+                .append("strong")
+                .text(function (d) {return d})
+
+            features.forEach(function (feature) {
+                console.log(feature);
+                console.log(data[feature]["min"]);
+                console.log(data[feature]["max"]);
+                chart.domain([data[feature]["min"], data[feature]["max"]]);
+                row = d3.select("#plots").append("div").attr("class", "feature-row")
+                row.append("div")
+                    .attr("class", "feature-label")
+                    .text(feature);
+                row.selectAll("svg")
+                  .data(data[feature]["values"])
+                  .enter().append("svg")
+                  .attr("class", "box")
+                  .attr("width", width + margin.left + margin.right)
+                  .attr("height", height + margin.bottom + margin.top)
+                  .append("g")
+                  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                  .call(chart);
+
+                });
+        }
+        else{
+            setTimeout(function(){
+                waitForElement();
+            },50);
+        }
+    }
+    waitForElement();
+    set_content_height();
+});
+
+
+</script>
+
+{% endblock %}

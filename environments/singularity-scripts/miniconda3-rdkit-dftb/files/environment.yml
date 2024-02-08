@@ -1,0 +1,12 @@
+name: chem
+channels: 
+    - defaults
+    - rdkit
+    - openbabel
+    - conda-forge
+dependencies:
+    - openbabel
+    - rdkit
+    - scipy
+    - numpy
+    - ase

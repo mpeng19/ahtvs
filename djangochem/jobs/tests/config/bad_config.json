@@ -1,0 +1,7 @@
+{
+  "extra_template_filenames": [],
+  "job_template_filename": "test.inp",
+  "batch_template_filename": "batch.sh",
+  "name": "test_worker",
+  "parent_class_name": "Mol"
+}

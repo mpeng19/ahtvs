@@ -1,0 +1,447 @@
+{% extends "base-nav.html" %}
+{% load staticfiles %}
+
+{% block brand %}Organic Lasers{% endblock %}
+{% block extraheaders %}
+
+<!-- Custom styles for this template -->
+
+<link href="{% static "css/simple-sidebar.css" %}" rel="stylesheet">
+<link href="{% static "css/cards.css" %}" rel="stylesheet">
+<link href="{% static "css/bubble.css" %}" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2-bootstrap.min.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
+<script src="//d3js.org/d3.v3.js"></script>
+<script src="//d3js.org/colorbrewer.v1.min.js"></script>
+<script src="{% static "js/wavelength.js" %}"></script>
+<script src="{% static "js/bubble.js" %}"></script>
+{% endblock %}
+
+{% block browse_options %}
+<li><a id="card_button" href="#">Cards</a>
+</li>
+<li><a id="table_button"  href="#">Table</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+{% if voting %}
+    <div class="subsubnav navbar-default navbar-static-top" role="navigation" style="position: fixed; left: 0; right: 0; padding-top: 0px; z-index: 1020">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-text" style="margin-bottom: 0px; margin-top: 10px;">
+                    <p><strong id="ballot-name">{{ballot_name}}</strong><br>{% if closed %} <span class="text-danger"> <i class="fa fa-ban"></i> CLOSED {{close_time}}</span>{% else %} Open until: {{close_time}}{% endif %}</p>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="nav navbar-text progress">
+                    <div id="progress-up" class="progress-bar progress-bar-success" style="width: 0%">
+                        <div class="progress-text"><i class="fa fa-thumbs-o-up"></i> <span id="total-up"></span> Yes</div>
+                    </div>
+                    <div id="progress-meh" class="progress-bar progress-bar-warning" style="width: 0%">
+                        <div class="progress-text"><i class="fa fa-meh-o"></i> <span id="total-meh"></span> Unsure</div>
+                    </div>
+                    <div id="progress-down" class="progress-bar progress-bar-danger" style="width: 0%">
+                        <div class="progress-text"><i class="fa fa-thumbs-o-down"></i> <span id="total-down"></span> No</div>
+                    </div>
+                    <div id="progress-remaining" class="progress-bar" role="progressbar" style="width: 0%">
+                        <div class="progress-text"><i class="fa fa-inbox"></i> <span id="total-remaining"></span> Remaining</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div id="content" class="row-offcanvas row-offcanvas-left">
+        <div id="sidebar" class="sidebar-offcanvas">
+            <div class="col-md-12">
+                <form class="navbar-left" role="search">
+                    <label class="control-label">Tag</label>
+                    <select id="select-batch" class="filter-option form-control">
+                        {% for tag in tags %}
+                            <option value="sets__in={{tag}}">{{tag}}</option>
+                        {% endfor %}
+                    </select>
+                    <label class="control-label">Sort by</label>
+                    <select id="select-orderby" class="filter-option form-control">
+                        <option value="ordering=-absorption">Absorption</option>
+                        <option value="ordering=sascore">SA Score</option>
+                        <option value="ordering=-strength">Strength</option>`
+                        <option value="ordering=weight">Weight</option>
+                        <option value="ordering=nicknames">Nicknames</option>
+                    </select>
+                    <input id="filter-min-absorption" type="text" class="update-on-enter form-control floats-only" placeholder="Min Absorption (eV)" data-toggle="tooltip" title="Min Absorption (eV)">
+                    <input id="filter-max-splitting" type="text" class="update-on-enter form-control floats-only" placeholder="Max Splitting (eV)" data-toggle="tooltip" title="Max Splitting (eV)">
+                    <input id="filter-max-sascore" type="text" class="update-on-enter form-control floats-only" placeholder="Max SA Score" data-toggle="tooltip" title="Max SA Score">
+                    <input id="filter-min-strength" type="text" class="update-on-enter form-control floats-only" placeholder="Min Strength" data-toggle="tooltip" title="Min Strength">
+                    
+                    <div class="accordion" id="accordian-search">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="accordian-search" href="#collapseOne">
+                                    <span class="glyphicon glyphicon-minus"></span> Find one...
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <input id="filter-nickname" type="text" class="update-on-enter form-control" placeholder="Nickname" data-toggle="tooltip" title="Nickname">
+                                </div>
+                                <div class="accordion-inner">
+                                    <input id="filter-smiles" type="text" class="update-on-enter form-control" placeholder="SMILES" data-toggle="tooltip" title="SMILES">
+                                </div>
+                                <div class="accordion-inner">
+                                    <input id="filter-inchi" type="text" class="update-on-enter form-control" placeholder="INCHI key" data-toggle="tooltip" title="INCHI key">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="filter-clear-all" class="btn btn-danger">Clear All</button>
+                    <button id="filter-update" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+        <div id="main">
+            <div class="col-md-12">
+                <p class="visible-xs">
+                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                </p>
+                <div id="progress"><i class="fa fa-cog fa-spin"></i></div>
+                <div class="row">
+                    <div id="card-row">
+                        <div class="col-md-12">
+                                <div id="molecules">
+                                    <p>
+                                        Use the Filter bar to select some molecules to view.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <div id="bubble-row">
+                        <div class="col-md-8 col-xs-12">
+                            <div class="panel">
+                                <div id="chart">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="card" id="selected-mol-card">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /#main -->
+            <li id="quick-links-dropdown" class="dropdown" style="display: none;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Links<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Tags</li>
+                    {% for tag in tags %}<li><a class="query_button set_name" id="#sets__in={{tag}}" href="#sets__in={{tag}}">{{tag}}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+{% endblock %}
+{% block extrascripts %}
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js"></script>
+
+<script id="card-template" type="x-tmpl-mustache">
+    {% verbatim %}
+        <div class="card" id={{id}}>
+            {{#voting}}
+            <table class="table table-striped">
+                <tr id="vote-{{vote_pk}}">
+                    <td style="line-height: 2em; padding-left: 15px; font-weight: bold;">My Rating: </td>
+                    <td class="text-right"><div class="btn-group">
+                    <button class="vote-button btn {{yes_class}} {% if closed %}disabled{% endif %}" id="up-{{vote_pk}}"><i class="fa fa-thumbs-o-up"></i></button>
+                    <button class="vote-button btn {{meh_class}} {% if closed %}disabled{% endif %}" id="meh-{{vote_pk}}" id="meh-{{vote_pk}}"><i class="fa fa-meh-o"></i></button>
+                    <button class="vote-button btn {{no_class}} {% if closed %}disabled{% endif %}" id="down-{{vote_pk}}" id="down-{{vote_pk}}"><i class="fa fa-thumbs-o-down"></i></button></div></td>
+                </tr>
+            </table>
+            {{/voting}}
+            <table class="table table-bordered">
+
+                <tr>
+                    <td colspan=2>
+                        <a href="/detail/{{project}}/{{inchi_key}}">
+                        <img class="card-main-img" src='/inchi_img/{{inchi_key}}.svg'>
+                        </a>
+                        <span class="comment-tag fa-stack fa-1x">
+                             <i class="fa fa-comment fa-stack-2x"></i>
+                             <strong class="fa-stack-1x fa-stack-text fa-inverse comment-count"></strong>
+                         </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="fragment">{{#donor}}<img class='card-fragment' src="{{donor}}?format=svg">{{/donor}}</td>
+                    <td class="fragment">{{#acceptor}}<img class='card-fragment'  src="{{acceptor}}?format=svg">{{/acceptor}}</td>
+                </tr>
+            </table>
+
+            <table class="table table-striped">
+
+            {{#nicknames}}
+                <tr><td><strong>Nicknames</strong></td><td>{{nicknames}}</td></tr>
+            {{/nicknames}}
+                <tr><td><strong>weight (amu)</strong></td><td>{{weight}}</td></tr>
+                <tr><td><strong>splitting (eV)</strong></td><td>{{splitting}}</td></tr>
+                <tr><td><strong>absorption (eV)</strong></td><td>{{absorption}}</td></tr>
+                <tr><td><strong>homo (eV)</strong></td><td>{{homo}}</td></tr>
+                <tr><td><strong>lumo (eV)</strong></td><td>{{lumo}}</td></tr>
+                <tr><td><strong>sascore</strong></td><td>{{sascore}}</td></tr>
+                <tr><td><strong>strength</strong></td><td>{{strength}}</td></tr>
+                <tr><td><strong>Key</strong></td><td>{{shortened_inchi_key }}</td></tr>
+                {% endverbatim %}
+                {% if request.user.is_staff %}
+                <tr><td><strong>Calc Time</strong></td><td>{% verbatim %}{{calc_time}}{% endverbatim %}</td></tr>
+                {% endif %}
+                {% verbatim %}
+                <tr><td><strong>Color Est. (nm)</strong></td><td><span> &#126;{{color_nm}}</span>
+                    <svg width="16" height="16"><circle r="7" cx="9" cy="9" style="fill: rgb({{color_red}}, {{color_green}}, {{color_blue}});"></circle></svg>
+                </td></tr>
+            </table>
+        </div>
+    {% endverbatim %}
+</script>
+
+<script id="navcard-template" type="x-tmpl-mustache">
+    {% verbatim %}
+    <ul class="pager">
+
+        {{#previous}}
+        <li><a class="prev-next-button" data-query="{{previous}}">Previous</a></li>
+        {{/previous}}
+        <li>{{lower}} to {{upper}} of {{total_count}} total</li>
+        {{#next}}
+        <li><a class="prev-next-button" data-query="{{next}}">Next</a></li>
+        {{/next}}
+    </ul>
+    {% endverbatim %}
+</script>
+
+<script>
+
+
+function load_hash(hash) {
+{% if voting %}
+        $("#bubble-row").hide();
+        $("#card-row").show();
+    rf_load_cards(hash, {{ballot_id}});
+{% else %}
+ if (window.location.pathname === "/laser_cards") {
+        $("#bubble-row").hide();
+        $("#card-row").show();
+        rf_load_cards(hash);
+    } else {
+        $("#card-row").hide();
+        $("#bubble-row").show();
+        init_oled_bubbles(hash);
+    }
+{% endif %}
+}
+
+
+function add_query(new_query, load) {
+    var keyvalue_to_add = new_query.split("=");
+
+    dict = get_url_vars_after_hash()
+    delete(dict[""]);
+    if (keyvalue_to_add[1] == "") {
+        delete(dict[keyvalue_to_add[0]])
+    } else {
+        dict[keyvalue_to_add[0]] = keyvalue_to_add[1]
+    }
+    new_hash = $.param(dict)
+
+    window.location.hash = "#" + new_hash;
+    if (load) {
+        load_hash(new_hash);
+    }
+}
+function get_url_vars_after_hash()
+{
+    var vars = {}, hash;
+    var hashes = window.location.hash.substring(1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+function set_content_height() {
+    var height =  $(".subsubnav").height();
+    $("#content").css('margin-top', height+'px');
+}
+
+function update_filter() {
+    add_query("prop-absorption__gt=" +  $("#filter-min-absorption").val(), false);
+    add_query("prop-splitting__lt=" + $("#filter-max-splitting").val(), false);
+    add_query("sascore__lt=" + $("#filter-max-sascore").val(), false);
+    add_query("prop-strength__gt=" + $("#filter-min-strength").val(), false);
+    add_query("nicknames__contains=" + $("#filter-nickname").val(), false);
+    add_query("smiles__contains=" + $("#filter-smiles").val(), false);
+    add_query("inchi_key__contains=" + $("#filter-inchi").val(), false);
+    var hash = window.location.hash.substring(1);
+    load_hash(hash);
+}
+
+function reset_filters() {
+    $("#filter-min-absorption").val("");
+    $("#filter-max-splitting").val("");
+    $("#filter-max-sascore").val("");
+    $("#filter-min-rate").val("");
+    $("#filter-min-strength").val("");
+    $("#filter-nickname").val("");
+    $("#filter-smiles").val("");
+    $("#filter-inchi").val("");
+    add_query("prop-absorption__gt=", false);
+    add_query("prop-splitting__lt=", false);
+    add_query("sascore__lt=", false);
+    add_query("nicknames__contains=", false);
+    add_query("smiles__contains=", false);
+    add_query("inchi_key__contains=", false);
+    add_query("prop-strength__gt=", true);
+
+}
+
+$(window).on('load', function(){
+    // activate sidebar
+    $('[data-toggle=offcanvas]').click(function() {
+        $('.row-offcanvas').toggleClass('active');
+      });
+
+  $("#quick-links-dropdown").detach().appendTo("#extra-nav")
+  $("#quick-links-dropdown").show()
+
+  $("#select-batch").select2()
+  $("#select-orderby").select2()
+
+    var hash = window.location.hash.substring(1);
+    load_hash(hash);
+
+    hash_dict = get_url_vars_after_hash();
+    $('#select-batch').select2("val", "sets__in="+hash_dict["sets__in"])
+    $('#select-orderby').select2("val", "ordering="+hash_dict["ordering"])
+
+    $("#filter-min-absorption").val(hash_dict["prop-absorption__gt"]);
+    $("#filter-max-splitting").val(hash_dict["prop-splitting__lt"]);
+    $("#filter-max-sascore").val(hash_dict["sascore__lt"]);
+    $("#filter-min-strength").val(hash_dict["prop-strength__gt"]);
+    $("#filter-nickname").val(hash_dict["nicknames__contains"]);
+    $("#filter-smiles").val(hash_dict["smiles__contains"]);
+    $("#filter-inchi").val(hash_dict["inchi_key__contains"]);
+
+
+    $(".filter-option").change(function(e) {
+        var selected = $(this).find('option:selected');
+        var new_query = selected.val();
+        add_query(new_query, true);
+    });
+
+    $("#card_button").click(function(e) {
+        window.location.href = "/laser_cards" + window.location.hash;
+    });
+
+    $("#filter-update").click(update_filter);
+    $("#filter-clear-all").click(function () {
+        reset_filters();
+    })
+    $(".floats-only").keypress(function(e) {
+        var a = [48,49,50,51,52,53,54,55,56,57,46];
+        var k = e.which;
+        if (!(a.indexOf(k)>=0)){
+            e.preventDefault();
+        }
+    });
+    $(".update-on-enter").keypress(function(e) {
+        var k = e.which;
+        if (k == 13) {
+            e.preventDefault();
+            update_filter();
+        }
+   });
+   $(".floats-only").tooltip({
+        'delay': { show: 0, hide: 0 },
+        'placement': 'right'
+    });
+    set_content_height();
+
+    $('.collapse').on('shown.bs.collapse', function(){
+    $(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+    }).on('hidden.bs.collapse', function(){
+    $(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+    });
+    $('#collapseOne').collapse("hide");
+
+
+    {%if voting%}
+        tallies = {{tallies | safe}};
+
+
+
+        var csrftoken = $.cookie('csrftoken');
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        function sameOrigin(url) {
+            // test that a given url is a same-origin URL
+            // url could be relative or scheme relative or absolute
+            var host = document.location.host; // host + port
+            var protocol = document.location.protocol;
+            var sr_origin = '//' + host;
+            var origin = protocol + sr_origin;
+            // Allow absolute or scheme relative URLs to same origin
+            return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                // or any other URL that isn't scheme relative or absolute i.e relative.
+                !(/^(\/\/|http:|https:).*/.test(url));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                    // Send the token to same-origin, relative URLs only.
+                    // Send the token only if the method warrants CSRF protection
+                    // Using the CSRFToken value acquired earlier
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+
+
+        update_tallies({{tallies | safe}})
+
+    {% endif %}
+})
+
+
+$(window).resize(function () {
+    set_content_height();
+});
+
+
+
+
+</script>
+
+{% endblock %}
+
+{% block navscripts %}
+<script>
+
+$("#card_button").click(function(e) {
+    window.location.href = "/laser_cards" + window.location.hash;
+});
+
+$("#table_button").click(function(e) {
+    window.location.href = "/laser_table#sets__in=audi";
+});
+
+</script>
+{% endblock %}
+

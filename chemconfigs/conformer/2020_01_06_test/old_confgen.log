@@ -1,0 +1,3371 @@
+
+************************************************************************
+*     ConfGen - a tool for generating conformers from smiles input     *
+*                      written by E.O Pyzer-Knapp                      *
+*                        University of Harvard                         *
+*                                 2014                                 *
+************************************************************************
+
+
+ Options used during this run are:log log.log
+prun_tol 0.5
+e_window 0.30
+fallback_to_align True
+forcefield mmff
+nconf_gen 1500
+interactive False
+Rep_e_window 3.5
+rms_tol 0.30
+nconf 5
+The smiles strings that will be run are:
+N#Cc1ccc2sc(C3CSc4cscc4S3)c(C3CSc4cscc4S3)c2c1
+Analysing smiles string N#Cc1ccc2sc(C3CSc4cscc4S3)c(C3CSc4cscc4S3)c2c1
+Generating initial conformations
+Minimising conformations using the mmff force field
+Generated 1356 initial confs
+Minimising conformer number 0
+Minimising conformer number 1
+Minimising conformer number 2
+Minimising conformer number 3
+Minimising conformer number 4
+Minimising conformer number 5
+Minimising conformer number 6
+Minimising conformer number 7
+Minimising conformer number 8
+Minimising conformer number 9
+Minimising conformer number 10
+Minimising conformer number 11
+Minimising conformer number 12
+Minimising conformer number 13
+Minimising conformer number 14
+Minimising conformer number 15
+Minimising conformer number 16
+Minimising conformer number 17
+Minimising conformer number 18
+Minimising conformer number 19
+Minimising conformer number 20
+Minimising conformer number 21
+Minimising conformer number 22
+Minimising conformer number 23
+Minimising conformer number 24
+Minimising conformer number 25
+Minimising conformer number 26
+Minimising conformer number 27
+Minimising conformer number 28
+Minimising conformer number 29
+Minimising conformer number 30
+Minimising conformer number 31
+Minimising conformer number 32
+Minimising conformer number 33
+Minimising conformer number 34
+Minimising conformer number 35
+Minimising conformer number 36
+Minimising conformer number 37
+Minimising conformer number 38
+Minimising conformer number 39
+Minimising conformer number 40
+Minimising conformer number 41
+Minimising conformer number 42
+Minimising conformer number 43
+Minimising conformer number 44
+Minimising conformer number 45
+Minimising conformer number 46
+Minimising conformer number 47
+Minimising conformer number 48
+Minimising conformer number 49
+Minimising conformer number 50
+Minimising conformer number 51
+Minimising conformer number 52
+Minimising conformer number 53
+Minimising conformer number 54
+Minimising conformer number 55
+Minimising conformer number 56
+Minimising conformer number 57
+Minimising conformer number 58
+Minimising conformer number 59
+Minimising conformer number 60
+Minimising conformer number 61
+Minimising conformer number 62
+Minimising conformer number 63
+Minimising conformer number 64
+Minimising conformer number 65
+Minimising conformer number 66
+Minimising conformer number 67
+Minimising conformer number 68
+Minimising conformer number 69
+Minimising conformer number 70
+Minimising conformer number 71
+Minimising conformer number 72
+Minimising conformer number 73
+Minimising conformer number 74
+Minimising conformer number 75
+Minimising conformer number 76
+Minimising conformer number 77
+Minimising conformer number 78
+Minimising conformer number 79
+Minimising conformer number 80
+Minimising conformer number 81
+Minimising conformer number 82
+Minimising conformer number 83
+Minimising conformer number 84
+Minimising conformer number 85
+Minimising conformer number 86
+Minimising conformer number 87
+Minimising conformer number 88
+Minimising conformer number 89
+Minimising conformer number 90
+Minimising conformer number 91
+Minimising conformer number 92
+Minimising conformer number 93
+Minimising conformer number 94
+Minimising conformer number 95
+Minimising conformer number 96
+Minimising conformer number 97
+Minimising conformer number 98
+Minimising conformer number 99
+Minimising conformer number 100
+Minimising conformer number 101
+Minimising conformer number 102
+Minimising conformer number 103
+Minimising conformer number 104
+Minimising conformer number 105
+Minimising conformer number 106
+Minimising conformer number 107
+Minimising conformer number 108
+Minimising conformer number 109
+Minimising conformer number 110
+Minimising conformer number 111
+Minimising conformer number 112
+Minimising conformer number 113
+Minimising conformer number 114
+Minimising conformer number 115
+Minimising conformer number 116
+Minimising conformer number 117
+Minimising conformer number 118
+Minimising conformer number 119
+Minimising conformer number 120
+Minimising conformer number 121
+Minimising conformer number 122
+Minimising conformer number 123
+Minimising conformer number 124
+Minimising conformer number 125
+Minimising conformer number 126
+Minimising conformer number 127
+Minimising conformer number 128
+Minimising conformer number 129
+Minimising conformer number 130
+Minimising conformer number 131
+Minimising conformer number 132
+Minimising conformer number 133
+Minimising conformer number 134
+Minimising conformer number 135
+Minimising conformer number 136
+Minimising conformer number 137
+Minimising conformer number 138
+Minimising conformer number 139
+Minimising conformer number 140
+Minimising conformer number 141
+Minimising conformer number 142
+Minimising conformer number 143
+Minimising conformer number 144
+Minimising conformer number 145
+Minimising conformer number 146
+Minimising conformer number 147
+Minimising conformer number 148
+Minimising conformer number 149
+Minimising conformer number 150
+Minimising conformer number 151
+Minimising conformer number 152
+Minimising conformer number 153
+Minimising conformer number 154
+Minimising conformer number 155
+Minimising conformer number 156
+Minimising conformer number 157
+Minimising conformer number 158
+Minimising conformer number 159
+Minimising conformer number 160
+Minimising conformer number 161
+Minimising conformer number 162
+Minimising conformer number 163
+Minimising conformer number 164
+Minimising conformer number 165
+Minimising conformer number 166
+Minimising conformer number 167
+Minimising conformer number 168
+Minimising conformer number 169
+Minimising conformer number 170
+Minimising conformer number 171
+Minimising conformer number 172
+Minimising conformer number 173
+Minimising conformer number 174
+Minimising conformer number 175
+Minimising conformer number 176
+Minimising conformer number 177
+Minimising conformer number 178
+Minimising conformer number 179
+Minimising conformer number 180
+Minimising conformer number 181
+Minimising conformer number 182
+Minimising conformer number 183
+Minimising conformer number 184
+Minimising conformer number 185
+Minimising conformer number 186
+Minimising conformer number 187
+Minimising conformer number 188
+Minimising conformer number 189
+Minimising conformer number 190
+Minimising conformer number 191
+Minimising conformer number 192
+Minimising conformer number 193
+Minimising conformer number 194
+Minimising conformer number 195
+Minimising conformer number 196
+Minimising conformer number 197
+Minimising conformer number 198
+Minimising conformer number 199
+Minimising conformer number 200
+Minimising conformer number 201
+Minimising conformer number 202
+Minimising conformer number 203
+Minimising conformer number 204
+Minimising conformer number 205
+Minimising conformer number 206
+Minimising conformer number 207
+Minimising conformer number 208
+Minimising conformer number 209
+Minimising conformer number 210
+Minimising conformer number 211
+Minimising conformer number 212
+Minimising conformer number 213
+Minimising conformer number 214
+Minimising conformer number 215
+Minimising conformer number 216
+Minimising conformer number 217
+Minimising conformer number 218
+Minimising conformer number 219
+Minimising conformer number 220
+Minimising conformer number 221
+Minimising conformer number 222
+Minimising conformer number 223
+Minimising conformer number 224
+Minimising conformer number 225
+Minimising conformer number 226
+Minimising conformer number 227
+Minimising conformer number 228
+Minimising conformer number 229
+Minimising conformer number 230
+Minimising conformer number 231
+Minimising conformer number 232
+Minimising conformer number 233
+Minimising conformer number 234
+Minimising conformer number 235
+Minimising conformer number 236
+Minimising conformer number 237
+Minimising conformer number 238
+Minimising conformer number 239
+Minimising conformer number 240
+Minimising conformer number 241
+Minimising conformer number 242
+Minimising conformer number 243
+Minimising conformer number 244
+Minimising conformer number 245
+Minimising conformer number 246
+Minimising conformer number 247
+Minimising conformer number 248
+Minimising conformer number 249
+Minimising conformer number 250
+Minimising conformer number 251
+Minimising conformer number 252
+Minimising conformer number 253
+Minimising conformer number 254
+Minimising conformer number 255
+Minimising conformer number 256
+Minimising conformer number 257
+Minimising conformer number 258
+Minimising conformer number 259
+Minimising conformer number 260
+Minimising conformer number 261
+Minimising conformer number 262
+Minimising conformer number 263
+Minimising conformer number 264
+Minimising conformer number 265
+Minimising conformer number 266
+Minimising conformer number 267
+Minimising conformer number 268
+Minimising conformer number 269
+Minimising conformer number 270
+Minimising conformer number 271
+Minimising conformer number 272
+Minimising conformer number 273
+Minimising conformer number 274
+Minimising conformer number 275
+Minimising conformer number 276
+Minimising conformer number 277
+Minimising conformer number 278
+Minimising conformer number 279
+Minimising conformer number 280
+Minimising conformer number 281
+Minimising conformer number 282
+Minimising conformer number 283
+Minimising conformer number 284
+Minimising conformer number 285
+Minimising conformer number 286
+Minimising conformer number 287
+Minimising conformer number 288
+Minimising conformer number 289
+Minimising conformer number 290
+Minimising conformer number 291
+Minimising conformer number 292
+Minimising conformer number 293
+Minimising conformer number 294
+Minimising conformer number 295
+Minimising conformer number 296
+Minimising conformer number 297
+Minimising conformer number 298
+Minimising conformer number 299
+Minimising conformer number 300
+Minimising conformer number 301
+Minimising conformer number 302
+Minimising conformer number 303
+Minimising conformer number 304
+Minimising conformer number 305
+Minimising conformer number 306
+Minimising conformer number 307
+Minimising conformer number 308
+Minimising conformer number 309
+Minimising conformer number 310
+Minimising conformer number 311
+Minimising conformer number 312
+Minimising conformer number 313
+Minimising conformer number 314
+Minimising conformer number 315
+Minimising conformer number 316
+Minimising conformer number 317
+Minimising conformer number 318
+Minimising conformer number 319
+Minimising conformer number 320
+Minimising conformer number 321
+Minimising conformer number 322
+Minimising conformer number 323
+Minimising conformer number 324
+Minimising conformer number 325
+Minimising conformer number 326
+Minimising conformer number 327
+Minimising conformer number 328
+Minimising conformer number 329
+Minimising conformer number 330
+Minimising conformer number 331
+Minimising conformer number 332
+Minimising conformer number 333
+Minimising conformer number 334
+Minimising conformer number 335
+Minimising conformer number 336
+Minimising conformer number 337
+Minimising conformer number 338
+Minimising conformer number 339
+Minimising conformer number 340
+Minimising conformer number 341
+Minimising conformer number 342
+Minimising conformer number 343
+Minimising conformer number 344
+Minimising conformer number 345
+Minimising conformer number 346
+Minimising conformer number 347
+Minimising conformer number 348
+Minimising conformer number 349
+Minimising conformer number 350
+Minimising conformer number 351
+Minimising conformer number 352
+Minimising conformer number 353
+Minimising conformer number 354
+Minimising conformer number 355
+Minimising conformer number 356
+Minimising conformer number 357
+Minimising conformer number 358
+Minimising conformer number 359
+Minimising conformer number 360
+Minimising conformer number 361
+Minimising conformer number 362
+Minimising conformer number 363
+Minimising conformer number 364
+Minimising conformer number 365
+Minimising conformer number 366
+Minimising conformer number 367
+Minimising conformer number 368
+Minimising conformer number 369
+Minimising conformer number 370
+Minimising conformer number 371
+Minimising conformer number 372
+Minimising conformer number 373
+Minimising conformer number 374
+Minimising conformer number 375
+Minimising conformer number 376
+Minimising conformer number 377
+Minimising conformer number 378
+Minimising conformer number 379
+Minimising conformer number 380
+Minimising conformer number 381
+Minimising conformer number 382
+Minimising conformer number 383
+Minimising conformer number 384
+Minimising conformer number 385
+Minimising conformer number 386
+Minimising conformer number 387
+Minimising conformer number 388
+Minimising conformer number 389
+Minimising conformer number 390
+Minimising conformer number 391
+Minimising conformer number 392
+Minimising conformer number 393
+Minimising conformer number 394
+Minimising conformer number 395
+Minimising conformer number 396
+Minimising conformer number 397
+Minimising conformer number 398
+Minimising conformer number 399
+Minimising conformer number 400
+Minimising conformer number 401
+Minimising conformer number 402
+Minimising conformer number 403
+Minimising conformer number 404
+Minimising conformer number 405
+Minimising conformer number 406
+Minimising conformer number 407
+Minimising conformer number 408
+Minimising conformer number 409
+Minimising conformer number 410
+Minimising conformer number 411
+Minimising conformer number 412
+Minimising conformer number 413
+Minimising conformer number 414
+Minimising conformer number 415
+Minimising conformer number 416
+Minimising conformer number 417
+Minimising conformer number 418
+Minimising conformer number 419
+Minimising conformer number 420
+Minimising conformer number 421
+Minimising conformer number 422
+Minimising conformer number 423
+Minimising conformer number 424
+Minimising conformer number 425
+Minimising conformer number 426
+Minimising conformer number 427
+Minimising conformer number 428
+Minimising conformer number 429
+Minimising conformer number 430
+Minimising conformer number 431
+Minimising conformer number 432
+Minimising conformer number 433
+Minimising conformer number 434
+Minimising conformer number 435
+Minimising conformer number 436
+Minimising conformer number 437
+Minimising conformer number 438
+Minimising conformer number 439
+Minimising conformer number 440
+Minimising conformer number 441
+Minimising conformer number 442
+Minimising conformer number 443
+Minimising conformer number 444
+Minimising conformer number 445
+Minimising conformer number 446
+Minimising conformer number 447
+Minimising conformer number 448
+Minimising conformer number 449
+Minimising conformer number 450
+Minimising conformer number 451
+Minimising conformer number 452
+Minimising conformer number 453
+Minimising conformer number 454
+Minimising conformer number 455
+Minimising conformer number 456
+Minimising conformer number 457
+Minimising conformer number 458
+Minimising conformer number 459
+Minimising conformer number 460
+Minimising conformer number 461
+Minimising conformer number 462
+Minimising conformer number 463
+Minimising conformer number 464
+Minimising conformer number 465
+Minimising conformer number 466
+Minimising conformer number 467
+Minimising conformer number 468
+Minimising conformer number 469
+Minimising conformer number 470
+Minimising conformer number 471
+Minimising conformer number 472
+Minimising conformer number 473
+Minimising conformer number 474
+Minimising conformer number 475
+Minimising conformer number 476
+Minimising conformer number 477
+Minimising conformer number 478
+Minimising conformer number 479
+Minimising conformer number 480
+Minimising conformer number 481
+Minimising conformer number 482
+Minimising conformer number 483
+Minimising conformer number 484
+Minimising conformer number 485
+Minimising conformer number 486
+Minimising conformer number 487
+Minimising conformer number 488
+Minimising conformer number 489
+Minimising conformer number 490
+Minimising conformer number 491
+Minimising conformer number 492
+Minimising conformer number 493
+Minimising conformer number 494
+Minimising conformer number 495
+Minimising conformer number 496
+Minimising conformer number 497
+Minimising conformer number 498
+Minimising conformer number 499
+Minimising conformer number 500
+Minimising conformer number 501
+Minimising conformer number 502
+Minimising conformer number 503
+Minimising conformer number 504
+Minimising conformer number 505
+Minimising conformer number 506
+Minimising conformer number 507
+Minimising conformer number 508
+Minimising conformer number 509
+Minimising conformer number 510
+Minimising conformer number 511
+Minimising conformer number 512
+Minimising conformer number 513
+Minimising conformer number 514
+Minimising conformer number 515
+Minimising conformer number 516
+Minimising conformer number 517
+Minimising conformer number 518
+Minimising conformer number 519
+Minimising conformer number 520
+Minimising conformer number 521
+Minimising conformer number 522
+Minimising conformer number 523
+Minimising conformer number 524
+Minimising conformer number 525
+Minimising conformer number 526
+Minimising conformer number 527
+Minimising conformer number 528
+Minimising conformer number 529
+Minimising conformer number 530
+Minimising conformer number 531
+Minimising conformer number 532
+Minimising conformer number 533
+Minimising conformer number 534
+Minimising conformer number 535
+Minimising conformer number 536
+Minimising conformer number 537
+Minimising conformer number 538
+Minimising conformer number 539
+Minimising conformer number 540
+Minimising conformer number 541
+Minimising conformer number 542
+Minimising conformer number 543
+Minimising conformer number 544
+Minimising conformer number 545
+Minimising conformer number 546
+Minimising conformer number 547
+Minimising conformer number 548
+Minimising conformer number 549
+Minimising conformer number 550
+Minimising conformer number 551
+Minimising conformer number 552
+Minimising conformer number 553
+Minimising conformer number 554
+Minimising conformer number 555
+Minimising conformer number 556
+Minimising conformer number 557
+Minimising conformer number 558
+Minimising conformer number 559
+Minimising conformer number 560
+Minimising conformer number 561
+Minimising conformer number 562
+Minimising conformer number 563
+Minimising conformer number 564
+Minimising conformer number 565
+Minimising conformer number 566
+Minimising conformer number 567
+Minimising conformer number 568
+Minimising conformer number 569
+Minimising conformer number 570
+Minimising conformer number 571
+Minimising conformer number 572
+Minimising conformer number 573
+Minimising conformer number 574
+Minimising conformer number 575
+Minimising conformer number 576
+Minimising conformer number 577
+Minimising conformer number 578
+Minimising conformer number 579
+Minimising conformer number 580
+Minimising conformer number 581
+Minimising conformer number 582
+Minimising conformer number 583
+Minimising conformer number 584
+Minimising conformer number 585
+Minimising conformer number 586
+Minimising conformer number 587
+Minimising conformer number 588
+Minimising conformer number 589
+Minimising conformer number 590
+Minimising conformer number 591
+Minimising conformer number 592
+Minimising conformer number 593
+Minimising conformer number 594
+Minimising conformer number 595
+Minimising conformer number 596
+Minimising conformer number 597
+Minimising conformer number 598
+Minimising conformer number 599
+Minimising conformer number 600
+Minimising conformer number 601
+Minimising conformer number 602
+Minimising conformer number 603
+Minimising conformer number 604
+Minimising conformer number 605
+Minimising conformer number 606
+Minimising conformer number 607
+Minimising conformer number 608
+Minimising conformer number 609
+Minimising conformer number 610
+Minimising conformer number 611
+Minimising conformer number 612
+Minimising conformer number 613
+Minimising conformer number 614
+Minimising conformer number 615
+Minimising conformer number 616
+Minimising conformer number 617
+Minimising conformer number 618
+Minimising conformer number 619
+Minimising conformer number 620
+Minimising conformer number 621
+Minimising conformer number 622
+Minimising conformer number 623
+Minimising conformer number 624
+Minimising conformer number 625
+Minimising conformer number 626
+Minimising conformer number 627
+Minimising conformer number 628
+Minimising conformer number 629
+Minimising conformer number 630
+Minimising conformer number 631
+Minimising conformer number 632
+Minimising conformer number 633
+Minimising conformer number 634
+Minimising conformer number 635
+Minimising conformer number 636
+Minimising conformer number 637
+Minimising conformer number 638
+Minimising conformer number 639
+Minimising conformer number 640
+Minimising conformer number 641
+Minimising conformer number 642
+Minimising conformer number 643
+Minimising conformer number 644
+Minimising conformer number 645
+Minimising conformer number 646
+Minimising conformer number 647
+Minimising conformer number 648
+Minimising conformer number 649
+Minimising conformer number 650
+Minimising conformer number 651
+Minimising conformer number 652
+Minimising conformer number 653
+Minimising conformer number 654
+Minimising conformer number 655
+Minimising conformer number 656
+Minimising conformer number 657
+Minimising conformer number 658
+Minimising conformer number 659
+Minimising conformer number 660
+Minimising conformer number 661
+Minimising conformer number 662
+Minimising conformer number 663
+Minimising conformer number 664
+Minimising conformer number 665
+Minimising conformer number 666
+Minimising conformer number 667
+Minimising conformer number 668
+Minimising conformer number 669
+Minimising conformer number 670
+Minimising conformer number 671
+Minimising conformer number 672
+Minimising conformer number 673
+Minimising conformer number 674
+Minimising conformer number 675
+Minimising conformer number 676
+Minimising conformer number 677
+Minimising conformer number 678
+Minimising conformer number 679
+Minimising conformer number 680
+Minimising conformer number 681
+Minimising conformer number 682
+Minimising conformer number 683
+Minimising conformer number 684
+Minimising conformer number 685
+Minimising conformer number 686
+Minimising conformer number 687
+Minimising conformer number 688
+Minimising conformer number 689
+Minimising conformer number 690
+Minimising conformer number 691
+Minimising conformer number 692
+Minimising conformer number 693
+Minimising conformer number 694
+Minimising conformer number 695
+Minimising conformer number 696
+Minimising conformer number 697
+Minimising conformer number 698
+Minimising conformer number 699
+Minimising conformer number 700
+Minimising conformer number 701
+Minimising conformer number 702
+Minimising conformer number 703
+Minimising conformer number 704
+Minimising conformer number 705
+Minimising conformer number 706
+Minimising conformer number 707
+Minimising conformer number 708
+Minimising conformer number 709
+Minimising conformer number 710
+Minimising conformer number 711
+Minimising conformer number 712
+Minimising conformer number 713
+Minimising conformer number 714
+Minimising conformer number 715
+Minimising conformer number 716
+Minimising conformer number 717
+Minimising conformer number 718
+Minimising conformer number 719
+Minimising conformer number 720
+Minimising conformer number 721
+Minimising conformer number 722
+Minimising conformer number 723
+Minimising conformer number 724
+Minimising conformer number 725
+Minimising conformer number 726
+Minimising conformer number 727
+Minimising conformer number 728
+Minimising conformer number 729
+Minimising conformer number 730
+Minimising conformer number 731
+Minimising conformer number 732
+Minimising conformer number 733
+Minimising conformer number 734
+Minimising conformer number 735
+Minimising conformer number 736
+Minimising conformer number 737
+Minimising conformer number 738
+Minimising conformer number 739
+Minimising conformer number 740
+Minimising conformer number 741
+Minimising conformer number 742
+Minimising conformer number 743
+Minimising conformer number 744
+Minimising conformer number 745
+Minimising conformer number 746
+Minimising conformer number 747
+Minimising conformer number 748
+Minimising conformer number 749
+Minimising conformer number 750
+Minimising conformer number 751
+Minimising conformer number 752
+Minimising conformer number 753
+Minimising conformer number 754
+Minimising conformer number 755
+Minimising conformer number 756
+Minimising conformer number 757
+Minimising conformer number 758
+Minimising conformer number 759
+Minimising conformer number 760
+Minimising conformer number 761
+Minimising conformer number 762
+Minimising conformer number 763
+Minimising conformer number 764
+Minimising conformer number 765
+Minimising conformer number 766
+Minimising conformer number 767
+Minimising conformer number 768
+Minimising conformer number 769
+Minimising conformer number 770
+Minimising conformer number 771
+Minimising conformer number 772
+Minimising conformer number 773
+Minimising conformer number 774
+Minimising conformer number 775
+Minimising conformer number 776
+Minimising conformer number 777
+Minimising conformer number 778
+Minimising conformer number 779
+Minimising conformer number 780
+Minimising conformer number 781
+Minimising conformer number 782
+Minimising conformer number 783
+Minimising conformer number 784
+Minimising conformer number 785
+Minimising conformer number 786
+Minimising conformer number 787
+Minimising conformer number 788
+Minimising conformer number 789
+Minimising conformer number 790
+Minimising conformer number 791
+Minimising conformer number 792
+Minimising conformer number 793
+Minimising conformer number 794
+Minimising conformer number 795
+Minimising conformer number 796
+Minimising conformer number 797
+Minimising conformer number 798
+Minimising conformer number 799
+Minimising conformer number 800
+Minimising conformer number 801
+Minimising conformer number 802
+Minimising conformer number 803
+Minimising conformer number 804
+Minimising conformer number 805
+Minimising conformer number 806
+Minimising conformer number 807
+Minimising conformer number 808
+Minimising conformer number 809
+Minimising conformer number 810
+Minimising conformer number 811
+Minimising conformer number 812
+Minimising conformer number 813
+Minimising conformer number 814
+Minimising conformer number 815
+Minimising conformer number 816
+Minimising conformer number 817
+Minimising conformer number 818
+Minimising conformer number 819
+Minimising conformer number 820
+Minimising conformer number 821
+Minimising conformer number 822
+Minimising conformer number 823
+Minimising conformer number 824
+Minimising conformer number 825
+Minimising conformer number 826
+Minimising conformer number 827
+Minimising conformer number 828
+Minimising conformer number 829
+Minimising conformer number 830
+Minimising conformer number 831
+Minimising conformer number 832
+Minimising conformer number 833
+Minimising conformer number 834
+Minimising conformer number 835
+Minimising conformer number 836
+Minimising conformer number 837
+Minimising conformer number 838
+Minimising conformer number 839
+Minimising conformer number 840
+Minimising conformer number 841
+Minimising conformer number 842
+Minimising conformer number 843
+Minimising conformer number 844
+Minimising conformer number 845
+Minimising conformer number 846
+Minimising conformer number 847
+Minimising conformer number 848
+Minimising conformer number 849
+Minimising conformer number 850
+Minimising conformer number 851
+Minimising conformer number 852
+Minimising conformer number 853
+Minimising conformer number 854
+Minimising conformer number 855
+Minimising conformer number 856
+Minimising conformer number 857
+Minimising conformer number 858
+Minimising conformer number 859
+Minimising conformer number 860
+Minimising conformer number 861
+Minimising conformer number 862
+Minimising conformer number 863
+Minimising conformer number 864
+Minimising conformer number 865
+Minimising conformer number 866
+Minimising conformer number 867
+Minimising conformer number 868
+Minimising conformer number 869
+Minimising conformer number 870
+Minimising conformer number 871
+Minimising conformer number 872
+Minimising conformer number 873
+Minimising conformer number 874
+Minimising conformer number 875
+Minimising conformer number 876
+Minimising conformer number 877
+Minimising conformer number 878
+Minimising conformer number 879
+Minimising conformer number 880
+Minimising conformer number 881
+Minimising conformer number 882
+Minimising conformer number 883
+Minimising conformer number 884
+Minimising conformer number 885
+Minimising conformer number 886
+Minimising conformer number 887
+Minimising conformer number 888
+Minimising conformer number 889
+Minimising conformer number 890
+Minimising conformer number 891
+Minimising conformer number 892
+Minimising conformer number 893
+Minimising conformer number 894
+Minimising conformer number 895
+Minimising conformer number 896
+Minimising conformer number 897
+Minimising conformer number 898
+Minimising conformer number 899
+Minimising conformer number 900
+Minimising conformer number 901
+Minimising conformer number 902
+Minimising conformer number 903
+Minimising conformer number 904
+Minimising conformer number 905
+Minimising conformer number 906
+Minimising conformer number 907
+Minimising conformer number 908
+Minimising conformer number 909
+Minimising conformer number 910
+Minimising conformer number 911
+Minimising conformer number 912
+Minimising conformer number 913
+Minimising conformer number 914
+Minimising conformer number 915
+Minimising conformer number 916
+Minimising conformer number 917
+Minimising conformer number 918
+Minimising conformer number 919
+Minimising conformer number 920
+Minimising conformer number 921
+Minimising conformer number 922
+Minimising conformer number 923
+Minimising conformer number 924
+Minimising conformer number 925
+Minimising conformer number 926
+Minimising conformer number 927
+Minimising conformer number 928
+Minimising conformer number 929
+Minimising conformer number 930
+Minimising conformer number 931
+Minimising conformer number 932
+Minimising conformer number 933
+Minimising conformer number 934
+Minimising conformer number 935
+Minimising conformer number 936
+Minimising conformer number 937
+Minimising conformer number 938
+Minimising conformer number 939
+Minimising conformer number 940
+Minimising conformer number 941
+Minimising conformer number 942
+Minimising conformer number 943
+Minimising conformer number 944
+Minimising conformer number 945
+Minimising conformer number 946
+Minimising conformer number 947
+Minimising conformer number 948
+Minimising conformer number 949
+Minimising conformer number 950
+Minimising conformer number 951
+Minimising conformer number 952
+Minimising conformer number 953
+Minimising conformer number 954
+Minimising conformer number 955
+Minimising conformer number 956
+Minimising conformer number 957
+Minimising conformer number 958
+Minimising conformer number 959
+Minimising conformer number 960
+Minimising conformer number 961
+Minimising conformer number 962
+Minimising conformer number 963
+Minimising conformer number 964
+Minimising conformer number 965
+Minimising conformer number 966
+Minimising conformer number 967
+Minimising conformer number 968
+Minimising conformer number 969
+Minimising conformer number 970
+Minimising conformer number 971
+Minimising conformer number 972
+Minimising conformer number 973
+Minimising conformer number 974
+Minimising conformer number 975
+Minimising conformer number 976
+Minimising conformer number 977
+Minimising conformer number 978
+Minimising conformer number 979
+Minimising conformer number 980
+Minimising conformer number 981
+Minimising conformer number 982
+Minimising conformer number 983
+Minimising conformer number 984
+Minimising conformer number 985
+Minimising conformer number 986
+Minimising conformer number 987
+Minimising conformer number 988
+Minimising conformer number 989
+Minimising conformer number 990
+Minimising conformer number 991
+Minimising conformer number 992
+Minimising conformer number 993
+Minimising conformer number 994
+Minimising conformer number 995
+Minimising conformer number 996
+Minimising conformer number 997
+Minimising conformer number 998
+Minimising conformer number 999
+Minimising conformer number 1000
+Minimising conformer number 1001
+Minimising conformer number 1002
+Minimising conformer number 1003
+Minimising conformer number 1004
+Minimising conformer number 1005
+Minimising conformer number 1006
+Minimising conformer number 1007
+Minimising conformer number 1008
+Minimising conformer number 1009
+Minimising conformer number 1010
+Minimising conformer number 1011
+Minimising conformer number 1012
+Minimising conformer number 1013
+Minimising conformer number 1014
+Minimising conformer number 1015
+Minimising conformer number 1016
+Minimising conformer number 1017
+Minimising conformer number 1018
+Minimising conformer number 1019
+Minimising conformer number 1020
+Minimising conformer number 1021
+Minimising conformer number 1022
+Minimising conformer number 1023
+Minimising conformer number 1024
+Minimising conformer number 1025
+Minimising conformer number 1026
+Minimising conformer number 1027
+Minimising conformer number 1028
+Minimising conformer number 1029
+Minimising conformer number 1030
+Minimising conformer number 1031
+Minimising conformer number 1032
+Minimising conformer number 1033
+Minimising conformer number 1034
+Minimising conformer number 1035
+Minimising conformer number 1036
+Minimising conformer number 1037
+Minimising conformer number 1038
+Minimising conformer number 1039
+Minimising conformer number 1040
+Minimising conformer number 1041
+Minimising conformer number 1042
+Minimising conformer number 1043
+Minimising conformer number 1044
+Minimising conformer number 1045
+Minimising conformer number 1046
+Minimising conformer number 1047
+Minimising conformer number 1048
+Minimising conformer number 1049
+Minimising conformer number 1050
+Minimising conformer number 1051
+Minimising conformer number 1052
+Minimising conformer number 1053
+Minimising conformer number 1054
+Minimising conformer number 1055
+Minimising conformer number 1056
+Minimising conformer number 1057
+Minimising conformer number 1058
+Minimising conformer number 1059
+Minimising conformer number 1060
+Minimising conformer number 1061
+Minimising conformer number 1062
+Minimising conformer number 1063
+Minimising conformer number 1064
+Minimising conformer number 1065
+Minimising conformer number 1066
+Minimising conformer number 1067
+Minimising conformer number 1068
+Minimising conformer number 1069
+Minimising conformer number 1070
+Minimising conformer number 1071
+Minimising conformer number 1072
+Minimising conformer number 1073
+Minimising conformer number 1074
+Minimising conformer number 1075
+Minimising conformer number 1076
+Minimising conformer number 1077
+Minimising conformer number 1078
+Minimising conformer number 1079
+Minimising conformer number 1080
+Minimising conformer number 1081
+Minimising conformer number 1082
+Minimising conformer number 1083
+Minimising conformer number 1084
+Minimising conformer number 1085
+Minimising conformer number 1086
+Minimising conformer number 1087
+Minimising conformer number 1088
+Minimising conformer number 1089
+Minimising conformer number 1090
+Minimising conformer number 1091
+Minimising conformer number 1092
+Minimising conformer number 1093
+Minimising conformer number 1094
+Minimising conformer number 1095
+Minimising conformer number 1096
+Minimising conformer number 1097
+Minimising conformer number 1098
+Minimising conformer number 1099
+Minimising conformer number 1100
+Minimising conformer number 1101
+Minimising conformer number 1102
+Minimising conformer number 1103
+Minimising conformer number 1104
+Minimising conformer number 1105
+Minimising conformer number 1106
+Minimising conformer number 1107
+Minimising conformer number 1108
+Minimising conformer number 1109
+Minimising conformer number 1110
+Minimising conformer number 1111
+Minimising conformer number 1112
+Minimising conformer number 1113
+Minimising conformer number 1114
+Minimising conformer number 1115
+Minimising conformer number 1116
+Minimising conformer number 1117
+Minimising conformer number 1118
+Minimising conformer number 1119
+Minimising conformer number 1120
+Minimising conformer number 1121
+Minimising conformer number 1122
+Minimising conformer number 1123
+Minimising conformer number 1124
+Minimising conformer number 1125
+Minimising conformer number 1126
+Minimising conformer number 1127
+Minimising conformer number 1128
+Minimising conformer number 1129
+Minimising conformer number 1130
+Minimising conformer number 1131
+Minimising conformer number 1132
+Minimising conformer number 1133
+Minimising conformer number 1134
+Minimising conformer number 1135
+Minimising conformer number 1136
+Minimising conformer number 1137
+Minimising conformer number 1138
+Minimising conformer number 1139
+Minimising conformer number 1140
+Minimising conformer number 1141
+Minimising conformer number 1142
+Minimising conformer number 1143
+Minimising conformer number 1144
+Minimising conformer number 1145
+Minimising conformer number 1146
+Minimising conformer number 1147
+Minimising conformer number 1148
+Minimising conformer number 1149
+Minimising conformer number 1150
+Minimising conformer number 1151
+Minimising conformer number 1152
+Minimising conformer number 1153
+Minimising conformer number 1154
+Minimising conformer number 1155
+Minimising conformer number 1156
+Minimising conformer number 1157
+Minimising conformer number 1158
+Minimising conformer number 1159
+Minimising conformer number 1160
+Minimising conformer number 1161
+Minimising conformer number 1162
+Minimising conformer number 1163
+Minimising conformer number 1164
+Minimising conformer number 1165
+Minimising conformer number 1166
+Minimising conformer number 1167
+Minimising conformer number 1168
+Minimising conformer number 1169
+Minimising conformer number 1170
+Minimising conformer number 1171
+Minimising conformer number 1172
+Minimising conformer number 1173
+Minimising conformer number 1174
+Minimising conformer number 1175
+Minimising conformer number 1176
+Minimising conformer number 1177
+Minimising conformer number 1178
+Minimising conformer number 1179
+Minimising conformer number 1180
+Minimising conformer number 1181
+Minimising conformer number 1182
+Minimising conformer number 1183
+Minimising conformer number 1184
+Minimising conformer number 1185
+Minimising conformer number 1186
+Minimising conformer number 1187
+Minimising conformer number 1188
+Minimising conformer number 1189
+Minimising conformer number 1190
+Minimising conformer number 1191
+Minimising conformer number 1192
+Minimising conformer number 1193
+Minimising conformer number 1194
+Minimising conformer number 1195
+Minimising conformer number 1196
+Minimising conformer number 1197
+Minimising conformer number 1198
+Minimising conformer number 1199
+Minimising conformer number 1200
+Minimising conformer number 1201
+Minimising conformer number 1202
+Minimising conformer number 1203
+Minimising conformer number 1204
+Minimising conformer number 1205
+Minimising conformer number 1206
+Minimising conformer number 1207
+Minimising conformer number 1208
+Minimising conformer number 1209
+Minimising conformer number 1210
+Minimising conformer number 1211
+Minimising conformer number 1212
+Minimising conformer number 1213
+Minimising conformer number 1214
+Minimising conformer number 1215
+Minimising conformer number 1216
+Minimising conformer number 1217
+Minimising conformer number 1218
+Minimising conformer number 1219
+Minimising conformer number 1220
+Minimising conformer number 1221
+Minimising conformer number 1222
+Minimising conformer number 1223
+Minimising conformer number 1224
+Minimising conformer number 1225
+Minimising conformer number 1226
+Minimising conformer number 1227
+Minimising conformer number 1228
+Minimising conformer number 1229
+Minimising conformer number 1230
+Minimising conformer number 1231
+Minimising conformer number 1232
+Minimising conformer number 1233
+Minimising conformer number 1234
+Minimising conformer number 1235
+Minimising conformer number 1236
+Minimising conformer number 1237
+Minimising conformer number 1238
+Minimising conformer number 1239
+Minimising conformer number 1240
+Minimising conformer number 1241
+Minimising conformer number 1242
+Minimising conformer number 1243
+Minimising conformer number 1244
+Minimising conformer number 1245
+Minimising conformer number 1246
+Minimising conformer number 1247
+Minimising conformer number 1248
+Minimising conformer number 1249
+Minimising conformer number 1250
+Minimising conformer number 1251
+Minimising conformer number 1252
+Minimising conformer number 1253
+Minimising conformer number 1254
+Minimising conformer number 1255
+Minimising conformer number 1256
+Minimising conformer number 1257
+Minimising conformer number 1258
+Minimising conformer number 1259
+Minimising conformer number 1260
+Minimising conformer number 1261
+Minimising conformer number 1262
+Minimising conformer number 1263
+Minimising conformer number 1264
+Minimising conformer number 1265
+Minimising conformer number 1266
+Minimising conformer number 1267
+Minimising conformer number 1268
+Minimising conformer number 1269
+Minimising conformer number 1270
+Minimising conformer number 1271
+Minimising conformer number 1272
+Minimising conformer number 1273
+Minimising conformer number 1274
+Minimising conformer number 1275
+Minimising conformer number 1276
+Minimising conformer number 1277
+Minimising conformer number 1278
+Minimising conformer number 1279
+Minimising conformer number 1280
+Minimising conformer number 1281
+Minimising conformer number 1282
+Minimising conformer number 1283
+Minimising conformer number 1284
+Minimising conformer number 1285
+Minimising conformer number 1286
+Minimising conformer number 1287
+Minimising conformer number 1288
+Minimising conformer number 1289
+Minimising conformer number 1290
+Minimising conformer number 1291
+Minimising conformer number 1292
+Minimising conformer number 1293
+Minimising conformer number 1294
+Minimising conformer number 1295
+Minimising conformer number 1296
+Minimising conformer number 1297
+Minimising conformer number 1298
+Minimising conformer number 1299
+Minimising conformer number 1300
+Minimising conformer number 1301
+Minimising conformer number 1302
+Minimising conformer number 1303
+Minimising conformer number 1304
+Minimising conformer number 1305
+Minimising conformer number 1306
+Minimising conformer number 1307
+Minimising conformer number 1308
+Minimising conformer number 1309
+Minimising conformer number 1310
+Minimising conformer number 1311
+Minimising conformer number 1312
+Minimising conformer number 1313
+Minimising conformer number 1314
+Minimising conformer number 1315
+Minimising conformer number 1316
+Minimising conformer number 1317
+Minimising conformer number 1318
+Minimising conformer number 1319
+Minimising conformer number 1320
+Minimising conformer number 1321
+Minimising conformer number 1322
+Minimising conformer number 1323
+Minimising conformer number 1324
+Minimising conformer number 1325
+Minimising conformer number 1326
+Minimising conformer number 1327
+Minimising conformer number 1328
+Minimising conformer number 1329
+Minimising conformer number 1330
+Minimising conformer number 1331
+Minimising conformer number 1332
+Minimising conformer number 1333
+Minimising conformer number 1334
+Minimising conformer number 1335
+Minimising conformer number 1336
+Minimising conformer number 1337
+Minimising conformer number 1338
+Minimising conformer number 1339
+Minimising conformer number 1340
+Minimising conformer number 1341
+Minimising conformer number 1342
+Minimising conformer number 1343
+Minimising conformer number 1344
+Minimising conformer number 1345
+Minimising conformer number 1346
+Minimising conformer number 1347
+Minimising conformer number 1348
+Minimising conformer number 1349
+Minimising conformer number 1350
+Minimising conformer number 1351
+Minimising conformer number 1352
+Minimising conformer number 1353
+Minimising conformer number 1354
+Minimising conformer number 1355
+Minimisation complete, generated conformations with the following energies:
+79.8619422301
+79.861942235
+79.8619422352
+79.8619422389
+79.861942241
+79.8619422411
+79.8619422428
+79.8619422468
+79.861942247
+79.8619422503
+79.8619422503
+79.8619422521
+79.8619422542
+79.8619422552
+79.8619422631
+79.8619422676
+79.8619422744
+79.8619422757
+79.8619422781
+79.8619422814
+79.8619422834
+79.8619422844
+79.8619423066
+79.8619423091
+79.8619423096
+79.8619423242
+79.8619423271
+79.8619423275
+79.8619423467
+79.8619423599
+79.8619424534
+79.8619424594
+79.8619424637
+79.8619426041
+79.8619426191
+79.8619428772
+79.861942892
+79.8619430146
+79.8619445152
+79.8619485948
+79.8619656384
+79.8619859778
+79.8620543747
+79.8620567497
+79.8621938812
+79.8622835009
+79.8720411079
+79.8792651065
+80.1065751908
+80.1407044984
+80.416342862
+80.4163428645
+80.4163428649
+80.4163428684
+80.4163428688
+80.4163428697
+80.4163428726
+80.4163428727
+80.4163428727
+80.4163428735
+80.4163428745
+80.416342876
+80.4163428763
+80.4163428764
+80.4163428779
+80.416342878
+80.4163428785
+80.4163428793
+80.4163428801
+80.4163428804
+80.4163428807
+80.4163428808
+80.4163428812
+80.4163428816
+80.4163428839
+80.4163428843
+80.4163428861
+80.4163428863
+80.4163428882
+80.4163428889
+80.4163428911
+80.416342893
+80.4163428935
+80.4163428945
+80.4163428952
+80.4163428972
+80.4163428977
+80.416342899
+80.4163428992
+80.4163428995
+80.4163429019
+80.4163429023
+80.416342903
+80.4163429035
+80.416342904
+80.4163429062
+80.4163429087
+80.4163429094
+80.41634291
+80.4163429109
+80.4163429118
+80.4163429132
+80.4163429169
+80.4163429188
+80.4163429222
+80.4163429299
+80.4163429301
+80.416342932
+80.4163429358
+80.4163429523
+80.4163429524
+80.4163429525
+80.4163429544
+80.4163429719
+80.416342973
+80.4163429778
+80.4163429813
+80.4163429852
+80.4163429855
+80.4163430129
+80.4163430421
+80.4163430423
+80.4163430476
+80.4163430655
+80.4163430821
+80.4163430979
+80.416343107
+80.4163431095
+80.4163436974
+80.4163439649
+80.4163442294
+80.4163444349
+80.4163446137
+80.4163456488
+80.4163477676
+80.4163490541
+80.4163500364
+80.4163573475
+80.4163599017
+80.4163599396
+80.4163616745
+80.4163716545
+80.4163784073
+80.4163843593
+80.4163960014
+80.4164025827
+80.4164267122
+80.4164379098
+80.4166802482
+80.4167050945
+80.4168449601
+80.416913195
+80.4170680467
+80.4170744457
+80.4171347721
+80.4174060134
+80.4176731544
+80.4178409475
+80.4194974375
+80.4196688212
+80.41967674
+80.4198270707
+80.4200818011
+80.4212074179
+80.4220773328
+80.4247302191
+80.4255188428
+80.4263774384
+80.4269868378
+80.4447847173
+80.453395805
+80.4620005299
+80.4650796651
+80.4805610414
+80.4805610452
+80.4805610454
+80.4805610459
+80.4805610466
+80.4805610472
+80.4805610485
+80.4805610489
+80.480561049
+80.4805610498
+80.4805610515
+80.4805610523
+80.4805610531
+80.4805610534
+80.480561058
+80.4805610583
+80.4805610634
+80.4805610647
+80.4805610665
+80.4805610667
+80.4805610676
+80.4805610679
+80.4805610733
+80.4805610749
+80.4805610772
+80.4805610779
+80.4805610779
+80.480561078
+80.4805610783
+80.4805610785
+80.480561079
+80.4805610809
+80.4805610836
+80.4805610857
+80.480561086
+80.4805610861
+80.4805610862
+80.4805610863
+80.4805610868
+80.4805610868
+80.4805610891
+80.4805610902
+80.4805610912
+80.4805610931
+80.4805610967
+80.4805610975
+80.4805610978
+80.4805610992
+80.4805610996
+80.480561101
+80.4805611024
+80.4805611029
+80.4805611071
+80.4805611078
+80.4805611079
+80.4805611086
+80.4805611095
+80.4805611099
+80.4805611113
+80.4805611119
+80.4805611158
+80.4805611177
+80.4805611249
+80.480561127
+80.4805611364
+80.4805611474
+80.480561148
+80.4805611604
+80.4805611692
+80.4805611831
+80.4805611844
+80.4805611858
+80.4805612051
+80.4805612118
+80.4805612188
+80.4805612358
+80.4805612438
+80.4805612775
+80.4805613147
+80.4805613372
+80.4805613428
+80.4805613878
+80.4805614531
+80.4805614585
+80.4805614856
+80.4805614876
+80.4805615356
+80.4805616335
+80.4805616425
+80.4805616937
+80.4805617015
+80.4805617269
+80.4805617785
+80.4805618656
+80.4805620885
+80.4805621801
+80.4805622465
+80.4805622734
+80.4805623655
+80.4805625077
+80.4805625673
+80.4805627412
+80.4805634294
+80.4805639563
+80.4805642012
+80.4805646567
+80.4805647601
+80.4805648487
+80.4805662539
+80.4805710316
+80.4805753591
+80.4805813678
+80.4805911911
+80.4805925856
+80.4805946859
+80.4806032209
+80.4806049936
+80.4806094668
+80.4806139682
+80.4806682368
+80.4806912973
+80.4807084755
+80.4808533411
+80.4808963515
+80.4812409118
+80.4813522384
+80.4815101499
+80.4825912834
+80.4826171936
+80.4827044229
+80.4828662445
+80.4838419034
+80.4839895109
+80.4845733026
+80.485228597
+80.4859010925
+80.4860881828
+80.4862781606
+80.4885568777
+80.489158556
+80.490640713
+80.5009965214
+80.5109577732
+80.5312865313
+80.5495362715
+80.5662794437
+80.8037783459
+80.8782653795
+81.0929816196
+81.2616847477
+81.2672167722
+81.2672167723
+81.2672167732
+81.2672167777
+81.2672167791
+81.2672167802
+81.2672167805
+81.2672167805
+81.267216781
+81.2672167812
+81.2672167821
+81.2672167821
+81.267216784
+81.2672167853
+81.267216786
+81.2672167876
+81.2672167882
+81.2672167884
+81.2672167902
+81.2672167912
+81.2672167956
+81.267216796
+81.2672167976
+81.2672168006
+81.2672168009
+81.2672168019
+81.2672168032
+81.267216807
+81.2672168073
+81.2672168092
+81.2672168092
+81.2672168127
+81.267216813
+81.2672168135
+81.2672168149
+81.2672168154
+81.2672168161
+81.2672168169
+81.2672168172
+81.2672168207
+81.2672168221
+81.2672168312
+81.2672168379
+81.2672168399
+81.2672168401
+81.2672168441
+81.2672168491
+81.2672168588
+81.2672168596
+81.2672168918
+81.2672169087
+81.267216919
+81.2672169324
+81.2672169424
+81.2672169477
+81.2672169507
+81.267216976
+81.2672169914
+81.2672170221
+81.2672170327
+81.2672170598
+81.2672172785
+81.2672174407
+81.2672175302
+81.2672179763
+81.2672186553
+81.2672191407
+81.2672198479
+81.2672210963
+81.2672244451
+81.2672247392
+81.2672496051
+81.2672513597
+81.2672693689
+81.2674474942
+81.2675133868
+81.2675984323
+81.2678047128
+81.2689891351
+81.2690678965
+81.2695604591
+81.2872794493
+81.2908028437
+81.4421415902
+81.4421415915
+81.4421415942
+81.4421415968
+81.4421415975
+81.4421415986
+81.442141599
+81.4421416002
+81.4421416009
+81.4421416015
+81.4421416024
+81.442141605
+81.442141605
+81.4421416055
+81.4421416059
+81.4421416059
+81.4421416065
+81.4421416075
+81.4421416087
+81.4421416098
+81.4421416112
+81.4421416131
+81.4421416173
+81.4421416179
+81.4421416185
+81.4421416189
+81.4421416192
+81.4421416199
+81.4421416217
+81.4421416238
+81.4421416244
+81.4421416268
+81.4421416275
+81.4421416276
+81.4421416278
+81.4421416301
+81.4421416303
+81.4421416322
+81.4421416326
+81.4421416332
+81.4421416354
+81.4421416365
+81.4421416369
+81.4421416371
+81.4421416395
+81.4421416404
+81.4421416478
+81.44214165
+81.4421416513
+81.4421416521
+81.4421416523
+81.4421416534
+81.4421416594
+81.4421416659
+81.442141667
+81.4421416702
+81.4421416713
+81.4421416719
+81.4421416736
+81.4421416749
+81.4421416761
+81.4421416765
+81.4421416784
+81.4421416788
+81.4421416814
+81.4421416832
+81.4421416853
+81.4421416937
+81.4421416956
+81.4421416972
+81.4421417003
+81.4421417021
+81.4421417099
+81.44214171
+81.4421417147
+81.4421417291
+81.4421417401
+81.4421417411
+81.442141742
+81.4421417703
+81.4421417993
+81.4421418111
+81.4421418111
+81.4421418136
+81.4421418181
+81.4421418298
+81.442141856
+81.4421418731
+81.4421418738
+81.4421418914
+81.4421418963
+81.4421419085
+81.4421419202
+81.4421419464
+81.4421420867
+81.4421420892
+81.4421421408
+81.4421421689
+81.4421422142
+81.4421422978
+81.442142341
+81.4421424326
+81.4421425701
+81.4421425775
+81.4421425903
+81.4421427087
+81.4421428827
+81.4421430783
+81.4421430838
+81.4421433019
+81.4421436638
+81.442143915
+81.4421443656
+81.4421445175
+81.4421446382
+81.4421453425
+81.4421454284
+81.4421455537
+81.442145624
+81.4421499034
+81.4421502289
+81.4421530286
+81.4421547862
+81.442156677
+81.4421574747
+81.4421598623
+81.4421653236
+81.4421833767
+81.4421879924
+81.4421903635
+81.4421934186
+81.4422158027
+81.4422267598
+81.442254609
+81.4423034518
+81.4423346564
+81.4423507137
+81.4423552852
+81.4424271205
+81.4425103455
+81.4425348401
+81.442536185
+81.4426462364
+81.4426898694
+81.4427168676
+81.4427482838
+81.4428462648
+81.4429381688
+81.4429637708
+81.4433315115
+81.4438380281
+81.4438724161
+81.4446167573
+81.4446274903
+81.444913174
+81.4451066317
+81.4453295442
+81.446489387
+81.4482113655
+81.4486308635
+81.4505634464
+81.4506017524
+81.4531042223
+81.4556875039
+81.4570323016
+81.4604748178
+81.4630405958
+81.4636544414
+81.4659905258
+81.4701867304
+81.5104828045
+81.5590324965
+81.8566733242
+81.9315090856
+81.9889782515
+81.9889782546
+81.9889782621
+81.9889782632
+81.9889782634
+81.9889782677
+81.9889782677
+81.9889782678
+81.988978268
+81.9889782687
+81.9889782688
+81.9889782709
+81.9889782711
+81.9889782724
+81.9889782757
+81.988978276
+81.9889782769
+81.9889782815
+81.9889782822
+81.9889782829
+81.9889782878
+81.9889782897
+81.9889782912
+81.988978292
+81.988978292
+81.9889782963
+81.9889782984
+81.9889783004
+81.988978301
+81.9889783093
+81.9889783104
+81.9889783109
+81.9889783115
+81.9889783147
+81.988978316
+81.9889783182
+81.9889783208
+81.9889783313
+81.9889783398
+81.9889783519
+81.9889783972
+81.9889783979
+81.9889787201
+81.9889788096
+81.9889790532
+81.9889792541
+81.988979881
+81.9889811123
+81.9889827297
+81.9889844328
+81.9889860301
+81.9889860426
+81.9889914677
+81.9889932803
+81.9889970174
+81.9890252226
+81.9890344751
+81.9890504605
+81.9890541602
+81.9890557623
+81.9890777686
+81.9890889279
+81.9891102972
+81.9891705854
+81.9892501325
+81.9892825883
+81.989644705
+81.9900191463
+81.9909484358
+81.9915455757
+81.9916595875
+81.9919917314
+81.9927614451
+81.9942837882
+81.9942851504
+81.9945982464
+81.995787275
+81.9960409777
+81.9962287717
+81.9969283405
+81.9984332794
+81.9985774547
+82.0002037551
+82.00361864
+82.0051977259
+82.010060672
+82.0127752617
+82.0178675189
+82.0179477959
+82.0310461316
+82.0653011151
+82.3859568088
+82.50830177
+82.675178519
+82.9133950234
+82.9655739035
+82.9655739276
+82.9655739532
+82.9664518933
+82.9669346487
+83.2233095352
+83.2233095543
+83.2234005345
+83.224149505
+83.2258558908
+83.9345546616
+84.0033284744
+84.0803072641
+84.0803072731
+84.0803073208
+84.08030733
+84.0803073861
+84.0803074399
+84.0803075027
+84.0803105954
+84.0803134418
+84.0804669825
+84.0808740303
+84.0809050888
+84.0811613787
+84.0827199034
+84.0838641248
+84.0839236892
+84.0869963457
+84.1197709473
+84.2474501096
+84.2857561256
+84.2857561584
+84.285756263
+84.2857562656
+84.2857563583
+84.2857565044
+84.2857577098
+84.2857594067
+84.2857932748
+84.2859322536
+84.389120224
+84.5215566589
+84.5215566593
+84.5215566743
+84.5215566796
+84.5215566877
+84.5215567144
+84.5215567698
+84.5215568032
+84.5215568232
+84.5215570381
+84.5215577241
+84.5215608203
+84.521562814
+84.5215722782
+84.5215761714
+84.5215808742
+84.521597746
+84.5216311506
+84.5217432696
+84.5218589368
+84.5220554629
+84.5223753673
+84.5224633895
+84.5239496794
+84.5247389574
+84.5249926248
+84.5300424153
+84.5300805801
+84.5311042406
+84.5312488678
+84.5317312768
+84.5348348005
+84.5350173665
+84.5385396909
+84.5399097747
+84.5419140144
+84.5455551994
+84.5511079865
+84.5552471357
+84.5557833715
+84.557185278
+84.557680594
+84.5734158547
+84.573415857
+84.5734158604
+84.5734158606
+84.5734158606
+84.5734158615
+84.5734158631
+84.5734158639
+84.5734158652
+84.5734158665
+84.5734158689
+84.5734158689
+84.5734158702
+84.5734158716
+84.5734158731
+84.5734158736
+84.5734158738
+84.5734158764
+84.5734158782
+84.5734158787
+84.573415879
+84.5734158792
+84.5734158917
+84.5734158941
+84.5734158948
+84.5734158982
+84.5734159068
+84.5734159071
+84.5734159107
+84.5734159131
+84.5734159158
+84.5734159259
+84.573415938
+84.5734159459
+84.5734159505
+84.5734159597
+84.5734159613
+84.5734159707
+84.5734160232
+84.5734160341
+84.5734160371
+84.5734160499
+84.573416061
+84.5734160704
+84.5734160795
+84.5734162824
+84.5734165163
+84.5734165617
+84.5734165727
+84.5734176848
+84.5734181399
+84.5734282157
+84.5734310534
+84.5734335639
+84.5734344045
+84.5734353551
+84.57343828
+84.5734499764
+84.5734514673
+84.5736180899
+84.57361809
+84.5736180948
+84.573618097
+84.5736180995
+84.5736181022
+84.5736181051
+84.5736181065
+84.5736181098
+84.5736181119
+84.5736181152
+84.5736181154
+84.5736181175
+84.5736181225
+84.5736181259
+84.5736181346
+84.5736181519
+84.5736181545
+84.5736181624
+84.573618177
+84.5736181798
+84.5736181801
+84.5736182692
+84.5736184051
+84.5736184345
+84.5736187208
+84.5736199876
+84.5736205487
+84.5736769668
+84.5736878697
+84.5737292822
+84.5738269328
+84.5740028028
+84.574184028
+84.5743898938
+84.575640723
+84.5759932971
+84.5761193921
+84.5767794383
+84.5769394613
+84.577691214
+84.5782739917
+84.5787453426
+84.5839757511
+84.5859373545
+84.5918631852
+84.5966316175
+84.610218853
+84.620914654
+84.6548985898
+84.6705780815
+84.6754016648
+84.7183789677
+84.7555323235
+84.755532328
+84.7555323288
+84.7555323307
+84.7555323322
+84.7555323348
+84.7555323355
+84.7555323399
+84.7555323404
+84.7555323407
+84.7555323422
+84.7555323422
+84.7555323442
+84.7555323487
+84.7555323494
+84.7555323501
+84.7555323535
+84.7555323567
+84.7555323569
+84.7555323584
+84.7555323635
+84.7555323659
+84.7555323693
+84.7555323712
+84.755532375
+84.7555323774
+84.7555323881
+84.7555323893
+84.755532394
+84.7555323965
+84.7555323975
+84.7555323988
+84.7555323998
+84.7555324039
+84.7555324172
+84.7555324175
+84.7555324199
+84.7555324305
+84.7555324329
+84.7555324377
+84.755532462
+84.7555324691
+84.7555324878
+84.7555324916
+84.7555327373
+84.7555328616
+84.7555330528
+84.7555333526
+84.75553599
+84.7555514529
+84.7555578349
+84.7555608819
+84.7556439607
+84.7556480317
+84.7556488205
+84.7557552646
+84.7558862679
+84.7562630677
+84.7565300355
+84.7577930376
+84.7578426641
+84.7583428213
+84.7594662964
+84.7626760067
+84.7647906094
+84.9382759945
+84.9825436146
+85.0343599296
+85.1184927863
+85.1184927874
+85.1184927878
+85.1184927887
+85.1184927892
+85.1184927895
+85.1184927982
+85.1184928051
+85.1184928053
+85.118492809
+85.1184928397
+85.1184928441
+85.1184928489
+85.1184928533
+85.1184929262
+85.1184929501
+85.1184929659
+85.1185010006
+85.1185034542
+85.1185073855
+85.1185518328
+85.1239359942
+85.1882113864
+85.3028199877
+85.3103991874
+85.3103991988
+85.3103992041
+85.3103992094
+85.3103992104
+85.3103992143
+85.310399217
+85.3103992225
+85.3103992236
+85.3103992239
+85.3103992506
+85.310399252
+85.3103992579
+85.3103992899
+85.3103993103
+85.3103993459
+85.3103995087
+85.3107145549
+85.3112133308
+85.3129768896
+85.313568634
+85.3210215186
+85.3370370748
+85.3454424392
+85.3718507144
+85.4125560007
+85.4125560031
+85.4125560055
+85.4125560061
+85.4125560102
+85.4125560268
+85.4125560299
+85.4125560374
+85.4125560434
+85.4125560811
+85.4125560848
+85.4125560877
+85.4125560994
+85.4125561013
+85.4125562679
+85.4125563146
+85.4125563274
+85.4125563838
+85.412556398
+85.412556529
+85.4125566828
+85.412557027
+85.4125572708
+85.4125579069
+85.4125582522
+85.4125588077
+85.4125605907
+85.4125606734
+85.4125679138
+85.4125752799
+85.412607915
+85.4126155558
+85.4126218687
+85.4126410811
+85.4126896386
+85.4127320681
+85.4128118701
+85.4128609932
+85.4129145784
+85.4129597537
+85.4139349649
+85.4141285317
+85.4152491735
+85.4223502171
+85.4458346521
+85.5242492634
+85.545258788
+85.5992726671
+85.5992726753
+85.5992726762
+85.599272686
+85.5992726877
+85.5992726894
+85.5992727015
+85.5992727487
+85.599272933
+85.5992790746
+85.5992794535
+85.5993029172
+85.599333495
+85.5993737336
+85.5994467038
+85.5994484754
+85.5996324217
+85.599765754
+85.5998005833
+85.5999490309
+85.600051896
+85.6001578898
+85.6002605481
+85.6007861192
+85.6010136124
+85.6014851599
+85.6016323698
+85.6016342665
+85.6017720094
+85.6031586396
+85.6065556288
+85.6068889061
+85.6085286926
+85.6101288817
+85.6107612423
+85.6123198379
+85.6170135341
+85.6171345774
+85.6192705123
+85.6255073835
+85.6269909512
+85.627677756
+85.6326945729
+85.6326945762
+85.632694581
+85.6326945879
+85.6326945919
+85.6326945973
+85.6326945983
+85.6326945995
+85.6326946027
+85.6326946049
+85.6326946157
+85.6326946159
+85.6326946247
+85.632694627
+85.632694635
+85.6326946351
+85.6326946403
+85.6326946569
+85.6326946696
+85.6326946928
+85.6326947251
+85.6326947628
+85.6326947713
+85.6326948025
+85.6326949033
+85.632694936
+85.6326949908
+85.6326950468
+85.6326956936
+85.6326984991
+85.6326998915
+85.632710804
+85.6327132345
+85.6327255475
+85.6327269884
+85.6327293419
+85.6329664791
+85.633589851
+85.6336159367
+85.6388505714
+85.6446202175
+85.6472697392
+85.6579424212
+85.6586358949
+85.6817080101
+85.70151069
+85.7531937319
+85.8496451451
+85.8514583323
+85.9807591219
+86.0644200945
+86.0644200949
+86.0644200986
+86.0644201004
+86.0644201007
+86.0644201015
+86.0644201018
+86.0644201027
+86.0644201029
+86.0644201029
+86.0644201084
+86.0644201088
+86.0644201095
+86.0644201105
+86.0644201116
+86.0644201134
+86.0644201159
+86.0644201172
+86.0644201194
+86.06442012
+86.0644201232
+86.0644201289
+86.0644201293
+86.0644201374
+86.0644201401
+86.0644201431
+86.0644201479
+86.0644201505
+86.0644201519
+86.0644201629
+86.0644201662
+86.0644201762
+86.0644201793
+86.0644201867
+86.0644201888
+86.0644202345
+86.0644202439
+86.0644202605
+86.0644202714
+86.0644202769
+86.064420325
+86.0644205597
+86.0644206955
+86.0644216819
+86.0644223192
+86.0644227117
+86.0644262025
+86.064528822
+86.0646030252
+86.0646934942
+86.0647215913
+86.0649514113
+86.0652301543
+86.0652427904
+86.1191822151
+86.1473049305
+86.1677883492
+86.1715111726
+86.1951150168
+86.2900322399
+86.5118223261
+86.5614170629
+86.670075549
+86.6700755565
+86.6700755638
+86.6700755692
+86.6700755717
+86.6700755788
+86.6700755862
+86.6700756609
+86.6700756874
+86.6700757388
+86.6700757842
+86.6700757882
+86.670075798
+86.6700794111
+86.6759734848
+86.6776503203
+86.6805402084
+86.7062440444
+86.8358808949
+86.8896888058
+86.9343554122
+87.0490027277
+87.0938624916
+87.093862494
+87.0938624997
+87.0938625042
+87.0938625178
+87.0938625635
+87.0938628877
+87.0938632555
+87.0939395663
+87.0939466967
+87.095394595
+87.0971671187
+87.1225132806
+87.2099729065
+87.5583080893
+87.6230848782
+87.6230848802
+87.6230848813
+87.6230848865
+87.6230848875
+87.6230848895
+87.6230848923
+87.623084897
+87.6230849051
+87.6230849079
+87.6230849187
+87.6230849353
+87.6230849469
+87.6230850164
+87.623424386
+87.6670148354
+87.8354660857
+87.881075066
+88.1897913816
+88.1897913876
+88.1897913887
+88.1897913955
+88.1897913956
+88.189791397
+88.1897913995
+88.189791407
+88.189791415
+88.1897914154
+88.1897914366
+88.1897914495
+88.1897915305
+88.1897931014
+88.1897974262
+88.1898028375
+88.1898142675
+88.1899059293
+88.1901611101
+88.1995062505
+88.2084889524
+88.229228852
+88.4681565714
+88.8555022367
+88.855502253
+88.8555022609
+88.8555023449
+88.8555024393
+88.8555027617
+88.8555028737
+88.855509383
+88.8555422841
+88.8556984336
+88.9558529796
+89.0197432567
+89.2735764805
+89.3584545843
+89.4215536238
+89.504019365
+89.5040194512
+89.5040195058
+89.5040195273
+89.5040198621
+89.504028904
+89.5040522983
+89.5040945972
+89.5383811207
+89.5383811346
+89.5383811389
+89.5383811404
+89.5383811417
+89.5383811594
+89.538381165
+89.5383811712
+89.5383812234
+89.5383813529
+89.5383814125
+89.5383814875
+89.5383815181
+89.5383819338
+89.5383844696
+89.5383860796
+89.538398376
+89.5384027343
+89.5384914899
+89.5414816885
+89.565411093
+89.565411096
+89.5654111433
+89.5654116415
+89.5654122894
+89.5654230121
+89.5658294101
+89.5669159171
+89.5671246627
+89.5685543026
+89.5688912997
+89.5703036977
+89.5726603267
+89.5730286383
+89.5782971381
+89.5911697709
+89.594504529
+89.6029127818
+89.7078887112
+89.8145224631
+89.8517452041
+89.9128248254
+89.953629649
+90.0543686171
+90.4976170871
+90.4976171138
+90.4976172849
+90.4976245318
+90.4977749929
+90.5008246533
+90.5030410126
+90.5032002474
+90.5101469361
+90.5720116041
+90.657256913
+90.8639558628
+91.7692539021
+93.6083114074
+94.3889726848
+94.3889727119
+95.4950448724
+95.8064163474
+96.7736291589
+96.8369135065
+97.9299260601
+97.9299270382
+Clustering structures using an energy window of 0.3 and a rms tolerance of 0.3 and a Report Energy Window of 3.5 
+clustering cluster 0 of 1356
+clustering cluster 1 of 1356
+clustering cluster 2 of 1356
+clustering cluster 3 of 1356
+clustering cluster 4 of 1356
+clustering cluster 5 of 1356
+clustering cluster 6 of 1356
+clustering cluster 7 of 1356
+clustering cluster 8 of 1356
+clustering cluster 9 of 1356
+clustering cluster 10 of 1356
+clustering cluster 11 of 1356
+clustering cluster 12 of 1356
+clustering cluster 13 of 1356
+clustering cluster 14 of 1356
+clustering cluster 15 of 1356
+clustering cluster 16 of 1356
+clustering cluster 17 of 1356
+clustering cluster 18 of 1356
+clustering cluster 19 of 1356
+clustering cluster 20 of 1356
+clustering cluster 21 of 1356
+clustering cluster 22 of 1356
+clustering cluster 23 of 1356
+clustering cluster 24 of 1356
+clustering cluster 25 of 1356
+clustering cluster 26 of 1356
+clustering cluster 27 of 1356
+clustering cluster 28 of 1356
+clustering cluster 29 of 1356
+clustering cluster 30 of 1356
+clustering cluster 31 of 1356
+clustering cluster 32 of 1356
+clustering cluster 33 of 1356
+clustering cluster 34 of 1356
+clustering cluster 35 of 1356
+clustering cluster 36 of 1356
+clustering cluster 37 of 1356
+clustering cluster 38 of 1356
+clustering cluster 39 of 1356
+clustering cluster 40 of 1356
+clustering cluster 41 of 1356
+clustering cluster 42 of 1356
+clustering cluster 43 of 1356
+clustering cluster 44 of 1356
+clustering cluster 45 of 1356
+clustering cluster 46 of 1356
+clustering cluster 47 of 1356
+clustering cluster 48 of 1356
+clustering cluster 49 of 1356
+clustering cluster 50 of 1356
+clustering cluster 51 of 1356
+clustering cluster 52 of 1356
+clustering cluster 53 of 1356
+clustering cluster 54 of 1356
+clustering cluster 55 of 1356
+clustering cluster 56 of 1356
+clustering cluster 57 of 1356
+clustering cluster 58 of 1356
+clustering cluster 59 of 1356
+clustering cluster 60 of 1356
+clustering cluster 61 of 1356
+clustering cluster 62 of 1356
+clustering cluster 63 of 1356
+clustering cluster 64 of 1356
+clustering cluster 65 of 1356
+clustering cluster 66 of 1356
+clustering cluster 67 of 1356
+clustering cluster 68 of 1356
+clustering cluster 69 of 1356
+clustering cluster 70 of 1356
+clustering cluster 71 of 1356
+clustering cluster 72 of 1356
+clustering cluster 73 of 1356
+clustering cluster 74 of 1356
+clustering cluster 75 of 1356
+clustering cluster 76 of 1356
+clustering cluster 77 of 1356
+clustering cluster 78 of 1356
+clustering cluster 79 of 1356
+clustering cluster 80 of 1356
+clustering cluster 81 of 1356
+clustering cluster 82 of 1356
+clustering cluster 83 of 1356
+clustering cluster 84 of 1356
+clustering cluster 85 of 1356
+clustering cluster 86 of 1356
+clustering cluster 87 of 1356
+clustering cluster 88 of 1356
+clustering cluster 89 of 1356
+clustering cluster 90 of 1356
+clustering cluster 91 of 1356
+clustering cluster 92 of 1356
+clustering cluster 93 of 1356
+clustering cluster 94 of 1356
+clustering cluster 95 of 1356
+clustering cluster 96 of 1356
+clustering cluster 97 of 1356
+clustering cluster 98 of 1356
+clustering cluster 99 of 1356
+clustering cluster 100 of 1356
+clustering cluster 101 of 1356
+clustering cluster 102 of 1356
+clustering cluster 103 of 1356
+clustering cluster 104 of 1356
+clustering cluster 105 of 1356
+clustering cluster 106 of 1356
+clustering cluster 107 of 1356
+clustering cluster 108 of 1356
+clustering cluster 109 of 1356
+clustering cluster 110 of 1356
+clustering cluster 111 of 1356
+clustering cluster 112 of 1356
+clustering cluster 113 of 1356
+clustering cluster 114 of 1356
+clustering cluster 115 of 1356
+clustering cluster 116 of 1356
+clustering cluster 117 of 1356
+clustering cluster 118 of 1356
+clustering cluster 119 of 1356
+clustering cluster 120 of 1356
+clustering cluster 121 of 1356
+clustering cluster 122 of 1356
+clustering cluster 123 of 1356
+clustering cluster 124 of 1356
+clustering cluster 125 of 1356
+clustering cluster 126 of 1356
+clustering cluster 127 of 1356
+clustering cluster 128 of 1356
+clustering cluster 129 of 1356
+clustering cluster 130 of 1356
+clustering cluster 131 of 1356
+clustering cluster 132 of 1356
+clustering cluster 133 of 1356
+clustering cluster 134 of 1356
+clustering cluster 135 of 1356
+clustering cluster 136 of 1356
+clustering cluster 137 of 1356
+clustering cluster 138 of 1356
+clustering cluster 139 of 1356
+clustering cluster 140 of 1356
+clustering cluster 141 of 1356
+clustering cluster 142 of 1356
+clustering cluster 143 of 1356
+clustering cluster 144 of 1356
+clustering cluster 145 of 1356
+clustering cluster 146 of 1356
+clustering cluster 147 of 1356
+clustering cluster 148 of 1356
+clustering cluster 149 of 1356
+clustering cluster 150 of 1356
+clustering cluster 151 of 1356
+clustering cluster 152 of 1356
+clustering cluster 153 of 1356
+clustering cluster 154 of 1356
+clustering cluster 155 of 1356
+clustering cluster 156 of 1356
+clustering cluster 157 of 1356
+clustering cluster 158 of 1356
+clustering cluster 159 of 1356
+clustering cluster 160 of 1356
+clustering cluster 161 of 1356
+clustering cluster 162 of 1356
+clustering cluster 163 of 1356
+clustering cluster 164 of 1356
+clustering cluster 165 of 1356
+clustering cluster 166 of 1356
+clustering cluster 167 of 1356
+clustering cluster 168 of 1356
+clustering cluster 169 of 1356
+clustering cluster 170 of 1356
+clustering cluster 171 of 1356
+clustering cluster 172 of 1356
+clustering cluster 173 of 1356
+clustering cluster 174 of 1356
+clustering cluster 175 of 1356
+clustering cluster 176 of 1356
+clustering cluster 177 of 1356
+clustering cluster 178 of 1356
+clustering cluster 179 of 1356
+clustering cluster 180 of 1356
+clustering cluster 181 of 1356
+clustering cluster 182 of 1356
+clustering cluster 183 of 1356
+clustering cluster 184 of 1356
+clustering cluster 185 of 1356
+clustering cluster 186 of 1356
+clustering cluster 187 of 1356
+clustering cluster 188 of 1356
+clustering cluster 189 of 1356
+clustering cluster 190 of 1356
+clustering cluster 191 of 1356
+clustering cluster 192 of 1356
+clustering cluster 193 of 1356
+clustering cluster 194 of 1356
+clustering cluster 195 of 1356
+clustering cluster 196 of 1356
+clustering cluster 197 of 1356
+clustering cluster 198 of 1356
+clustering cluster 199 of 1356
+clustering cluster 200 of 1356
+clustering cluster 201 of 1356
+clustering cluster 202 of 1356
+clustering cluster 203 of 1356
+clustering cluster 204 of 1356
+clustering cluster 205 of 1356
+clustering cluster 206 of 1356
+clustering cluster 207 of 1356
+clustering cluster 208 of 1356
+clustering cluster 209 of 1356
+clustering cluster 210 of 1356
+clustering cluster 211 of 1356
+clustering cluster 212 of 1356
+clustering cluster 213 of 1356
+clustering cluster 214 of 1356
+clustering cluster 215 of 1356
+clustering cluster 216 of 1356
+clustering cluster 217 of 1356
+clustering cluster 218 of 1356
+clustering cluster 219 of 1356
+clustering cluster 220 of 1356
+clustering cluster 221 of 1356
+clustering cluster 222 of 1356
+clustering cluster 223 of 1356
+clustering cluster 224 of 1356
+clustering cluster 225 of 1356
+clustering cluster 226 of 1356
+clustering cluster 227 of 1356
+clustering cluster 228 of 1356
+clustering cluster 229 of 1356
+clustering cluster 230 of 1356
+clustering cluster 231 of 1356
+clustering cluster 232 of 1356
+clustering cluster 233 of 1356
+clustering cluster 234 of 1356
+clustering cluster 235 of 1356
+clustering cluster 236 of 1356
+clustering cluster 237 of 1356
+clustering cluster 238 of 1356
+clustering cluster 239 of 1356
+clustering cluster 240 of 1356
+clustering cluster 241 of 1356
+clustering cluster 242 of 1356
+clustering cluster 243 of 1356
+clustering cluster 244 of 1356
+clustering cluster 245 of 1356
+clustering cluster 246 of 1356
+clustering cluster 247 of 1356
+clustering cluster 248 of 1356
+clustering cluster 249 of 1356
+clustering cluster 250 of 1356
+clustering cluster 251 of 1356
+clustering cluster 252 of 1356
+clustering cluster 253 of 1356
+clustering cluster 254 of 1356
+clustering cluster 255 of 1356
+clustering cluster 256 of 1356
+clustering cluster 257 of 1356
+clustering cluster 258 of 1356
+clustering cluster 259 of 1356
+clustering cluster 260 of 1356
+clustering cluster 261 of 1356
+clustering cluster 262 of 1356
+clustering cluster 263 of 1356
+clustering cluster 264 of 1356
+clustering cluster 265 of 1356
+clustering cluster 266 of 1356
+clustering cluster 267 of 1356
+clustering cluster 268 of 1356
+clustering cluster 269 of 1356
+clustering cluster 270 of 1356
+clustering cluster 271 of 1356
+clustering cluster 272 of 1356
+clustering cluster 273 of 1356
+clustering cluster 274 of 1356
+clustering cluster 275 of 1356
+clustering cluster 276 of 1356
+clustering cluster 277 of 1356
+clustering cluster 278 of 1356
+clustering cluster 279 of 1356
+clustering cluster 280 of 1356
+clustering cluster 281 of 1356
+clustering cluster 282 of 1356
+clustering cluster 283 of 1356
+clustering cluster 284 of 1356
+clustering cluster 285 of 1356
+clustering cluster 286 of 1356
+clustering cluster 287 of 1356
+clustering cluster 288 of 1356
+clustering cluster 289 of 1356
+clustering cluster 290 of 1356
+clustering cluster 291 of 1356
+clustering cluster 292 of 1356
+clustering cluster 293 of 1356
+clustering cluster 294 of 1356
+clustering cluster 295 of 1356
+clustering cluster 296 of 1356
+clustering cluster 297 of 1356
+clustering cluster 298 of 1356
+clustering cluster 299 of 1356
+clustering cluster 300 of 1356
+clustering cluster 301 of 1356
+clustering cluster 302 of 1356
+clustering cluster 303 of 1356
+clustering cluster 304 of 1356
+clustering cluster 305 of 1356
+clustering cluster 306 of 1356
+clustering cluster 307 of 1356
+clustering cluster 308 of 1356
+clustering cluster 309 of 1356
+clustering cluster 310 of 1356
+clustering cluster 311 of 1356
+clustering cluster 312 of 1356
+clustering cluster 313 of 1356
+clustering cluster 314 of 1356
+clustering cluster 315 of 1356
+clustering cluster 316 of 1356
+clustering cluster 317 of 1356
+clustering cluster 318 of 1356
+clustering cluster 319 of 1356
+clustering cluster 320 of 1356
+clustering cluster 321 of 1356
+clustering cluster 322 of 1356
+clustering cluster 323 of 1356
+clustering cluster 324 of 1356
+clustering cluster 325 of 1356
+clustering cluster 326 of 1356
+clustering cluster 327 of 1356
+clustering cluster 328 of 1356
+clustering cluster 329 of 1356
+clustering cluster 330 of 1356
+clustering cluster 331 of 1356
+clustering cluster 332 of 1356
+clustering cluster 333 of 1356
+clustering cluster 334 of 1356
+clustering cluster 335 of 1356
+clustering cluster 336 of 1356
+clustering cluster 337 of 1356
+clustering cluster 338 of 1356
+clustering cluster 339 of 1356
+clustering cluster 340 of 1356
+clustering cluster 341 of 1356
+clustering cluster 342 of 1356
+clustering cluster 343 of 1356
+clustering cluster 344 of 1356
+clustering cluster 345 of 1356
+clustering cluster 346 of 1356
+clustering cluster 347 of 1356
+clustering cluster 348 of 1356
+clustering cluster 349 of 1356
+clustering cluster 350 of 1356
+clustering cluster 351 of 1356
+clustering cluster 352 of 1356
+clustering cluster 353 of 1356
+clustering cluster 354 of 1356
+clustering cluster 355 of 1356
+clustering cluster 356 of 1356
+clustering cluster 357 of 1356
+clustering cluster 358 of 1356
+clustering cluster 359 of 1356
+clustering cluster 360 of 1356
+clustering cluster 361 of 1356
+clustering cluster 362 of 1356
+clustering cluster 363 of 1356
+clustering cluster 364 of 1356
+clustering cluster 365 of 1356
+clustering cluster 366 of 1356
+clustering cluster 367 of 1356
+clustering cluster 368 of 1356
+clustering cluster 369 of 1356
+clustering cluster 370 of 1356
+clustering cluster 371 of 1356
+clustering cluster 372 of 1356
+clustering cluster 373 of 1356
+clustering cluster 374 of 1356
+clustering cluster 375 of 1356
+clustering cluster 376 of 1356
+clustering cluster 377 of 1356
+clustering cluster 378 of 1356
+clustering cluster 379 of 1356
+clustering cluster 380 of 1356
+clustering cluster 381 of 1356
+clustering cluster 382 of 1356
+clustering cluster 383 of 1356
+clustering cluster 384 of 1356
+clustering cluster 385 of 1356
+clustering cluster 386 of 1356
+clustering cluster 387 of 1356
+clustering cluster 388 of 1356
+clustering cluster 389 of 1356
+clustering cluster 390 of 1356
+clustering cluster 391 of 1356
+clustering cluster 392 of 1356
+clustering cluster 393 of 1356
+clustering cluster 394 of 1356
+clustering cluster 395 of 1356
+clustering cluster 396 of 1356
+clustering cluster 397 of 1356
+clustering cluster 398 of 1356
+clustering cluster 399 of 1356
+clustering cluster 400 of 1356
+clustering cluster 401 of 1356
+clustering cluster 402 of 1356
+clustering cluster 403 of 1356
+clustering cluster 404 of 1356
+clustering cluster 405 of 1356
+clustering cluster 406 of 1356
+clustering cluster 407 of 1356
+clustering cluster 408 of 1356
+clustering cluster 409 of 1356
+clustering cluster 410 of 1356
+clustering cluster 411 of 1356
+clustering cluster 412 of 1356
+clustering cluster 413 of 1356
+clustering cluster 414 of 1356
+clustering cluster 415 of 1356
+clustering cluster 416 of 1356
+clustering cluster 417 of 1356
+clustering cluster 418 of 1356
+clustering cluster 419 of 1356
+clustering cluster 420 of 1356
+clustering cluster 421 of 1356
+clustering cluster 422 of 1356
+clustering cluster 423 of 1356
+clustering cluster 424 of 1356
+clustering cluster 425 of 1356
+clustering cluster 426 of 1356
+clustering cluster 427 of 1356
+clustering cluster 428 of 1356
+clustering cluster 429 of 1356
+clustering cluster 430 of 1356
+clustering cluster 431 of 1356
+clustering cluster 432 of 1356
+clustering cluster 433 of 1356
+clustering cluster 434 of 1356
+clustering cluster 435 of 1356
+clustering cluster 436 of 1356
+clustering cluster 437 of 1356
+clustering cluster 438 of 1356
+clustering cluster 439 of 1356
+clustering cluster 440 of 1356
+clustering cluster 441 of 1356
+clustering cluster 442 of 1356
+clustering cluster 443 of 1356
+clustering cluster 444 of 1356
+clustering cluster 445 of 1356
+clustering cluster 446 of 1356
+clustering cluster 447 of 1356
+clustering cluster 448 of 1356
+clustering cluster 449 of 1356
+clustering cluster 450 of 1356
+clustering cluster 451 of 1356
+clustering cluster 452 of 1356
+clustering cluster 453 of 1356
+clustering cluster 454 of 1356
+clustering cluster 455 of 1356
+clustering cluster 456 of 1356
+clustering cluster 457 of 1356
+clustering cluster 458 of 1356
+clustering cluster 459 of 1356
+clustering cluster 460 of 1356
+clustering cluster 461 of 1356
+clustering cluster 462 of 1356
+clustering cluster 463 of 1356
+clustering cluster 464 of 1356
+clustering cluster 465 of 1356
+clustering cluster 466 of 1356
+clustering cluster 467 of 1356
+clustering cluster 468 of 1356
+clustering cluster 469 of 1356
+clustering cluster 470 of 1356
+clustering cluster 471 of 1356
+clustering cluster 472 of 1356
+clustering cluster 473 of 1356
+clustering cluster 474 of 1356
+clustering cluster 475 of 1356
+clustering cluster 476 of 1356
+clustering cluster 477 of 1356
+clustering cluster 478 of 1356
+clustering cluster 479 of 1356
+clustering cluster 480 of 1356
+clustering cluster 481 of 1356
+clustering cluster 482 of 1356
+clustering cluster 483 of 1356
+clustering cluster 484 of 1356
+clustering cluster 485 of 1356
+clustering cluster 486 of 1356
+clustering cluster 487 of 1356
+clustering cluster 488 of 1356
+clustering cluster 489 of 1356
+clustering cluster 490 of 1356
+clustering cluster 491 of 1356
+clustering cluster 492 of 1356
+clustering cluster 493 of 1356
+clustering cluster 494 of 1356
+clustering cluster 495 of 1356
+clustering cluster 496 of 1356
+clustering cluster 497 of 1356
+clustering cluster 498 of 1356
+clustering cluster 499 of 1356
+clustering cluster 500 of 1356
+clustering cluster 501 of 1356
+clustering cluster 502 of 1356
+clustering cluster 503 of 1356
+clustering cluster 504 of 1356
+clustering cluster 505 of 1356
+clustering cluster 506 of 1356
+clustering cluster 507 of 1356
+clustering cluster 508 of 1356
+clustering cluster 509 of 1356
+clustering cluster 510 of 1356
+clustering cluster 511 of 1356
+clustering cluster 512 of 1356
+clustering cluster 513 of 1356
+clustering cluster 514 of 1356
+clustering cluster 515 of 1356
+clustering cluster 516 of 1356
+clustering cluster 517 of 1356
+clustering cluster 518 of 1356
+clustering cluster 519 of 1356
+clustering cluster 520 of 1356
+clustering cluster 521 of 1356
+clustering cluster 522 of 1356
+clustering cluster 523 of 1356
+clustering cluster 524 of 1356
+clustering cluster 525 of 1356
+clustering cluster 526 of 1356
+clustering cluster 527 of 1356
+clustering cluster 528 of 1356
+clustering cluster 529 of 1356
+clustering cluster 530 of 1356
+clustering cluster 531 of 1356
+clustering cluster 532 of 1356
+clustering cluster 533 of 1356
+clustering cluster 534 of 1356
+clustering cluster 535 of 1356
+clustering cluster 536 of 1356
+clustering cluster 537 of 1356
+clustering cluster 538 of 1356
+clustering cluster 539 of 1356
+clustering cluster 540 of 1356
+clustering cluster 541 of 1356
+clustering cluster 542 of 1356
+clustering cluster 543 of 1356
+clustering cluster 544 of 1356
+clustering cluster 545 of 1356
+clustering cluster 546 of 1356
+clustering cluster 547 of 1356
+clustering cluster 548 of 1356
+clustering cluster 549 of 1356
+clustering cluster 550 of 1356
+clustering cluster 551 of 1356
+clustering cluster 552 of 1356
+clustering cluster 553 of 1356
+clustering cluster 554 of 1356
+clustering cluster 555 of 1356
+clustering cluster 556 of 1356
+clustering cluster 557 of 1356
+clustering cluster 558 of 1356
+clustering cluster 559 of 1356
+clustering cluster 560 of 1356
+clustering cluster 561 of 1356
+clustering cluster 562 of 1356
+clustering cluster 563 of 1356
+clustering cluster 564 of 1356
+clustering cluster 565 of 1356
+clustering cluster 566 of 1356
+clustering cluster 567 of 1356
+clustering cluster 568 of 1356
+clustering cluster 569 of 1356
+clustering cluster 570 of 1356
+clustering cluster 571 of 1356
+clustering cluster 572 of 1356
+clustering cluster 573 of 1356
+clustering cluster 574 of 1356
+clustering cluster 575 of 1356
+clustering cluster 576 of 1356
+clustering cluster 577 of 1356
+clustering cluster 578 of 1356
+Breaking because hit MaxNConfs 
+166824 ignore passes made
+1065 overlays needed out of a possible 1838736
+Cluster 0 has energy 79.8619422301
+Cluster 1 has energy 79.861942235
+Cluster 2 has energy 80.416342862
+Cluster 3 has energy 80.4174060134
+Cluster 4 has energy 80.4805610414
+Cluster 5 has energy 80.4826171936
+Cluster 6 has energy 80.8037783459
+Cluster 7 has energy 80.8782653795
+Cluster 8 has energy 81.0929816196
+Cluster 9 has energy 81.2616847477
+Cluster 10 has energy 81.2672167722
+Cluster 11 has energy 81.2689891351
+Cluster 12 has energy 81.4421415902
+Cluster 13 has energy 81.4438724161
+obfit failed, falling back to obabel --alignComparing 1 2 RMSD 1.90886
+obfit failed, falling back to obabel --alignComparing 1 2 RMSD after checking inversion 6.89596e-05
+Removed Conf_2
+obfit failed, falling back to obabel --alignComparing 3 4 RMSD 1.94448
+obfit failed, falling back to obabel --alignComparing 3 4 RMSD after checking inversion 0.00758111
+Removed Conf_4
+obfit failed, falling back to obabel --alignComparing 3 5 RMSD 1.98888
+obfit failed, falling back to obabel --alignComparing 3 5 RMSD after checking inversion 0.513999
+obfit failed, falling back to obabel --alignComparing 3 6 RMSD 0.523003
+obfit failed, falling back to obabel --alignComparing 3 6 RMSD after checking inversion 0.523003
+obfit failed, falling back to obabel --alignComparing 5 6 RMSD 1.89519
+obfit failed, falling back to obabel --alignComparing 5 6 RMSD after checking inversion 0.0129395
+Removed Conf_6
+obfit failed, falling back to obabel --alignComparing 7 8 RMSD 1.93795
+obfit failed, falling back to obabel --alignComparing 7 8 RMSD after checking inversion 0.0953234
+Removed Conf_8
+obfit failed, falling back to obabel --alignComparing 7 9 RMSD 0.354213
+obfit failed, falling back to obabel --alignComparing 7 9 RMSD after checking inversion 0.354213
+obfit failed, falling back to obabel --alignComparing 9 10 RMSD 0.332667
+obfit failed, falling back to obabel --alignComparing 9 10 RMSD after checking inversion 0.332667
+obfit failed, falling back to obabel --alignComparing 9 11 RMSD 1.41095
+obfit failed, falling back to obabel --alignComparing 9 11 RMSD after checking inversion 1.41095
+obfit failed, falling back to obabel --alignComparing 9 12 RMSD 1.42605
+obfit failed, falling back to obabel --alignComparing 9 12 RMSD after checking inversion 1.41043
+removedXVPOLIBWPCUXLY-UHFFFAOYNA-N_Conf_10.xyz
+removedXVPOLIBWPCUXLY-UHFFFAOYNA-N_Conf_11.xyz
+removedXVPOLIBWPCUXLY-UHFFFAOYNA-N_Conf_12.xyz
+removedXVPOLIBWPCUXLY-UHFFFAOYNA-N_Conf_13.xyz
+removedXVPOLIBWPCUXLY-UHFFFAOYNA-N_Conf_14.xyz
+holy2a21206.rc.fas.harvard.edu
+gen time  62.979069  sec
+min time  153.132936  sec
+cluster time  0.223735  sec
+recluster time  7.272894  sec
+total time  223.610645  sec
+Terminated successfully

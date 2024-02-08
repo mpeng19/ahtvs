@@ -1,0 +1,12 @@
+%mem=3800mb
+%nprocshared=1
+#T b3lyp/Def2SVPP opt=(MaxCycles=300) int(grid=ultrafine) IOP(3/36=4) scf=(xqc,tight) 
+
+Comment gs min 
+
+{{jobspec.charge}} 1
+{% for a in jobspec.coords -%}
+    {{a.element}} {{'%0.5f'|format(a.x|float)}} {{'%0.5f'|format(a.y|float)}} {{'%0.5f'|format(a.z|float)}}
+{% endfor -%}
+
+
